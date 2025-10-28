@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shivani Karn - Empowering Females to Empower</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .max-w-900 {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Make all text inside cta-section white */
+    .cta-section {
+      color: white;
+    }
+
+    :root {
+      --pink-50: #fdf2f8;
+      --pink-100: #fce7f3;
+      --pink-500: #ec4899;
+      --pink-600: #db2777;
+      --purple-50: #faf5ff;
+      --purple-100: #f3e8ff;
+      --purple-500: #a855f7;
+      --purple-600: #9333ea;
+      --indigo-50: #eef2ff;
+      --gray-50: #f9fafb;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      color: var(--gray-800);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes bounce {
+
+      0%,
+      20%,
+      53%,
+      80%,
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      40%,
+      43% {
+        transform: translate3d(0, -10px, 0);
+      }
+
+      70% {
+        transform: translate3d(0, -5px, 0);
+      }
+
+      90% {
+        transform: translate3d(0, -2px, 0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out;
+    }
+
+    .animate-slide-up {
+      animation: slideUp 0.8s ease-out;
+    }
+
+    .animate-slide-left {
+      animation: slideLeft 0.8s ease-out;
+    }
+
+    .animate-slide-right {
+      animation: slideRight 0.8s ease-out;
+    }
+
+    .animate-bounce {
+      animation: bounce 2s infinite;
+    }
+
+    /* Gradient backgrounds */
+    .bg-gradient-pink-purple {
+      background: linear-gradient(135deg, var(--pink-50), var(--purple-50), var(--indigo-50));
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--pink-600), var(--purple-600));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      padding: 5rem 0;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(236, 72, 153, 0.1), rgba(168, 85, 247, 0.1));
+    }
+
+    .badge-custom {
+      background: linear-gradient(135deg, var(--pink-500), var(--purple-500));
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    /* Form Card */
+    .form-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: none;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+    }
+
+    .form-control,
+    .form-select {
+      height: 50px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--pink-500);
+      box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+    }
+
+    .btn-gradient {
+      background: linear-gradient(135deg, var(--pink-500), var(--purple-500));
+      border: none;
+      color: white;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .btn-gradient:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, var(--pink-600), var(--purple-600));
+    }
+
+    /* About Section */
+    .about-img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .stat-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    /* Benefits Cards */
+    .benefit-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: none;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+      height: 100%;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .icon-circle {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--pink-500), var(--purple-500));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      color: white;
+    }
+
+    /* Step Cards */
+    .step-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--pink-500), var(--purple-500));
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    /* Video Section */
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .video-container:hover .video-overlay {
+      opacity: 1;
+    }
+
+    .play-button {
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .play-button:hover {
+      transform: scale(1.1);
+      background: white;
+    }
+
+    .video-controls {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .video-btn {
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .video-btn:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .video-thumbnail-card {
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .video-thumbnail-card:hover {
+      border-color: var(--pink-500);
+    }
+
+    .video-thumbnail-card.active {
+      border-color: var(--pink-500);
+      background: linear-gradient(135deg, var(--pink-50), var(--purple-50));
+    }
+
+    /* FAQ Section */
+    .accordion-button {
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    .accordion-button:not(.collapsed) {
+      color: var(--pink-600);
+      background-color: var(--pink-50);
+    }
+
+    .accordion-button:focus {
+      box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-info-card {
+      background: linear-gradient(135deg, var(--pink-500), var(--purple-500));
+      color: white;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--gray-900);
+      color: white;
+      padding: 3rem 0;
+    }
+
+    .footer a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer a:hover {
+      color: white;
+    }
+
+    .footer-btn {
+      background: linear-gradient(135deg, var(--pink-500), var(--purple-500));
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .footer-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--pink-600), var(--purple-600));
+      color: white;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, var(--pink-500), var(--purple-500));
+      border-radius: 4px;
+    }
+
+    /* Lucide icon sizes */
+    .lucide-sm {
+      width: 16px;
+      height: 16px;
+    }
+
+    .lucide-md {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 3rem 0;
+      }
+
+      h1 {
+        font-size: 2rem !important;
+      }
+
+      h2 {
+        font-size: 1.75rem !important;
+      }
+
+      .display-3 {
+        font-size: 2rem;
+      }
+
+      .display-5 {
+        font-size: 1.75rem;
+      }
+    }
+
+    .footer {
+      color: #9ca3af;
+    }
+
+    .footer h3,
+    .footer h4,
+    .footer .fw-bold,
+    .footer .fw-semibold {
+      color: white;
+    }
+
+    .footer a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: white;
+    }
+
+    .footer .text-muted {
+      color: #9ca3af !important;
+    }
+
+    .footer-btn {
+      background: white;
+      color: var(--pink-600);
+      border: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .footer-btn:hover {
+      background: var(--pink-600);
+      color: white;
+    }
+
+    /* Gradient backgrounds */
+    .gradient-pink-purple {
+      background: linear-gradient(to right, #ec4899, #8b5cf6);
+    }
+
+    .gradient-box-1 {
+      background: linear-gradient(to right, #fdf2f8, #f3e8ff);
+    }
+
+    .gradient-box-2 {
+      background: linear-gradient(to right, #f3e8ff, #fdf2f8);
+    }
+
+    .text-gradient {
+      background: linear-gradient(to right, #ec4899, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Hide form initially */
+    .hidden-form {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-pink-purple">
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+      <div class="text-center mb-5 animate-fade-in">
+        <div class="badge-custom animate-bounce">🚺 Girls Only!</div>
+        <h1 class="display-3 fw-bold gradient-text mb-4">
+          Join Over 1,00,00+ Working Professional, Housewives, Students & Self Employed with us
+        </h1>
+        <p class="lead text-muted mb-5">
+          From Homemaker to Online Money Maker Coach - Empowering Females to Empower
+        </p>
+      </div>
+
+      <!-- Form Card (hidden by default) -->
+      <div class="row justify-content-center animate-slide-up">
+        <div class="col-lg-8">
+          <div id="formWrapper" class="card form-card hidden-form" aria-hidden="true">
+            <div class="card-body p-4 p-md-5">
+              <div class="text-center mb-4">
+                <h2 class="h3 fw-bold mb-2">🔥 Start Your Journey Today</h2>
+                <p class="text-muted">Fill this form to unlock your potential</p>
+              </div>
+
+              <form id="mainForm">
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <label class="form-label d-flex align-items-center gap-2">
+                      <i data-lucide="user" class="lucide-sm"></i> Full Name
+                    </label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter your full name"
+                      required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label d-flex align-items-center gap-2">
+                      <i data-lucide="mail" class="lucide-sm"></i> Email
+                    </label>
+                    <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label d-flex align-items-center gap-2">
+                      <i data-lucide="phone" class="lucide-sm"></i> Phone
+                    </label>
+                    <input type="tel" class="form-control" name="phone" placeholder="Enter your phone number"
+                      required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label d-flex align-items-center gap-2">
+                      <i data-lucide="calendar" class="lucide-sm"></i> Age
+                    </label>
+                    <input type="number" class="form-control" name="age" placeholder="Enter your age" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label d-flex align-items-center gap-2">
+                      <i data-lucide="users" class="lucide-sm"></i> Gender
+                    </label>
+                    <select class="form-select" name="gender" required>
+                      <option value="">Select Gender</option>
+                      <option value="female">Female</option>
+                      <option value="male">Male</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-gradient w-100">
+                      🚀 Start My Journey Now
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              <div class="text-center mt-3">
+                <button id="closeFormBtn" class="btn btn-link small text-muted">Close Form</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Form -->
+    </div>
+  </section>
+
+  <!-- Video Section desktop Only -->
+  <section class="py-5 d-none d-lg-block" style="background: linear-gradient(135deg, var(--purple-50), var(--pink-50));">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold mb-3 text-gradient">🎥 Watch Success Stories</h2>
+        <p class="lead text-muted">Real stories from real students who transformed their lives</p>
+      </div>
+
+      <div class="row g-5 align-items-center">
+        <!-- Left Video Player -->
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-lg">
+            <div class="video-container " id="videoContainer">
+              <video id="mainVideo" poster="https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Success+Stories"
+                controls></video>
+              <button class="btn-video-control" id="muteBtn" title="Toggle mute">
+                <i data-lucide="volume-2"></i>
+              </button>
+            </div>
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold mb-2" id="videoTitle">Success Stories - Student Testimonials</h3>
+              <p class="text-muted mb-0" id="videoDescription">Watch how our students transformed their lives</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Thumbnails -->
+        <div class="col-lg-6">
+          <h3 class="h4 fw-bold mb-4">Choose Your Inspiration</h3>
+
+          <div class="card video-thumbnail-card p-3 mb-3 active" data-video-index="0">
+            <div class="d-flex align-items-center gap-3">
+              <div class="position-relative bg-dark bg-opacity-25" style="width: 80px; height: 50px; flex-shrink: 0;">
+                <img src="https://via.placeholder.com/80x50/8b5cf6/ffffff?text=Video" class="w-100 h-100 rounded" />
+                <div class="position-absolute top-50 start-50 translate-middle">
+                  <i data-lucide="play" style="width: 16px; height: 16px; color: white;"></i>
+                </div>
+              </div>
+              <div>
+                <h4 class="h6 fw-semibold mb-1">Success Stories - Student Testimonials</h4>
+                <p class="small text-muted mb-0">Watch how our students transformed their lives</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card video-thumbnail-card p-3 mb-3" data-video-index="1">
+            <div class="d-flex align-items-center gap-3">
+              <div class="position-relative bg-dark bg-opacity-25" style="width: 80px; height: 50px; flex-shrink: 0;">
+                <img src="https://via.placeholder.com/80x50/ec4899/ffffff?text=Video" class="w-100 h-100 rounded" />
+                <div class="position-absolute top-50 start-50 translate-middle">
+                  <i data-lucide="play" style="width: 16px; height: 16px; color: white;"></i>
+                </div>
+              </div>
+              <div>
+                <h4 class="h6 fw-semibold mb-1">Behind the Scenes - Shivani's Journey</h4>
+                <p class="small text-muted mb-0">Learn about my journey from homemaker to coach</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-3" style="background: linear-gradient(135deg, var(--pink-100), var(--purple-100));">
+            <h4 class="h6 fw-bold mb-3">🌟 Why Watch These Videos?</h4>
+            <ul class="list-unstyled mb-0">
+              <li class="d-flex align-items-center gap-2 mb-2">
+                <span style="width: 8px; height: 8px; background: var(--pink-500); border-radius: 50%; display: inline-block;"></span>
+                Real student success stories
+              </li>
+              <li class="d-flex align-items-center gap-2 mb-2">
+                <span style="width: 8px; height: 8px; background: var(--purple-500); border-radius: 50%; display: inline-block;"></span>
+                Behind-the-scenes journey
+              </li>
+              <li class="d-flex align-items-center gap-2 mb-2">
+                <span style="width: 8px; height: 8px; background: var(--pink-500); border-radius: 50%; display: inline-block;"></span>
+                Proof of genuine results
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span style="width: 8px; height: 8px; background: var(--purple-500); border-radius: 50%; display: inline-block;"></span>
+                Motivation and inspiration
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-5 bg-white bg-opacity-50">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6 animate-slide-left">
+          <img src="https://picsum.photos/200/200?random=1" alt="Shivani Karn" class="about-img">
+        </div>
+        <div class="col-lg-6 animate-slide-right">
+          <div class="badge-custom mb-3">💫 Your Coach</div>
+          <h2 class="display-5 fw-bold mb-3">Hi, Shivani Karn this side!</h2>
+
+          <div class="mb-4">
+            <p class="fs-5 d-flex align-items-center gap-3 mb-1">
+              <span class="fs-2">🏡</span> Ek homemaker
+            </p>
+            <p class="fs-5 d-flex align-items-center gap-3 mb-1">
+              <span class="fs-2">💻</span> Freelancer
+            </p>
+            <p class="fs-5 d-flex align-items-center gap-3">
+              <span class="fs-2">🎯</span> Aur Online Money Maker Coach hoon
+            </p>
+          </div>
+
+          <div class="p-4 rounded-3 mb-4" style="background: linear-gradient(135deg, var(--pink-100), var(--purple-100));">
+            <h3 class="h5 fw-bold mb-3">🎯 Mera Vision Simple Hai:</h3>
+            <p class="fs-5 fw-semibold mb-0" style="color: var(--pink-600);">
+              "Empowering Females" - Har us ladki ke liye jo sirf sapne sochti nahi, unhe jeena chahti hai.
+            </p>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-4">
+              <div class="stat-card">
+                <div class="fs-3 fw-bold" style="color: var(--pink-600);">5+</div>
+                <div class="small text-muted">Years Experience</div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="stat-card">
+                <div class="fs-3 fw-bold" style="color: var(--purple-600);">300+</div>
+                <div class="small text-muted">Students Helped</div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="stat-card">
+                <div class="fs-3 fw-bold" style="color: var(--pink-600);">₹1L</div>
+                <div class="small text-muted">Monthly Earning</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section Mobile Only -->
+  <section class="py-5 d-lg-none" style="background: linear-gradient(135deg, var(--purple-50), var(--pink-50));">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold mb-3 text-gradient">🎥 Watch Success Stories</h2>
+        <p class="lead text-muted">Real stories from real students who transformed their lives</p>
+      </div>
+
+      <div class="row g-5 align-items-center">
+        <!-- Left Video Player -->
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-lg">
+            <div class="video-container " id="videoContainer">
+              <video id="mainVideoMobile" poster="https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Success+Stories"
+                controls></video>
+              <button class="btn-video-control" id="muteBtnMobile">
+                <i data-lucide="volume-2"></i>
+              </button>
+            </div>
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold mb-2" id="videoTitleMobile">Success Stories - Student Testimonials</h3>
+              <p class="text-muted mb-0" id="videoDescriptionMobile">Watch how our students transformed their lives</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Thumbnails -->
+        <div class="col-lg-6">
+          <h3 class="h4 fw-bold mb-4">Choose Your Inspiration</h3>
+
+          <div class="card video-thumbnail-card p-3 mb-3 active" data-video-index="0">
+            <div class="d-flex align-items-center gap-3">
+              <div class="position-relative bg-dark bg-opacity-25" style="width: 80px; height: 50px; flex-shrink: 0;">
+                <img src="https://via.placeholder.com/80x50/8b5cf6/ffffff?text=Video" class="w-100 h-100 rounded" />
+                <div class="position-absolute top-50 start-50 translate-middle">
+                  <i data-lucide="play" style="width: 16px; height: 16px; color: white;"></i>
+                </div>
+              </div>
+              <div>
+                <h4 class="h6 fw-semibold mb-1">Success Stories - Student Testimonials</h4>
+                <p class="small text-muted mb-0">Watch how our students transformed their lives</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card video-thumbnail-card p-3 mb-3" data-video-index="1">
+            <div class="d-flex align-items-center gap-3">
+              <div class="position-relative bg-dark bg-opacity-25" style="width: 80px; height: 50px; flex-shrink: 0;">
+                <img src="https://via.placeholder.com/80x50/ec4899/ffffff?text=Video" class="w-100 h-100 rounded" />
+                <div class="position-absolute top-50 start-50 translate-middle">
+                  <i data-lucide="play" style="width: 16px; height: 16px; color: white;"></i>
+                </div>
+              </div>
+              <div>
+                <h4 class="h6 fw-semibold mb-1">Behind the Scenes - Shivani's Journey</h4>
+                <p class="small text-muted mb-0">Learn about my journey from homemaker to coach</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-3" style="background: linear-gradient(135deg, var(--pink-100), var(--purple-100));">
+            <h4 class="h6 fw-bold mb-3">🌟 Why Watch These Videos?</h4>
+            <ul class="list-unstyled mb-0">
+              <li class="d-flex align-items-center gap-2 mb-2">
+                <span style="width: 8px; height: 8px; background: var(--pink-500); border-radius: 50%; display: inline-block;"></span>
+                Real student success stories
+              </li>
+              <li class="d-flex align-items-center gap-2 mb-2">
+                <span style="width: 8px; height: 8px; background: var(--purple-500); border-radius: 50%; display: inline-block;"></span>
+                Behind-the-scenes journey
+              </li>
+              <li class="d-flex align-items-center gap-2 mb-2">
+                <span style="width: 8px; height: 8px; background: var(--pink-500); border-radius: 50%; display: inline-block;"></span>
+                Proof of genuine results
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span style="width: 8px; height: 8px; background: var(--purple-500); border-radius: 50%; display: inline-block;"></span>
+                Motivation and inspiration
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold mb-3">🌱 Aap Yahan Seekhenge</h2>
+        <p class="lead text-muted">Real, skill-based aur sustainable online income opportunity</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card rounded-0 benefit-card">
+            <div class="icon-circle">
+              <i data-lucide="sparkles" class="lucide-md"></i>
+            </div>
+            <h3 class="h5 fw-bold mb-3">In-demand Digital Skills</h3>
+            <p class="text-muted mb-0">Latest market skills jo demand mein hain</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card rounded-0 benefit-card">
+            <div class="icon-circle">
+              <i data-lucide="phone" class="lucide-md"></i>
+            </div>
+            <h3 class="h5 fw-bold mb-3">Phone Se Kaam</h3>
+            <p class="text-muted mb-0">Apne phone se professional kaam karna</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card rounded-0 benefit-card">
+            <div class="icon-circle">
+              <i data-lucide="clock" class="lucide-md"></i>
+            </div>
+            <h3 class="h5 fw-bold mb-3">Flexible Timing</h3>
+            <p class="text-muted mb-0">Apne time ke according kaam karna</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card rounded-0 benefit-card">
+            <div class="icon-circle">
+              <i data-lucide="target" class="lucide-md"></i>
+            </div>
+            <h3 class="h5 fw-bold mb-3">Online Identity</h3>
+            <p class="text-muted mb-0">Confidently apni online presence build karna</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Happens Section -->
+  <section class="py-5" style="background: linear-gradient(135deg, var(--pink-100), var(--purple-100));">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold mb-3">What Happens When You Join?</h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 ">
+          <div class="card rounded-0 step-card">
+            <div class="d-flex gap-3">
+              <div class="step-number">0</div>
+              <div>
+                <h3 class="h5 fw-bold mb-2">Instant Connection</h3>
+                <p class="text-muted mb-0">As soon as you message on WhatsApp, you will instantly connect with me (SHIVANI KARN) for personal guidance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card rounded-0 step-card">
+            <div class="d-flex gap-3">
+              <div class="step-number">1</div>
+              <div>
+                <h3 class="h5 fw-bold mb-2">Complete Access</h3>
+                <p class="text-muted mb-0">You'll unlock complete access to a proven step-by-step training and earning system.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card rounded-0 step-card">
+            <div class="d-flex gap-3">
+              <div class="step-number">2</div>
+              <div>
+                <h3 class="h5 fw-bold mb-2">Daily Mentorship</h3>
+                <p class="text-muted mb-0">You'll receive daily mentorship, support, and all the tools you need to succeed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card rounded-0 step-card">
+            <div class="d-flex gap-3">
+              <div class="step-number">3</div>
+              <div>
+                <h3 class="h5 fw-bold mb-2">Start Earning</h3>
+                <p class="text-muted mb-0">You can start your online earning journey confidently from your very first week.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <!-- NOTE: This link now has class open-form so clicking it opens the form instead of immediate wa.me redirect -->
+        <a href="https://wa.me/917032507725" class="btn rounded-0 btn-gradient btn-lg px-5 py-3 open-form" data-wa-number="917032507725">
+          <i data-lucide="message-circle" class="lucide-sm me-2"></i>
+          Message on WhatsApp: +91 7032507725
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-5 px-3">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold display-6 text-dark">Know Your Coach</h2>
+      </div>
+
+      <div class="row align-items-center g-5">
+        <!-- Left side -->
+        <div class="col-md-6">
+          <div class="d-flex rounded-0 align-items-center gap-4 p-4 gradient-box-1 mb-4 shadow-sm">
+            <div class="gradient-pink-purple text-white d-flex align-items-center justify-content-center rounded-circle"
+              style="width:70px; height:70px;">
+              <!-- Award Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-award"
+                viewBox="0 0 16 16">
+                <path
+                  d="M9.669.864 8 0 6.331.864 5.4 2.5 4.017 3.066 4.29 4.71 3.466 6.098 4.857 6.567 5.4 8 6.99 8.121 8 9.5l1.01-1.379L10.6 8l.543-1.433 1.39-.469-.823-1.389.273-1.645-1.383-.566L9.669.864zM8 3.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" />
+                <path
+                  d="M7.117 10.804 5.27 14H3l1.447-2.789A6.978 6.978 0 0 1 8 10a6.978 6.978 0 0 1 3.553.711L13 14h-2.27l-1.847-3.196A7.007 7.007 0 0 0 8 11a7.007 7.007 0 0 0-.883-.196z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="fw-bold mb-1 fs-3 text-dark">5</h3>
+              <p class="mb-0 text-secondary">Years of experience in training and coaching</p>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center gap-4 p-4 rounded-0 gradient-box-2 shadow-sm">
+            <div class="gradient-pink-purple text-white d-flex align-items-center justify-content-center rounded-circle"
+              style="width:70px; height:70px;">
+              <!-- Users Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-people"
+                viewBox="0 0 16 16">
+                <path
+                  d="M13 7c0-1.105-.672-2-1.5-2S10 5.895 10 7s.672 2 1.5 2S13 8.105 13 7zM4.5 9C5.328 9 6 8.105 6 7S5.328 5 4.5 5 3 5.895 3 7s.672 2 1.5 2zm5.493 2.574a4.87 4.87 0 0 0-1.483-.228H7.49c-.517 0-1.018.08-1.484.228C4.41 11.891 3 13.27 3 15h10c0-1.73-1.41-3.109-3.007-3.426z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="fw-bold mb-1 fs-3 text-dark">1000+</h3>
+              <p class="mb-0 text-secondary">Entrepreneurs reached in the last 5 years</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side -->
+        <div class="col-md-6 text-center">
+          <div class="p-5 rounded-4 shadow-lg gradient-pink-purple text-white">
+            <h3 class="fw-bold fs-4 mb-3">🔥 Now it's YOUR time</h3>
+            <p class="fs-5 mb-4">Let's change your future — Together! 💪</p>
+
+            <div class="row text-center">
+              <div class="col-6">
+                <h4 class="fw-bold fs-3 mb-0">₹16L</h4>
+                <p class="small opacity-75 mb-0">Earned in 10 Months</p>
+              </div>
+              <div class="col-6">
+                <h4 class="fw-bold fs-3 mb-0">300+</h4>
+                <p class="small opacity-75 mb-0">Students Earning ₹50K–₹1L</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-5" style="background: linear-gradient(135deg, var(--pink-50), var(--purple-50));">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold mb-3">Frequently Asked Questions</h2>
+        <p class="lead text-muted">"What work will I do?", "Is this legit?", "How much time will I need?"</p>
+
+Continuing reply due to length — include remaining HTML. I must not split? It's okay to finish. I'll continue in same block.
