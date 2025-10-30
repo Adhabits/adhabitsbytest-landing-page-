@@ -1521,7 +1521,6 @@ body {
             </div>
         </div>
     </footer>
-
     <!-- Bootstrap Bundle JS -->
     <!-- Bootstrap JS (with Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -1550,3 +1549,87 @@ body {
                     counter.innerText = counter.getAttribute("data-prefix") + target + counter.getAttribute("data-suffix");
                 }
             };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains("counted")) {
+                        entry.target.classList.add("counted");
+                        startCounting(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => observer.observe(counter));
+
+
+            const openBtn = document.getElementById("openFormBtn");
+  const formContainer = document.getElementById("formContainer");
+  const closeBtn = document.getElementById("closeFormBtn");
+  const heroSection = document.getElementById("hero");
+
+  openBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    formContainer.classList.remove("d-none");
+    setTimeout(() => formContainer.classList.add("show"), 100);
+
+    heroSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    formContainer.classList.remove("show");
+    setTimeout(() => formContainer.classList.add("d-none"), 500);
+  });
+
+        });
+
+        const videos = [
+            {
+                src: "https://www.w3schools.com/html/mov_bbb.mp4",
+                poster: "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Success+Stories",
+                title: "Success Stories - Student Testimonials",
+                desc: "Watch how our students transformed their lives"
+            },
+            {
+                src: "https://www.w3schools.com/html/movie.mp4",
+                poster: "https://via.placeholder.com/600x400/ec4899/ffffff?text=Shivani's+Journey",
+                title: "Behind the Scenes - Shivani's Journey",
+                desc: "Learn about my journey from homemaker to coach"
+            }
+        ];
+
+        const videoEl = document.getElementById("mainVideo");
+        const videoTitle = document.getElementById("videoTitle");
+        const videoDesc = document.getElementById("videoDescription");
+        const thumbs = document.querySelectorAll(".video-thumbnail-card");
+
+        thumbs.forEach((thumb) => {
+            thumb.addEventListener("click", () => {
+                thumbs.forEach((t) => t.classList.remove("active"));
+                thumb.classList.add("active");
+
+                const index = thumb.dataset.videoIndex;
+                const data = videos[index];
+
+                videoEl.src = data.src;
+                videoEl.poster = data.poster;
+                videoTitle.textContent = data.title;
+                videoDesc.textContent = data.desc;
+
+                videoEl.play();
+            });
+        });
+
+        // Mute toggle
+        const muteBtn = document.getElementById("muteBtn");
+        muteBtn.addEventListener("click", () => {
+            videoEl.muted = !videoEl.muted;
+            muteBtn.innerHTML = videoEl.muted
+                ? '<i data-lucide="volume-x"></i>'
+                : '<i data-lucide="volume-2"></i>';
+            lucide.createIcons();
+        });
+    </script>
+
+</body>
+
+</html>
