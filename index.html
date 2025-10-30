@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Shivani Karn - Empowering Females to Empower</title>
 
     <!-- Bootstrap CSS -->
@@ -700,6 +700,7 @@ body {
               <p class="text-muted">Fill this form to unlock your potential</p>
             </div>
 
+            <!-- MAIN FORM: EMAIL FIELD REMOVED AS REQUESTED -->
             <form id="mainForm">
               <div class="row g-4">
                 <div class="col-md-6">
@@ -708,19 +709,16 @@ body {
                   </label>
                   <input type="text" class="form-control" name="name" placeholder="Enter your full name" required>
                 </div>
-                <!-- <div class="col-md-6">
-                  <label class="form-label d-flex align-items-center gap-2">
-                    <i data-lucide="mail" class="lucide-sm"></i> Email
-                  </label>
-                  <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
-                </div> -->
+
+                <!-- EMAIL FIELD REMOVED -->
+
                 <div class="col-md-6">
                   <label class="form-label d-flex align-items-center gap-2">
                     <i data-lucide="phone" class="lucide-sm"></i> Phone
                   </label>
                   <input type="tel" class="form-control" name="phone" placeholder="Enter your phone number" required>
                 </div>
-                <div class="col-12">
+                <div class="col-md-6">
                   <label class="form-label d-flex align-items-center gap-2">
                     <i data-lucide="calendar" class="lucide-sm"></i> Age
                   </label>
@@ -738,12 +736,15 @@ body {
                   </select>
                 </div>
                 <div class="col-12">
-                  <button type="submit" class="btn btn-gradient w-100">
+                  <button type="submit" id="submitBtn" class="btn btn-gradient w-100">
                     🚀 Start My Journey Now
                   </button>
                 </div>
               </div>
             </form>
+
+            <!-- small feedback area -->
+            <div id="formFeedback" class="mt-3" style="display:none;"></div>
           </div>
         </div>
       </div>
@@ -886,7 +887,7 @@ body {
                         <div class="col-4">
                             <div class="stat-card">
                                 <div class="fs-3 fw-bold" style="color: var(--pink-600);">
-                                    <span class="counter" data-target="5" data-suffix="+">0</span>
+                                    <span class="counter" data-target="5">0</span>
                                 </div>
                                 <div class="small text-muted">Years Experience</div>
                             </div>
@@ -1014,40 +1015,7 @@ body {
     </section>
 
     <!-- Video Section Mobile Only -->
-    <!-- <section class="py-5 d-lg-none" style="background: linear-gradient(135deg, var(--purple-50), var(--pink-50));">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3" style="color: var(--pink-600);">🎥 Watch Success Stories</h2>
-                <p class="lead text-muted">Real stories from real students who transformed their lives</p>
-            </div>
-            <div class="card border-0 shadow-lg">
-                <div class="video-container">
-                    <video id="mobileVideo"
-                        poster="https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Success+Stories">
-                        <source src="placeholder.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-overlay" id="mobileVideoOverlay">
-                        <button class="play-button" id="mobilePlayBtn">
-                            <i data-lucide="play" style="width: 32px; height: 32px; margin-left: 4px;"></i>
-                        </button>
-                    </div>
-                    <div class="video-controls">
-                        <button class="video-btn" id="mobileMuteBtn">
-                            <i data-lucide="volume-2" class="lucide-sm"></i>
-                        </button>
-                        <button class="video-btn" id="mobileFullscreenBtn">
-                            <i data-lucide="maximize" class="lucide-sm"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h3 class="h5 fw-bold">Success Stories - Student Testimonials</h3>
-                    <p class="text-muted mb-0">Watch how our students transformed their lives</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
+    <!-- (mobile video commented out as before) -->
 
     <!-- Benefits Section -->
     <section id="benefits" class="py-5">
@@ -1452,6 +1420,7 @@ body {
             </div>
         </div>
     </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container ">
@@ -1520,7 +1489,6 @@ body {
             </div>
         </div>
     </footer>
-
     <!-- Bootstrap Bundle JS -->
     <!-- Bootstrap JS (with Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -1528,25 +1496,31 @@ body {
     <script>
         lucide.createIcons();
 
-
-       
-
-
+        // === CONFIG - SET THESE TWO VALUES ===
+        // Replace with your deployed Google Apps Script Web App URL
+        const GAS_WEB_APP_URL = "PASTE_YOUR_GAS_WEB_APP_URL_HERE"; // e.g. "https://script.google.com/macros/s/AKfyc.../exec"
+        // Replace with WhatsApp number in international format without plus, e.g. 917032507725
+        const WHATSAPP_NUMBER = "917032507725";
+        // ======================================
 
         document.addEventListener("DOMContentLoaded", () => {
+            // counters
             const counters = document.querySelectorAll(".counter");
             const speed = 100; // adjust speed (lower = faster)
 
             const startCounting = (counter) => {
                 const target = +counter.getAttribute("data-target");
                 const count = +counter.innerText.replace(/[^0-9]/g, "");
-                const increment = target / speed;
+                const increment = Math.max(1, Math.floor(target / speed));
 
                 if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
+                    const next = Math.min(target, count + increment);
+                    counter.innerText = next;
                     setTimeout(() => startCounting(counter), 20);
                 } else {
-                    counter.innerText = counter.getAttribute("data-prefix") + target + counter.getAttribute("data-suffix");
+                    const prefix = counter.getAttribute("data-prefix") || "";
+                    const suffix = counter.getAttribute("data-suffix") || "";
+                    counter.innerText = prefix + target + suffix;
                 }
             };
 
@@ -1561,73 +1535,194 @@ body {
 
             counters.forEach(counter => observer.observe(counter));
 
-
+            // Form open/close
             const openBtn = document.getElementById("openFormBtn");
-  const formContainer = document.getElementById("formContainer");
-  const closeBtn = document.getElementById("closeFormBtn");
-  const heroSection = document.getElementById("hero");
+            const formContainer = document.getElementById("formContainer");
+            const closeBtn = document.getElementById("closeFormBtn");
+            const heroSection = document.getElementById("hero");
 
-  openBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    formContainer.classList.remove("d-none");
-    setTimeout(() => formContainer.classList.add("show"), 100);
-
-    heroSection.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-
-  closeBtn.addEventListener("click", () => {
-    formContainer.classList.remove("show");
-    setTimeout(() => formContainer.classList.add("d-none"), 500);
-  });
-
-        });
-
-        const videos = [
-            {
-                src: "https://www.w3schools.com/html/mov_bbb.mp4",
-                poster: "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Success+Stories",
-                title: "Success Stories - Student Testimonials",
-                desc: "Watch how our students transformed their lives"
-            },
-            {
-                src: "https://www.w3schools.com/html/movie.mp4",
-                poster: "https://via.placeholder.com/600x400/ec4899/ffffff?text=Shivani's+Journey",
-                title: "Behind the Scenes - Shivani's Journey",
-                desc: "Learn about my journey from homemaker to coach"
-            }
-        ];
-
-        const videoEl = document.getElementById("mainVideo");
-        const videoTitle = document.getElementById("videoTitle");
-        const videoDesc = document.getElementById("videoDescription");
-        const thumbs = document.querySelectorAll(".video-thumbnail-card");
-
-        thumbs.forEach((thumb) => {
-            thumb.addEventListener("click", () => {
-                thumbs.forEach((t) => t.classList.remove("active"));
-                thumb.classList.add("active");
-
-                const index = thumb.dataset.videoIndex;
-                const data = videos[index];
-
-                videoEl.src = data.src;
-                videoEl.poster = data.poster;
-                videoTitle.textContent = data.title;
-                videoDesc.textContent = data.desc;
-
-                videoEl.play();
+            openBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                formContainer.classList.remove("d-none");
+                setTimeout(() => formContainer.classList.add("show"), 100);
+                heroSection.scrollIntoView({ behavior: "smooth", block: "start" });
             });
+
+            closeBtn.addEventListener("click", () => {
+                formContainer.classList.remove("show");
+                setTimeout(() => formContainer.classList.add("d-none"), 500);
+            });
+
+            // Video thumbnails behavior
+            const videos = [
+                {
+                    src: "https://www.w3schools.com/html/mov_bbb.mp4",
+                    poster: "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Success+Stories",
+                    title: "Success Stories - Student Testimonials",
+                    desc: "Watch how our students transformed their lives"
+                },
+                {
+                    src: "https://www.w3schools.com/html/movie.mp4",
+                    poster: "https://via.placeholder.com/600x400/ec4899/ffffff?text=Shivani's+Journey",
+                    title: "Behind the Scenes - Shivani's Journey",
+                    desc: "Learn about my journey from homemaker to coach"
+                }
+            ];
+
+            const videoEl = document.getElementById("mainVideo");
+            const videoTitle = document.getElementById("videoTitle");
+            const videoDesc = document.getElementById("videoDescription");
+            const thumbs = document.querySelectorAll(".video-thumbnail-card");
+
+            thumbs.forEach((thumb) => {
+                thumb.addEventListener("click", () => {
+                    thumbs.forEach((t) => t.classList.remove("active"));
+                    thumb.classList.add("active");
+
+                    const index = thumb.dataset.videoIndex;
+                    const data = videos[index];
+
+                    videoEl.src = data.src;
+                    videoEl.poster = data.poster;
+                    videoTitle.textContent = data.title;
+                    videoDesc.textContent = data.desc;
+
+                    videoEl.play();
+                });
+            });
+
+            // Mute toggle
+            const muteBtn = document.getElementById("muteBtn");
+            muteBtn.addEventListener("click", () => {
+                videoEl.muted = !videoEl.muted;
+                muteBtn.innerHTML = videoEl.muted
+                    ? '<i data-lucide="volume-x"></i>'
+                    : '<i data-lucide="volume-2"></i>';
+                lucide.createIcons();
+            });
+
+            // --- FORM SUBMISSION: POST to Google Apps Script (Google Sheet) AND redirect to WhatsApp with message ---
+            const mainForm = document.getElementById("mainForm");
+            const submitBtn = document.getElementById("submitBtn");
+            const feedback = document.getElementById("formFeedback");
+
+            mainForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                // collect values
+                const formData = new FormData(mainForm);
+                const name = (formData.get("name") || "").toString().trim();
+                const phone = (formData.get("phone") || "").toString().trim();
+                const age = (formData.get("age") || "").toString().trim();
+                const gender = (formData.get("gender") || "").toString().trim();
+
+                // basic validation
+                if (!name || !phone || !age || !gender) {
+                    showFeedback("Please fill all required fields.", "danger");
+                    return;
+                }
+
+                // prepare payload for Google Apps Script
+                const payload = {
+                    name: name,
+                    phone: phone,
+                    age: age,
+                    gender: gender,
+                    source: window.location.href,
+                    timestamp: new Date().toISOString()
+                };
+
+                // disable button
+                submitBtn.disabled = true;
+                submitBtn.innerText = "Sending...";
+
+                try {
+                    if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes("PASTE_YOUR_GAS_WEB_APP_URL_HERE")) {
+                        throw new Error("GAS_WEB_APP_URL not configured. Replace placeholder in script with your Google Apps Script Web App URL.");
+                    }
+
+                    // POST to Google Apps Script
+                    const resp = await fetch(GAS_WEB_APP_URL, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    // Accept both 200 and 204 etc.
+                    if (!resp.ok) {
+                        // try to read text for debugging
+                        const t = await resp.text().catch(()=>"");
+                        throw new Error("Failed to send to Google Sheet. " + (t || resp.statusText));
+                    }
+
+                    // Build WhatsApp message EXACTLY as requested
+                    // Message template:
+                    // I am interested in this work. this. is my detels
+                    // Name: ...
+                    // Phone: ...
+                    // Age: ...
+                    // Gender: ...
+                    // pls share me work detels
+                    const messageLines = [
+                        "I am interested in this work. this. is my detels",
+                        "Name: " + name,
+                        "Phone: " + phone,
+                        "Age: " + age,
+                        "Gender: " + gender,
+                        "pls share me work detels"
+                    ];
+                    const message = messageLines.join("\n");
+
+                    // URL encode
+                    const encoded = encodeURIComponent(message);
+
+                    if (!WHATSAPP_NUMBER || WHATSAPP_NUMBER.includes("PASTE")) {
+                        throw new Error("WHATSAPP_NUMBER not configured. Replace placeholder in script with your WhatsApp number (e.g. 917032507725).");
+                    }
+
+                    // open WhatsApp chat in new tab
+                    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+                    // small success feedback then redirect
+                    showFeedback("Submitted successfully — redirecting to WhatsApp...", "success");
+                    setTimeout(() => {
+                        window.open(waUrl, "_blank");
+                    }, 600);
+
+                    // reset form optionally
+                    mainForm.reset();
+                } catch (err) {
+                    console.error(err);
+                    showFeedback("Error: " + (err.message || "Unable to send. Try again."), "danger");
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "🚀 Start My Journey Now";
+                }
+            });
+
+            function showFeedback(msg, type = "info") {
+                feedback.style.display = "block";
+                feedback.className = ""; // reset
+                feedback.classList.add("mt-3");
+                if (type === "success") {
+                    feedback.innerHTML = `<div class="alert alert-success mb-0">${escapeHtml(msg)}</div>`;
+                } else if (type === "danger") {
+                    feedback.innerHTML = `<div class="alert alert-danger mb-0">${escapeHtml(msg)}</div>`;
+                } else {
+                    feedback.innerHTML = `<div class="alert alert-info mb-0">${escapeHtml(msg)}</div>`;
+                }
+            }
+
+            function escapeHtml(s) {
+                return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            }
+
+            // set current year
+            const yearEl = document.getElementById("currentYear");
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
         });
 
-        // Mute toggle
-        const muteBtn = document.getElementById("muteBtn");
-        muteBtn.addEventListener("click", () => {
-            videoEl.muted = !videoEl.muted;
-            muteBtn.innerHTML = videoEl.muted
-                ? '<i data-lucide="volume-x"></i>'
-                : '<i data-lucide="volume-2"></i>';
-            lucide.createIcons();
-        });
     </script>
 
 </body>
