@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AdHabits — Professional Meta Ads Management for Affiliate Marketers. Get daily leads with expert ad campaigns. Trusted by 290+ affiliates." />
-  <meta name="keywords" content="meta ads, affiliate marketing, Facebook ads, lead generation, ad management, AdHabits" />
+  <meta name="description" content="AdHabits — Professional Meta Ads Management for Affiliate Marketers." />
+  <meta name="keywords" content="meta ads, affiliate marketing, Facebook ads, lead generation" />
   <meta name="author" content="AdHabits" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph / Social Media -->
+  <!-- Open Graph -->
   <meta property="og:title" content="AdHabits — Professional Meta Ads for Affiliates" />
   <meta property="og:description" content="Let us run your Meta Ads & get you more leads. 3+ years experience, 290+ affiliates served." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://adhabits.in" />
   <meta property="og:image" content="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" />
 
-  <!-- Preconnect for Performance -->
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://connect.facebook.net" />
-  <link rel="preconnect" href="https://www.facebook.com" />
+  <link rel="preconnect" href="www.facebook.com" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
@@ -44,6 +44,7 @@
       --error: #f87171;
       --shadow: rgba(0, 0, 0, 0.35);
       --shadow-intense: rgba(0, 0, 0, 0.45);
+      --shine: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
     }
 
     * {
@@ -431,7 +432,7 @@
       color: #0e0c06;
     }
 
-    /* ==================== FEATURES (NORMAL FLOW) ==================== */
+    /* ==================== FEATURES (NORMAL FLOW + SHINE) ==================== */
     .stacked {
       padding: 60px 0;
     }
@@ -454,7 +455,6 @@
       font-size: 18px;
     }
 
-    /* NEW: Grid layout instead of stacked */
     .stk-grid {
       display: grid;
       gap: 20px;
@@ -468,11 +468,45 @@
       border: 1px solid #273047;
       background: linear-gradient(180deg, #0f172a, #0b0f1a);
       box-shadow: 0 6px 14px var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
     }
 
     .stk-card:hover {
       transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    /* SHINING EFFECT */
+    .stk-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: var(--shine);
+      transform: rotate(30deg) translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .stk-card.on::before {
+      animation: shine 1.2s ease-out;
+    }
+
+    @keyframes shine {
+      0% {
+        opacity: 0;
+        transform: rotate(30deg) translateY(-100%);
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: rotate(30deg) translateY(100%);
+      }
     }
 
     .stk-icon {
@@ -485,6 +519,11 @@
       border: 1px solid #2a3657;
       font-size: 20px;
       margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .stk-card:hover .stk-icon {
+      transform: scale(1.1) rotate(5deg);
     }
 
     .stk-card h3 {
@@ -593,6 +632,11 @@
       padding: 16px;
       background: linear-gradient(180deg, #0f172a, #0b0f1a);
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+      transition: transform 0.2s ease;
+    }
+
+    .ex-stat:hover {
+      transform: translateY(-2px);
     }
 
     .ex-stat .num {
@@ -695,7 +739,7 @@
       object-fit: contain;
     }
 
-    /* ==================== PLANS (NORMAL FLOW) ==================== */
+    /* ==================== PLANS (NORMAL FLOW + SHINE) ==================== */
     .plans {
       padding: 60px 0;
     }
@@ -710,7 +754,6 @@
       margin-bottom: 22px;
     }
 
-    /* NEW: Grid layout instead of stacked */
     .plan-grid {
       display: grid;
       gap: 24px;
@@ -728,11 +771,45 @@
                   linear-gradient(180deg, #0f172a, #0b0f1a);
       box-shadow: 0 10px 28px var(--shadow-intense), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
       padding: 26px 20px;
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
     }
 
     .plan-card:hover {
       transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    /* SHINING EFFECT FOR PLAN CARDS */
+    .plan-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: var(--shine);
+      transform: rotate(30deg) translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .plan-card.on::before {
+      animation: shine 1.2s ease-out;
+    }
+
+    @keyframes shine {
+      0% {
+        opacity: 0;
+        transform: rotate(30deg) translateY(-100%);
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: rotate(30deg) translateY(100%);
+      }
     }
 
     .plan-card .row {
@@ -1130,7 +1207,6 @@
             }
           });
           
-          // Log for debugging (remove in production)
           console.log('📊 DualPixel:', eventName, eventData);
         } catch (e) {
           console.error('Pixel tracking error:', e);
@@ -1272,13 +1348,12 @@
       </div>
     </section>
 
-    <!-- FEATURES (NORMAL FLOW) -->
+    <!-- FEATURES (NORMAL FLOW + SHINE) -->
     <section id="features" class="stacked" aria-labelledby="features-title">
       <div class="stk-wrap">
         <h2 id="features-title" class="stk-title">Why Choose AdHabits</h2>
         <p class="stk-sub">We deliver results that matter to your affiliate business</p>
 
-        <!-- NEW: Normal flow grid instead of stacked -->
         <div class="stk-grid">
           <article class="stk-card reveal" data-plan-feature="affiliate-focus">
             <div class="stk-icon" aria-hidden="true">💼</div>
@@ -1367,13 +1442,12 @@
       </div>
     </section>
 
-    <!-- PLANS (NORMAL FLOW) -->
+    <!-- PLANS (NORMAL FLOW + SHINE) -->
     <section id="plans" class="plans" aria-labelledby="plans-title">
       <div class="container">
         <h2 id="plans-title" class="plans-title">Choose Your <span style="color: var(--accent)">Plan</span></h2>
         <p class="plans-sub">Select the package that fits your goals &amp; budget</p>
 
-        <!-- NEW: Normal flow grid instead of stacked -->
         <div class="plan-grid">
           <!-- Starter Plan -->
           <article class="plan-card reveal" data-plan-name="Starter Plan">
