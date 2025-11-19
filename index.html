@@ -12,20 +12,21 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <style>
-        /* ==== VIBRANT FEMININE TRUST COLOR PALETTE ==== */
+        /* ==== MODERN FEMININE EMPOWERMENT PALETTE ==== */
         :root {
-            --primary-pink: #FF6B9D;
-            --deep-rose: #C44569;
-            --plum: #9A1750;
-            --soft-bg: #FFF5F8;
+            --primary-coral: #FF5E8E;
+            --lavender: #6A67CE;
+            --midnight: #1A1A2E;
+            --soft-rose: #FFF9F9;
             --white: #FFFFFF;
-            --text-dark: #2C003E;
+            --text-dark: #1A1A2E;
             --text-medium: #4A3F55;
             --text-light: #7A6E85;
-            --success: #25D366;
-            --shadow: 0 8px 30px rgba(154, 23, 80, 0.12);
-            --shadow-hover: 0 12px 40px rgba(154, 23, 80, 0.18);
-            --glow: 0 0 20px rgba(255, 107, 157, 0.3);
+            --success: #00C9B7;
+            --shadow: 0 6px 20px rgba(106, 103, 206, 0.12);
+            --shadow-hover: 0 10px 30px rgba(106, 103, 206, 0.18);
+            --glow: 0 0 20px rgba(255, 94, 142, 0.35);
+            --light-effect: 0 0 30px rgba(106, 103, 206, 0.25);
         }
 
         * {
@@ -38,7 +39,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            background: var(--soft-bg);
+            background: var(--soft-rose);
             color: var(--text-dark);
             line-height: 1.6;
         }
@@ -56,7 +57,7 @@
 
         @keyframes pulseSoft {
             0%, 100% { box-shadow: var(--glow); }
-            50% { box-shadow: 0 0 30px rgba(255, 107, 157, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(255, 94, 142, 0.55); }
         }
 
         @keyframes infiniteScroll {
@@ -64,37 +65,65 @@
             100% { transform: translateX(-50%); }
         }
 
+        /* ==== LIGHT EFFECT FOR ANIMATED ELEMENTS ==== */
+        @keyframes lightPulse {
+            0%, 100% { 
+                box-shadow: var(--shadow), var(--light-effect);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: var(--shadow-hover), 0 0 40px rgba(106, 103, 206, 0.35);
+                transform: scale(1.02);
+            }
+        }
+
+        .light-effect {
+            animation: lightPulse 3s ease-in-out infinite;
+        }
+
         /* ==== UTILITY CLASSES ==== */
         .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
         .animate-stagger { animation: fadeInUp 0.6s ease-out forwards; animation-delay: calc(var(--order) * 0.15s); opacity: 0; }
         .pulse-soft { animation: pulseSoft 2s ease-in-out infinite; }
 
+        /* ==== REDUCED GAPS ==== */
         section {
-            padding: 100px 0;
+            padding: 50px 0;
             position: relative;
         }
 
+        .row > * {
+            margin-bottom: 0.5rem;
+        }
+
+        .mb-5 { margin-bottom: 1.5rem !important; }
+        .mb-4 { margin-bottom: 1rem !important; }
+        .mb-3 { margin-bottom: 0.75rem !important; }
+        .g-5 { gap: 1.5rem !important; }
+        .g-4 { gap: 1rem !important; }
+        .g-3 { gap: 0.75rem !important; }
+
         /* ==== HERO SECTION ==== */
         .hero-section {
-            background: linear-gradient(135deg, var(--white), var(--soft-bg));
-            padding: 120px 0 100px;
+            background: linear-gradient(135deg, var(--white), var(--soft-rose));
+            padding: 80px 0 60px;
             overflow: hidden;
         }
 
         .badge-custom {
-            background: linear-gradient(135deg, var(--primary-pink), var(--deep-rose));
+            background: linear-gradient(135deg, var(--primary-coral), var(--lavender));
             color: white;
-            padding: 0.75rem 2rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             display: inline-block;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             box-shadow: var(--shadow);
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, var(--plum), var(--primary-pink));
+            background: linear-gradient(135deg, var(--midnight), var(--primary-coral));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
@@ -104,11 +133,11 @@
         /* ==== ABOUT SECTION ==== */
         .about-img {
             width: 100%;
-            height: 450px;
-            border-radius: 20px;
+            height: 400px;
+            border-radius: 15px;
             object-fit: cover;
             box-shadow: var(--shadow);
-            border: 8px solid white;
+            border: 6px solid white;
             transition: all 0.4s ease;
         }
 
@@ -117,11 +146,11 @@
             box-shadow: var(--shadow-hover);
         }
 
-        /* ==== STATS CARDS - MOBILE OPTIMIZED ==== */
+        /* ==== STATS CARDS ==== */
         .stat-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 1.5rem;
+            border-radius: 12px;
             box-shadow: var(--shadow);
             text-align: center;
             transition: all 0.3s ease;
@@ -132,52 +161,41 @@
         }
 
         .stat-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
         }
 
         .stat-card .counter {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
-            color: var(--primary-pink);
+            color: var(--primary-coral);
             line-height: 1;
         }
 
         .stat-card .text-muted {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             margin-top: 0.5rem;
             color: var(--text-medium) !important;
-        }
-
-        /* Mobile: Stack stats vertically */
-        @media (max-width: 768px) {
-            .stat-card {
-                padding: 1.5rem;
-                margin-bottom: 1rem;
-            }
-            .stat-card .counter {
-                font-size: 2rem;
-            }
         }
 
         /* ==== FEEDBACK CAROUSEL ==== */
         .feedback-viewport {
             overflow: hidden;
-            border-radius: 15px;
-            margin: 2rem 0;
+            border-radius: 12px;
+            margin: 1.5rem 0;
             position: relative;
         }
 
         .feedback-track {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             animation: infiniteScroll 30s linear infinite;
             width: max-content;
         }
 
         .feedback-item {
             flex-shrink: 0;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
@@ -185,7 +203,7 @@
 
         .feedback-item img {
             display: block;
-            height: 340px;
+            height: 300px;
             width: auto;
         }
 
@@ -196,29 +214,29 @@
         /* ==== STEPS SECTION ==== */
         .step-card {
             background: white;
-            border-radius: 18px;
-            padding: 2rem;
+            border-radius: 15px;
+            padding: 1.5rem;
             box-shadow: var(--shadow);
             transition: all 0.4s ease;
             height: 100%;
         }
 
         .step-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
         }
 
         .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-pink), var(--deep-rose));
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-coral), var(--lavender));
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             flex-shrink: 0;
             box-shadow: var(--shadow);
         }
@@ -226,8 +244,8 @@
         /* ==== FAQ SECTION ==== */
         .accordion-item {
             border: none;
-            border-radius: 12px !important;
-            margin-bottom: 1rem;
+            border-radius: 10px !important;
+            margin-bottom: 0.75rem;
             box-shadow: var(--shadow);
             overflow: hidden;
         }
@@ -235,32 +253,32 @@
         .accordion-button {
             background: white;
             font-weight: 600;
-            padding: 1.25rem;
+            padding: 1rem;
             color: var(--text-dark);
         }
 
         .accordion-button:not(.collapsed) {
-            background: linear-gradient(135deg, var(--soft-bg), white);
-            color: var(--plum);
+            background: linear-gradient(135deg, var(--soft-rose), white);
+            color: var(--midnight);
         }
 
-        /* ==== WHATSAPP BUTTONS - WITH SHIMMER ==== */
+        /* ==== WHATSAPP BUTTONS ==== */
         .wa-btn {
             background: var(--success);
             color: white;
             border: none;
-            padding: 0.85rem 1.75rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 50px;
             font-weight: 700;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+            gap: 10px;
+            box-shadow: 0 6px 18px rgba(0, 201, 183, 0.25);
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .wa-btn::before {
@@ -276,7 +294,7 @@
 
         .wa-btn:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 12px 25px rgba(0, 201, 183, 0.4);
         }
 
         /* ==== FORM POPUP ==== */
@@ -318,81 +336,67 @@
 
         .form-card {
             background: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
+            border-radius: 15px;
+            box-shadow: var(--shadow-hover);
             border: none;
             overflow-y: auto;
         }
 
         .form-control, .form-select {
             border: 2px solid #E5E5E5;
-            border-radius: 10px;
-            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            padding: 0.6rem 0.9rem;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .form-control:focus, .form-select:focus {
-            border-color: var(--primary-pink);
-            box-shadow: 0 0 0 4px rgba(255, 107, 157, 0.15);
+            border-color: var(--primary-coral);
+            box-shadow: 0 0 0 4px rgba(255, 94, 142, 0.15);
         }
 
-        /* ==== MOBILE RESPONSIVE FIXES ==== */
+        /* ==== MOBILE RESPONSIVE ==== */
         @media (max-width: 768px) {
             section {
-                padding: 60px 0;
+                padding: 40px 0;
             }
 
             h1 {
-                font-size: 2.2rem !important;
-            }
-
-            h2 {
                 font-size: 1.8rem !important;
             }
 
+            h2 {
+                font-size: 1.5rem !important;
+            }
+
             .hero-section {
-                padding: 80px 0 60px;
+                padding: 60px 0 40px;
             }
 
             .about-img {
-                height: 350px;
+                height: 300px;
             }
 
             .feedback-item img {
-                height: 280px;
+                height: 250px;
             }
 
             .stat-card {
-                margin-bottom: 1rem;
+                padding: 1.25rem;
             }
 
-            /* Stack stats vertically on mobile */
-            .row.g-3 .col-4 {
-                width: 100%;
-                flex: 0 0 100%;
-                margin-bottom: 1rem;
-            }
-
-            .row.g-3 .col-4:last-child {
-                margin-bottom: 0;
-            }
-
-            .wa-btn {
-                width: 100%;
-                justify-content: center;
-                padding: 0.9rem;
-                font-size: 0.95rem;
+            .stat-card .counter {
+                font-size: 1.8rem;
             }
 
             .step-card {
-                padding: 1.5rem;
+                padding: 1.25rem;
             }
 
             .step-number {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
             }
         }
 
@@ -401,9 +405,9 @@
         div[style*="position:fixed"][style*="bottom"] { display: none !important; }
 
         /* ==== SCROLLBAR ==== */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--soft-bg); }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, var(--primary-pink), var(--deep-rose)); border-radius: 4px; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--soft-rose); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, var(--primary-coral), var(--lavender)); border-radius: 4px; }
     </style>
 </head>
 <body>
@@ -414,15 +418,15 @@
     <!-- ===== HERO SECTION ===== -->
     <section class="hero-section text-center">
         <div class="container position-relative">
-            <div class="badge-custom animate-fade-in">🚺 Girls Only!</div>
-            <h1 class="display-3 fw-bold gradient-text mb-4 animate-fade-in">
+            <div class="badge-custom animate-stagger light-effect" style="--order: 1;">🚺 Girls Only!</div>
+            <h1 class="display-3 fw-bold gradient-text mb-3 animate-stagger" style="--order: 2;">
                 Join Over <span class="counter" data-target="100000" data-suffix="+">0</span> Women <br>
                 <span class="text-muted fs-2 fw-normal">Rising Together</span>
             </h1>
-            <p class="lead text-muted mb-5 animate-fade-in" style="max-width: 700px; margin: 0 auto 2rem;">
+            <p class="lead text-muted mb-4 animate-stagger" style="--order: 3;" style="max-width: 700px; margin: 0 auto 1.5rem;">
                 From Homemaker to Online Money Maker Coach - Empowering Women to Empower
             </p>
-            <button class="wa-btn pulse-soft open-any animate-stagger" style="--order: 1;" data-source="Hero">
+            <button class="wa-btn pulse-soft open-any animate-stagger light-effect" style="--order: 4;" data-source="Hero">
                 <i data-lucide="message-circle" width="20"></i>
                 Message on WhatsApp: 7017839604
             </button>
@@ -432,47 +436,47 @@
     <!-- ===== ABOUT SECTION ===== -->
     <section class="py-5 bg-white">
         <div class="container">
-            <div class="row g-5 align-items-center">
+            <div class="row g-3 align-items-center">
                 <div class="col-lg-6 animate-stagger" style="--order: 1;">
-                    <img src="https://i.ibb.co/BK724dHs/IMG-8913.jpg" alt="Mariyam Siddiqui" class="about-img">
+                    <img src="https://i.ibb.co/BK724dHs/IMG-8913.jpg" alt="Mariyam Siddiqui" class="about-img light-effect">
                 </div>
                 <div class="col-lg-6 animate-stagger" style="--order: 2;">
-                    <div class="badge-custom mb-3">💫 Your Coach</div>
-                    <h2 class="display-5 fw-bold mb-3">Hi, Mariyam Siddiqui this side!</h2>
-                    <div class="mb-4">
-                        <p class="fs-5 d-flex align-items-center gap-3 mb-3">
+                    <div class="badge-custom mb-2 light-effect">💫 Your Coach</div>
+                    <h2 class="display-5 fw-bold mb-2 animate-stagger" style="--order: 3;">Hi, Mariyam Siddiqui this side!</h2>
+                    <div class="mb-3">
+                        <p class="fs-5 d-flex align-items-center gap-3 mb-2 animate-stagger" style="--order: 4;">
                             <span class="fs-2">🏡</span> Ek homemaker
                         </p>
-                        <p class="fs-5 d-flex align-items-center gap-3 mb-3">
+                        <p class="fs-5 d-flex align-items-center gap-3 mb-2 animate-stagger" style="--order: 5;">
                             <span class="fs-2">💻</span> Freelancer
                         </p>
-                        <p class="fs-5 d-flex align-items-center gap-3">
+                        <p class="fs-5 d-flex align-items-center gap-3 animate-stagger" style="--order: 6;">
                             <span class="fs-2">🎯</span> Aur Online Money Maker Coach hoon
                         </p>
                     </div>
-                    <div class="p-4 rounded-3 mb-4" style="background: linear-gradient(135deg, var(--blush), var(--soft-bg));">
-                        <h3 class="h5 fw-bold mb-3">🎯 Mera Vision Simple Hai:</h3>
-                        <p class="fs-5 fw-semibold mb-0" style="color: var(--plum);">
+                    <div class="p-3 rounded-2 mb-3 animate-stagger light-effect" style="--order: 7; background: linear-gradient(135deg, var(--soft-rose), var(--white));">
+                        <h3 class="h5 fw-bold mb-2">🎯 Mera Vision Simple Hai:</h3>
+                        <p class="fs-5 fw-semibold mb-0" style="color: var(--midnight);">
                             "Empowering Females to Empower" - Har ladki ke liye jo sapne jeena chahti hai.
                         </p>
                     </div>
                     
                     <!-- MOBILE OPTIMIZED STATS -->
-                    <div class="row g-3">
-                        <div class="col-12 col-md-4">
-                            <div class="stat-card">
+                    <div class="row g-2">
+                        <div class="col-12 col-md-4 animate-stagger" style="--order: 8;">
+                            <div class="stat-card light-effect">
                                 <div class="counter" data-target="5" data-suffix="+">0</div>
                                 <div class="text-muted">Years Experience</div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-4">
-                            <div class="stat-card">
+                        <div class="col-12 col-md-4 animate-stagger" style="--order: 9;">
+                            <div class="stat-card light-effect">
                                 <div class="counter" data-target="300" data-suffix="+">0</div>
                                 <div class="text-muted">Students Helped</div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-4">
-                            <div class="stat-card">
+                        <div class="col-12 col-md-4 animate-stagger" style="--order: 10;">
+                            <div class="stat-card light-effect">
                                 <div class="counter" data-target="100000" data-prefix="₹">0</div>
                                 <div class="text-muted">Monthly Earning</div>
                             </div>
@@ -484,12 +488,12 @@
     </section>
 
     <!-- ===== FEEDBACK SECTION ===== -->
-    <section class="py-5" style="background: linear-gradient(135deg, var(--soft-bg), var(--white));">
+    <section class="py-5" style="background: linear-gradient(135deg, var(--soft-rose), var(--white));">
         <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-4">✨ Student Feedback & Proof</h2>
-            <p class="text-center text-muted mb-5">Real screenshots from our successful students</p>
+            <h2 class="text-center display-5 fw-bold mb-3 animate-stagger light-effect" style="--order: 1;">✨ Student Feedback & Proof</h2>
+            <p class="text-center text-muted mb-4 animate-stagger" style="--order: 2;">Real screenshots from our successful students</p>
             
-            <div class="feedback-viewport">
+            <div class="feedback-viewport animate-stagger light-effect" style="--order: 3;">
                 <div class="feedback-track" id="feedbackTrack">
                     <a class="feedback-item" href="https://ibb.co/8ghTj2zj" target="_blank" rel="noopener">
                         <img src="https://i.ibb.co/v4tgJmsJ/premimun-fb.jpg" alt="Student Feedback 1">
@@ -516,8 +520,8 @@
                 </div>
             </div>
             
-            <div class="text-center mt-5">
-                <button class="wa-btn pulse-soft open-any" data-source="Feedback">
+            <div class="text-center mt-4">
+                <button class="wa-btn pulse-soft open-any animate-stagger light-effect" style="--order: 4;" data-source="Feedback">
                     <i data-lucide="message-circle" width="20"></i>
                     Chat on WhatsApp: 7017839604
                 </button>
@@ -528,10 +532,10 @@
     <!-- ===== STEPS SECTION ===== -->
     <section class="py-5 bg-white">
         <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">What Happens When You Join?</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="step-card animate-stagger" style="--order: 1;">
+            <h2 class="text-center display-5 fw-bold mb-4 animate-stagger light-effect" style="--order: 1;">What Happens When You Join?</h2>
+            <div class="row g-2">
+                <div class="col-md-6 col-lg-3 animate-stagger light-effect" style="--order: 2;">
+                    <div class="step-card">
                         <div class="d-flex align-items-start gap-3">
                             <div class="step-number">1</div>
                             <div>
@@ -541,8 +545,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="step-card animate-stagger" style="--order: 2;">
+                <div class="col-md-6 col-lg-3 animate-stagger light-effect" style="--order: 3;">
+                    <div class="step-card">
                         <div class="d-flex align-items-start gap-3">
                             <div class="step-number">2</div>
                             <div>
@@ -552,8 +556,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="step-card animate-stagger" style="--order: 3;">
+                <div class="col-md-6 col-lg-3 animate-stagger light-effect" style="--order: 4;">
+                    <div class="step-card">
                         <div class="d-flex align-items-start gap-3">
                             <div class="step-number">3</div>
                             <div>
@@ -563,8 +567,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="step-card animate-stagger" style="--order: 4;">
+                <div class="col-md-6 col-lg-3 animate-stagger light-effect" style="--order: 5;">
+                    <div class="step-card">
                         <div class="d-flex align-items-start gap-3">
                             <div class="step-number">4</div>
                             <div>
@@ -579,14 +583,14 @@
     </section>
 
     <!-- ===== STATS SECTION ===== -->
-    <section class="py-5" style="background: linear-gradient(135deg, var(--soft-bg), var(--white));">
+    <section class="py-5" style="background: linear-gradient(135deg, var(--soft-rose), var(--white));">
         <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">Know Your Coach</h2>
-            <div class="row g-5 align-items-center">
+            <h2 class="text-center display-5 fw-bold mb-4 animate-stagger light-effect" style="--order: 1;">Know Your Coach</h2>
+            <div class="row g-3 align-items-center">
                 <div class="col-md-6">
-                    <div class="d-flex align-items-center gap-4 p-4 rounded-3 mb-4 shadow-sm" style="background: linear-gradient(135deg, var(--blush), var(--white));">
-                        <div class="text-white d-flex align-items-center justify-content-center rounded-circle" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-pink), var(--deep-rose));">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16">
+                    <div class="d-flex align-items-center gap-3 p-3 rounded-2 mb-3 shadow-sm animate-stagger light-effect" style="--order: 2; background: linear-gradient(135deg, var(--soft-rose), var(--white));">
+                        <div class="text-white d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary-coral), var(--lavender));">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M9.669.864 8 0 6.331.864 5.4 2.5 4.017 3.066 4.29 4.71 3.466 6.098 4.857 6.567 5.4 8 6.99 8.121 8 9.5l1.01-1.379L10.6 8l.543-1.433 1.39-.469-.823-1.389.273-1.645-1.383-.566L9.669.864zM8 3.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
                                 <path d="M7.117 10.804 5.27 14H3l1.447-2.789A6.978 6.978 0 0 1 8 10a6.978 6.978 0 0 1 3.553.711L13 14h-2.27l-1.847-3.196A7.007 7.007 0 0 0 8 11a7.007 7.007 0 0 0-.883-.196z"/>
                             </svg>
@@ -596,9 +600,9 @@
                             <p class="mb-0 text-muted fs-5">Years of Experience</p>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center gap-4 p-4 rounded-3 shadow-sm" style="background: linear-gradient(135deg, var(--white), var(--blush));">
-                        <div class="text-white d-flex align-items-center justify-content-center rounded-circle" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--deep-rose), var(--plum));">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16">
+                    <div class="d-flex align-items-center gap-3 p-3 rounded-2 shadow-sm animate-stagger light-effect" style="--order: 3; background: linear-gradient(135deg, var(--white), var(--soft-rose));">
+                        <div class="text-white d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--lavender), var(--midnight));">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M13 7c0-1.105-.672-2-1.5-2S10 5.895 10 7s.672 2 1.5 2S13 8.105 13 7zM4.5 9C5.328 9 6 8.105 6 7S5.328 5 4.5 5 3 5.895 3 7s.672 2 1.5 2zm5.493 2.574a4.87 4.87 0 0 0-1.483-.228H7.49c-.517 0-1.018.08-1.484.228C4.41 11.891 3 13.27 3 15h10c0-1.73-1.41-3.109-3.007-3.426z"/>
                             </svg>
                         </div>
@@ -608,10 +612,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 text-center">
-                    <div class="p-5 rounded-4 shadow-lg text-white" style="background: linear-gradient(135deg, var(--plum), var(--primary-pink));">
-                        <h3 class="fw-bold fs-3 mb-4">🔥 Now it's YOUR time</h3>
-                        <p class="fs-5 mb-4">Let's change your future — Together! 💪</p>
+                <div class="col-md-6 text-center animate-stagger" style="--order: 4;">
+                    <div class="p-4 rounded-3 shadow-lg text-white light-effect" style="background: linear-gradient(135deg, var(--midnight), var(--primary-coral));">
+                        <h3 class="fw-bold fs-3 mb-3">🔥 Now it's YOUR time</h3>
+                        <p class="fs-5 mb-3">Let's change your future — Together! 💪</p>
                         <div class="row text-center">
                             <div class="col-6">
                                 <h4 class="fw-bold fs-2 mb-0">₹<span class="counter" data-target="1600000">0</span></h4>
@@ -631,39 +635,39 @@
     <!-- ===== FAQ SECTION ===== -->
     <section class="py-5 bg-white">
         <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">Frequently Asked Questions</h2>
+            <h2 class="text-center display-5 fw-bold mb-4 animate-stagger light-effect" style="--order: 1;">Frequently Asked Questions</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="accordion" id="faqAccordion">
-                        <div class="accordion-item animate-stagger" style="--order: 1;">
+                        <div class="accordion-item animate-stagger light-effect" style="--order: 2;">
                             <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">What kind of work will I be doing?</button></h2>
                             <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Digital skills: social media management, content creation, digital marketing, online business strategies. 100% legitimate & skill-based.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger" style="--order: 2;">
+                        <div class="accordion-item animate-stagger light-effect" style="--order: 3;">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">Is this program legitimate & safe?</button></h2>
                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Genuine skill-based training. 300+ students earning consistently. Verify my credentials & testimonials.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger" style="--order: 3;">
+                        <div class="accordion-item animate-stagger light-effect" style="--order: 4;">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">How much time daily?</button></h2>
                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Just 2-3 hours daily. Flexible for housewives, students & professionals.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger" style="--order: 4;">
+                        <div class="accordion-item animate-stagger light-effect" style="--order: 5;">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq4">When will I start earning?</button></h2>
                             <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Most students see income within 1 month. Sustainable income builds in 2-3 months.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger" style="--order: 5;">
+                        <div class="accordion-item animate-stagger light-effect" style="--order: 6;">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq5">Any prior experience needed?</button></h2>
                             <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">No experience needed! Step-by-step guidance. Just need smartphone & internet.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger" style="--order: 6;">
+                        <div class="accordion-item animate-stagger light-effect" style="--order: 7;">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq6">What support after joining?</button></h2>
                             <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Daily mentorship, 24/7 WhatsApp support, weekly calls & access to successful student community.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger" style="--order: 7;">
+                        <div class="accordion-item animate-stagger light-effect" style="--order: 8;">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq7">Any investment required?</button></h2>
                             <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Nominal training fee covers all materials & mentorship. No hidden costs.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger" style="--order: 8;">
+                        <div class="accordion-item animate-stagger light-effect" style="--order: 9;">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq8">Can I do this alongside job/studies?</button></h2>
                             <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Yes! Designed for busy people. Learn & implement in your free time.</div></div>
                         </div>
@@ -674,37 +678,38 @@
     </section>
 
     <!-- ===== FINAL CTA SECTION ===== -->
-    <section class="py-5 text-white" style="background: linear-gradient(135deg, var(--plum), var(--primary-pink));">
+    <section class="py-5 text-white" style="background: linear-gradient(135deg, var(--midnight), var(--primary-coral));">
         <div class="container text-center">
-            <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Life?</h2>
-            <p class="fs-5 mb-5 opacity-90">Join thousands of women on their journey to financial independence</p>
+            <h2 class="display-5 fw-bold mb-3 animate-stagger light-effect" style="--order: 1;">Ready to Transform Your Life?</h2>
+            <p class="fs-5 mb-4 opacity-90 animate-stagger" style="--order: 2;">Join thousands of women on their journey to financial independence</p>
             
-            <div class="card bg-white bg-opacity-15 backdrop-blur border-0 p-4 p-md-5 mb-5">
-                <h3 class="h4 fw-bold mb-4">📲 How to Start?</h3>
-                <p class="fs-5 mb-4">Bas mujhe WhatsApp par message karein:</p>
-                <div class="row g-3 mb-4">
-                    <div class="col-md-4"><div class="bg-white bg-opacity-20 p-3 rounded"><strong>📝 Name:</strong> Your Full Name</div></div>
-                    <div class="col-md-4"><div class="bg-white bg-opacity-20 p-3 rounded"><strong>🎂 Age:</strong> Your Age</div></div>
-                    <div class="col-md-4"><div class="bg-white bg-opacity-20 p-3 rounded"><strong>💼 Profession:</strong> Current Status</div></div>
+            <!-- FIXED BOX SECTION - INCREASED OPACITY FOR CLARITY -->
+            <div class="card bg-white bg-opacity-35 backdrop-blur border-0 p-4 p-md-5 mb-4 animate-stagger light-effect" style="--order: 3;">
+                <h3 class="h4 fw-bold mb-3">📲 How to Start?</h3>
+                <p class="fs-5 mb-3">Bas mujhe WhatsApp par message karein:</p>
+                <div class="row g-2 mb-3">
+                    <div class="col-md-4"><div class="bg-white bg-opacity-30 p-3 rounded"><strong>📝 Name:</strong> Your Full Name</div></div>
+                    <div class="col-md-4"><div class="bg-white bg-opacity-30 p-3 rounded"><strong>🎂 Age:</strong> Your Age</div></div>
+                    <div class="col-md-4"><div class="bg-white bg-opacity-30 p-3 rounded"><strong>💼 Profession:</strong> Current Status</div></div>
                 </div>
-                <p class="fs-6 fw-semibold mb-4">📌 Save My Number: 7017839604</p>
-                <button class="wa-btn pulse-soft open-any" data-source="FinalCTA" style="background: white; color: var(--success);">
+                <p class="fs-6 fw-semibold mb-3">📌 Save My Number: 7017839604</p>
+                <button class="wa-btn pulse-soft open-any animate-stagger" style="--order: 4; background: white; color: var(--success);">
                     <i data-lucide="message-circle" width="22"></i>
                     Click to Message on WhatsApp
                 </button>
             </div>
             
-            <div class="card bg-white bg-opacity-15 border-0 p-4 mb-4">
-                <h4 class="h5 fw-bold mb-3 text-white">⏳ Within 24 hours:</h4>
+            <div class="card bg-white bg-opacity-25 border-0 p-3 mb-3 animate-stagger light-effect" style="--order: 5;">
+                <h4 class="h5 fw-bold mb-2 text-white">⏳ Within 24 hours:</h4>
                 <div class="row text-white">
                     <div class="col-md-6"><div class="d-flex align-items-center gap-2 justify-content-center"><svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>📋 Complete Details</div></div>
                     <div class="col-md-6"><div class="d-flex align-items-center gap-2 justify-content-center"><svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>🗺 Clear Roadmap</div></div>
                 </div>
             </div>
             
-            <p class="fs-6 mb-2">🌟 Empower her with skills • 🌈 Support her with vision • 🚀 Dreams to direction</p>
-            <p class="fs-4 fw-bold mb-1">❤ With Strength & Sincerity, Mariyam Siddiqui</p>
-            <p class="fs-6 opacity-90">👩‍🏫 Empowering Females to Empower</p>
+            <p class="fs-6 mb-2 animate-stagger" style="--order: 6;">🌟 Empower her with skills • 🌈 Support her with vision • 🚀 Dreams to direction</p>
+            <p class="fs-4 fw-bold mb-1 animate-stagger" style="--order: 7;">❤ With Strength & Sincerity, Mariyam Siddiqui</p>
+            <p class="fs-6 opacity-90 animate-stagger" style="--order: 8;">👩‍🏫 Empowering Females to Empower</p>
         </div>
     </section>
 
@@ -713,17 +718,18 @@
         <div class="card form-card">
             <div class="card-body p-4 position-relative">
                 <button id="closeFormBtn" class="btn-close position-absolute top-0 end-0 m-3" aria-label="Close"></button>
-                <div class="text-center mb-4">
-                    <h2 class="h4 fw-bold mb-2">🔥 Start Your Journey Today</h2>
+                <div class="text-center mb-3">
+                    <h2 class="h4 fw-bold mb-1">🔥 Start Your Journey Today</h2>
                     <p class="text-muted small">Fill details to unlock your potential</p>
                 </div>
                 <form id="mainForm" novalidate>
                     <input type="hidden" id="sourceInfo" name="sourceInfo">
-                    <div class="row g-3">
+                    <div class="row g-2">
                         <div class="col-12"><label class="form-label d-flex align-items-center gap-2"><i data-lucide="user" style="width: 16px;"></i> Full Name</label><input id="inp_name" type="text" class="form-control" required placeholder="Enter full name"></div>
                         <div class="col-12"><label class="form-label d-flex align-items-center gap-2"><i data-lucide="phone" style="width: 16px;"></i> Phone</label><input id="inp_phone" type="tel" class="form-control" required placeholder="Enter phone number"></div>
-                        <div class="col-12"><label class="form-label d-flex align-items-center gap-2"><i data-lucide="calendar" style="width: 16px;"></i> Age</label><input id="inp_age" type="number" class="form-control" required placeholder="Enter age" min="10" max="120"></div>
-                        <div class="col-12"><label class="form-label d-flex align-items-center gap-2"><i data-lucide="users" style="width: 16px;"></i> Gender</label><select id="inp_gender" class="form-select" required><option value="">Select Gender</option><option value="female">Female</option><option value="male">Male</option><option value="other">Other</option></select></div>
+                        <!-- AGE AND GENDER SIDE BY SIDE -->
+                        <div class="col-6"><label class="form-label d-flex align-items-center gap-2"><i data-lucide="calendar" style="width: 16px;"></i> Age</label><input id="inp_age" type="number" class="form-control" required placeholder="Enter age" min="10" max="120"></div>
+                        <div class="col-6"><label class="form-label d-flex align-items-center gap-2"><i data-lucide="users" style="width: 16px;"></i> Gender</label><select id="inp_gender" class="form-select" required><option value="">Select Gender</option><option value="female">Female</option><option value="male">Male</option><option value="other">Other</option></select></div>
                         <div class="col-12"><label class="form-label d-flex align-items-center gap-2"><i data-lucide="briefcase" style="width: 16px;"></i> Profession</label><select id="inp_profession" class="form-select" required><option value="">Select Profession</option><option>Student</option><option>Housewife</option><option>Job</option><option>Other</option></select></div>
                         <div class="col-12"><button type="submit" class="wa-btn w-100">🚀 Send to WhatsApp & Start</button></div>
                     </div>
