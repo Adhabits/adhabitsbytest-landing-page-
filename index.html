@@ -2,8 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariyam Siddiqui - Empowering Women to Rise & Shine ✨</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Ahmadi Sultana - Empowering Women to Rise & Shine ✨</title>
+    
+    <!-- SEO & Performance Meta -->
+    <meta name="description" content="Join 100K+ women earning ₹50K-₹1L monthly. Ahmadi Sultana helps homemakers become online money makers. Start today!">
+    <meta property="og:image" content="https://i.ibb.co/F4tSWcpj/Ahmadi-appi.jpg">
+    <meta name="theme-color" content="#4169E1">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,133 +21,214 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <style>
-        /* ==== MODERN FEMININE EMPOWERMENT PALETTE ==== */
+        /* ===== NEW ROYAL THEME COLORS ===== */
         :root {
-            --primary-coral: #FF5E8E;
-            --lavender: #6A67CE;
-            --midnight: #1A1A2E;
-            --soft-rose: #FFF9F9;
+            --royal-blue: #4169E1;
+            --hot-pink: #FF1493;
+            --gold: #FFD700;
+            --soft-lilac: #F5F0FF;
+            --dark-navy: #1B1B3A;
+            --emerald: #50C878;
             --white: #FFFFFF;
-            --text-dark: #1A1A2E;
-            --text-medium: #4A3F55;
-            --text-light: #7A6E85;
-            --success: #00C9B7;
-            --shadow: 0 6px 20px rgba(106, 103, 206, 0.12);
-            --shadow-hover: 0 10px 30px rgba(106, 103, 206, 0.18);
-            --glow: 0 0 20px rgba(255, 94, 142, 0.35);
-            --light-effect: 0 0 30px rgba(106, 103, 206, 0.25);
+            --shadow: 0 6px 20px rgba(65, 105, 225, 0.12);
+            --shadow-hover: 0 10px 30px rgba(65, 105, 225, 0.18);
+            --glow: 0 0 25px rgba(255, 20, 147, 0.4);
+            --glow-intense: 0 0 40px rgba(255, 20, 147, 0.6);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            background: var(--soft-rose);
-            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            background: var(--soft-lilac);
+            color: var(--dark-navy);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* ==== ANIMATIONS ==== */
+        /* ===== LIGHT EFFECTS CSS ===== */
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 20px rgba(255, 20, 147, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(255, 20, 147, 0.8); }
+            100% { box-shadow: 0 0 20px rgba(255, 20, 147, 0.4); }
+        }
+        
+        .glow-pulse {
+            animation: pulseGlow 2.5s infinite;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.35) 50%,
+                transparent 70%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+            z-index: 0;
+            transform: rotate(30deg);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .shine-effect:hover::before {
+            opacity: 1;
+        }
+        
+        .glow-border {
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, var(--royal-blue), var(--hot-pink)) border-box;
+            transition: all 0.4s ease;
+        }
+        
+        .glow-border:hover {
+            box-shadow: 0 0 25px rgba(65, 105, 225, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        .wa-btn {
+            background: linear-gradient(135deg, var(--emerald), #40E0D0);
+            color: var(--white);
+            padding: 0.85rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 8px 20px rgba(80, 200, 120, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 1rem;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wa-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: var(--glow-intense), 0 15px 30px rgba(80, 200, 120, 0.4);
+        }
+
+        .wa-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+        
+        @keyframes buttonShine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(30deg); opacity: 0; }
+        }
+        
+        .wa-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.5) 50%,
+                transparent 100%
+            );
+            transform: rotate(30deg);
+            transition: all 0.6s ease;
+            z-index: 0;
+            opacity: 0;
+        }
+        
+        .wa-btn:hover::after {
+            animation: buttonShine 0.8s ease;
+        }
+        
+        .wa-btn > * {
+            position: relative;
+            z-index: 1;
+        }
+        
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes shimmerFlow {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
+        .animate-fade-in { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
+        .animate-stagger { animation: fadeInUp 0.6s ease-out forwards; animation-delay: calc(var(--order) * 0.1s); opacity: 0; }
 
-        @keyframes pulseSoft {
-            0%, 100% { box-shadow: var(--glow); }
-            50% { box-shadow: 0 0 30px rgba(255, 94, 142, 0.55); }
-        }
-
-        @keyframes infiniteScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* ==== LIGHT EFFECT FOR ANIMATED ELEMENTS ==== */
-        @keyframes lightPulse {
-            0%, 100% { 
-                box-shadow: var(--shadow), var(--light-effect);
-                transform: scale(1);
-            }
-            50% { 
-                box-shadow: var(--shadow-hover), 0 0 40px rgba(106, 103, 206, 0.35);
-                transform: scale(1.02);
-            }
-        }
-
-        .light-effect {
-            animation: lightPulse 3s ease-in-out infinite;
-        }
-
-        /* ==== UTILITY CLASSES ==== */
-        .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
-        .animate-stagger { animation: fadeInUp 0.6s ease-out forwards; animation-delay: calc(var(--order) * 0.15s); opacity: 0; }
-        .pulse-soft { animation: pulseSoft 2s ease-in-out infinite; }
-
-        /* ==== REDUCED GAPS ==== */
-        section {
-            padding: 50px 0;
-            position: relative;
-        }
-
-        .row > * {
-            margin-bottom: 0.5rem;
-        }
-
+        section { padding: 50px 0; position: relative; }
         .mb-5 { margin-bottom: 1.5rem !important; }
         .mb-4 { margin-bottom: 1rem !important; }
         .mb-3 { margin-bottom: 0.75rem !important; }
         .g-5 { gap: 1.5rem !important; }
-        .g-4 { gap: 1rem !important; }
-        .g-3 { gap: 0.75rem !important; }
 
-        /* ==== HERO SECTION ==== */
         .hero-section {
-            background: linear-gradient(135deg, var(--white), var(--soft-rose));
-            padding: 80px 0 60px;
+            background: linear-gradient(135deg, var(--white), var(--soft-lilac));
+            padding: 70px 0 50px;
             overflow: hidden;
         }
 
         .badge-custom {
-            background: linear-gradient(135deg, var(--primary-coral), var(--lavender));
-            color: white;
+            background: linear-gradient(135deg, var(--royal-blue), var(--hot-pink));
+            color: var(--white);
             padding: 0.6rem 1.5rem;
             border-radius: 50px;
-            font-size: 0.95rem;
             font-weight: 600;
+            font-size: 0.875rem;
             display: inline-block;
             margin-bottom: 1rem;
             box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border: none;
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, var(--midnight), var(--primary-coral));
+            background: linear-gradient(135deg, var(--dark-navy), var(--royal-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
-            letter-spacing: -0.5px;
         }
 
-        /* ==== ABOUT SECTION ==== */
+        .hero-text-compact {
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            font-size: 1.125rem;
+            line-height: 1.4;
+        }
+
         .about-img {
             width: 100%;
-            height: 400px;
+            height: auto;
+            max-height: 500px;
             border-radius: 15px;
-            object-fit: cover;
+            object-fit: contain;
             box-shadow: var(--shadow);
-            border: 6px solid white;
+            border: 6px solid var(--white);
             transition: all 0.4s ease;
+            margin-top: 0 !important;
+            display: block;
         }
 
         .about-img:hover {
@@ -146,18 +236,18 @@
             box-shadow: var(--shadow-hover);
         }
 
-        /* ==== STATS CARDS ==== */
+        .about-content {
+            padding-left: 0.5rem;
+        }
+
         .stat-card {
-            background: white;
-            padding: 1.5rem;
+            background: var(--white);
+            padding: 1.25rem;
             border-radius: 12px;
             box-shadow: var(--shadow);
             text-align: center;
             transition: all 0.3s ease;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         .stat-card:hover {
@@ -165,55 +255,66 @@
             box-shadow: var(--shadow-hover);
         }
 
-        .stat-card .counter {
+        .counter {
             font-size: 2rem;
             font-weight: 800;
-            color: var(--primary-coral);
-            line-height: 1;
+            color: var(--royal-blue);
         }
 
-        .stat-card .text-muted {
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-            color: var(--text-medium) !important;
-        }
-
-        /* ==== FEEDBACK CAROUSEL ==== */
+        /* ===== VIDEO FEEDBACK SECTION - MANUAL SCROLL ENABLED ===== */
         .feedback-viewport {
-            overflow: hidden;
-            border-radius: 12px;
+            overflow-x: auto; /* Enable horizontal scrolling */
             margin: 1.5rem 0;
-            position: relative;
+            padding-bottom: 10px; /* Space for scrollbar */
+        }
+
+        /* Custom scrollbar styling */
+        .feedback-viewport::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .feedback-viewport::-webkit-scrollbar-track {
+            background: var(--soft-lilac);
+            border-radius: 10px;
+        }
+
+        .feedback-viewport::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--royal-blue), var(--hot-pink));
+            border-radius: 10px;
         }
 
         .feedback-track {
             display: flex;
             gap: 15px;
-            animation: infiniteScroll 30s linear infinite;
-            width: max-content;
+            width: max-content; /* Allow track to be wider than viewport */
         }
 
         .feedback-item {
             flex-shrink: 0;
-            border-radius: 10px;
+            width: 260px;
+            border-radius: 15px;
             overflow: hidden;
+            transition: transform 0.4s ease;
+            position: relative;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            background: #000;
+        }
+        
+        .feedback-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-hover);
         }
 
-        .feedback-item img {
+        .feedback-item iframe {
             display: block;
-            height: 300px;
-            width: auto;
+            width: 100%;
+            height: 340px;
+            border: none;
+            border-radius: 15px;
         }
 
-        .feedback-viewport:hover .feedback-track {
-            animation-play-state: paused;
-        }
-
-        /* ==== STEPS SECTION ==== */
         .step-card {
-            background: white;
+            background: var(--white);
             border-radius: 15px;
             padding: 1.5rem;
             box-shadow: var(--shadow);
@@ -229,75 +330,35 @@
         .step-number {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--primary-coral), var(--lavender));
-            color: white;
+            background: linear-gradient(135deg, var(--royal-blue), var(--hot-pink));
+            color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            font-weight: 800;
             font-size: 1.3rem;
             flex-shrink: 0;
-            box-shadow: var(--shadow);
         }
 
-        /* ==== FAQ SECTION ==== */
         .accordion-item {
             border: none;
             border-radius: 10px !important;
             margin-bottom: 0.75rem;
             box-shadow: var(--shadow);
-            overflow: hidden;
         }
 
         .accordion-button {
-            background: white;
+            background: var(--white);
             font-weight: 600;
             padding: 1rem;
-            color: var(--text-dark);
         }
 
         .accordion-button:not(.collapsed) {
-            background: linear-gradient(135deg, var(--soft-rose), white);
-            color: var(--midnight);
+            background: linear-gradient(135deg, var(--soft-lilac), var(--white));
+            color: var(--dark-navy);
         }
 
-        /* ==== WHATSAPP BUTTONS ==== */
-        .wa-btn {
-            background: var(--success);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 6px 18px rgba(0, 201, 183, 0.25);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            font-size: 0.95rem;
-        }
-
-        .wa-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmerFlow 2.5s infinite;
-        }
-
-        .wa-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 12px 25px rgba(0, 201, 183, 0.4);
-        }
-
-        /* ==== FORM POPUP ==== */
         .form-backdrop {
             position: fixed;
             inset: 0;
@@ -325,7 +386,7 @@
             max-height: 85vh;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
         }
 
         #formContainer.show {
@@ -335,11 +396,8 @@
         }
 
         .form-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: var(--shadow-hover);
-            border: none;
-            overflow-y: auto;
+            box-shadow: 0 0 40px rgba(65, 105, 225, 0.3);
+            border: 2px solid rgba(65, 105, 225, 0.2);
         }
 
         .form-control, .form-select {
@@ -347,67 +405,33 @@
             border-radius: 8px;
             padding: 0.6rem 0.9rem;
             transition: all 0.3s ease;
-            font-size: 0.95rem;
         }
 
         .form-control:focus, .form-select:focus {
-            border-color: var(--primary-coral);
-            box-shadow: 0 0 0 4px rgba(255, 94, 142, 0.15);
+            border-color: var(--royal-blue);
+            box-shadow: 0 0 0 4px rgba(65, 105, 225, 0.15);
         }
 
-        /* ==== MOBILE RESPONSIVE ==== */
         @media (max-width: 768px) {
-            section {
-                padding: 40px 0;
+            section { padding: 40px 0; }
+            .hero-section { padding: 50px 0 30px; }
+            .about-img { 
+                height: auto; 
+                max-height: 350px;
+                object-fit: contain;
             }
-
-            h1 {
-                font-size: 1.8rem !important;
-            }
-
-            h2 {
-                font-size: 1.5rem !important;
-            }
-
-            .hero-section {
-                padding: 60px 0 40px;
-            }
-
-            .about-img {
-                height: 300px;
-            }
-
-            .feedback-item img {
-                height: 250px;
-            }
-
-            .stat-card {
-                padding: 1.25rem;
-            }
-
-            .stat-card .counter {
-                font-size: 1.8rem;
-            }
-
-            .step-card {
-                padding: 1.25rem;
-            }
-
-            .step-number {
-                width: 45px;
-                height: 45px;
-                font-size: 1.1rem;
-            }
+            .feedback-item { width: 220px; }
+            .feedback-item iframe { height: 280px; }
+            .counter { font-size: 1.6rem; }
+            .wa-btn { width: 100%; justify-content: center; }
+            h1.display-3 { font-size: 2rem; }
+            h2.display-5 { font-size: 1.5rem; }
         }
 
-        /* ==== HIDE FLOATING WIDGETS ==== */
-        .crisp-client, #crisp-chatbox, .intercom-launcher, .tawk-min-container,
-        div[style*="position:fixed"][style*="bottom"] { display: none !important; }
-
-        /* ==== SCROLLBAR ==== */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--soft-rose); }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, var(--primary-coral), var(--lavender)); border-radius: 4px; }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+            .shine-effect::before, .wa-btn::after { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -418,67 +442,63 @@
     <!-- ===== HERO SECTION ===== -->
     <section class="hero-section text-center">
         <div class="container position-relative">
-            <div class="badge-custom animate-stagger light-effect" style="--order: 1;">🚺 Girls Only!</div>
-            <h1 class="display-3 fw-bold gradient-text mb-3 animate-stagger" style="--order: 2;">
-                Join Over <span class="counter" data-target="100000" data-suffix="+">0</span> Women <br>
-                <span class="text-muted fs-2 fw-normal">Rising Together</span>
+            <div class="badge-custom animate-stagger glow-pulse mb-3" style="--order: 1;">🚺 Women Only Community</div>
+            
+            <h1 class="display-3 fw-bold gradient-text mb-2 animate-stagger" style="--order: 2;">
+                Join <span class="counter" data-target="100000" data-suffix="+">0</span> Women
             </h1>
-            <p class="lead text-muted mb-4 animate-stagger" style="--order: 3;" style="max-width: 700px; margin: 0 auto 1.5rem;">
-                From Homemaker to Online Money Maker Coach - Empowering Women to Empower
+            <p class="hero-text-compact text-muted animate-stagger" style="--order: 3;">
+                Rising Together • From Homemaker to Online Money Maker
             </p>
-            <button class="wa-btn pulse-soft open-any animate-stagger light-effect" style="--order: 4;" data-source="Hero">
-                <i data-lucide="message-circle" width="20"></i>
-                Message on WhatsApp: 7017839604
-            </button>
         </div>
     </section>
 
     <!-- ===== ABOUT SECTION ===== -->
     <section class="py-5 bg-white">
         <div class="container">
-            <div class="row g-3 align-items-center">
+            <div class="row g-4 align-items-center">
                 <div class="col-lg-6 animate-stagger" style="--order: 1;">
-                    <img src="https://i.ibb.co/BK724dHs/IMG-8913.jpg" alt="Mariyam Siddiqui" class="about-img light-effect">
+                    <img src="https://i.ibb.co/F4tSWcpj/Ahmadi-appi.jpg" alt="Ahmadi Sultana - Full Photo" class="about-img" loading="lazy">
                 </div>
-                <div class="col-lg-6 animate-stagger" style="--order: 2;">
-                    <div class="badge-custom mb-2 light-effect">💫 Your Coach</div>
-                    <h2 class="display-5 fw-bold mb-2 animate-stagger" style="--order: 3;">Hi, Mariyam Siddiqui this side!</h2>
+                <div class="col-lg-6 animate-stagger about-content" style="--order: 2;">
+                    <div class="badge-custom mb-2 glow-pulse">💫 Your Coach</div>
+                    <h2 class="display-5 fw-bold mb-3">Hi, I'm Ahmadi Sultana</h2>
+                    
                     <div class="mb-3">
-                        <p class="fs-5 d-flex align-items-center gap-3 mb-2 animate-stagger" style="--order: 4;">
-                            <span class="fs-2">🏡</span> Ek homemaker
-                        </p>
-                        <p class="fs-5 d-flex align-items-center gap-3 mb-2 animate-stagger" style="--order: 5;">
-                            <span class="fs-2">💻</span> Freelancer
-                        </p>
-                        <p class="fs-5 d-flex align-items-center gap-3 animate-stagger" style="--order: 6;">
-                            <span class="fs-2">🎯</span> Aur Online Money Maker Coach hoon
-                        </p>
+                        <p class="fs-5 d-flex align-items-center gap-3 mb-2">🏡 Ek homemaker</p>
+                        <p class="fs-5 d-flex align-items-center gap-3 mb-2">💻 Freelancer</p>
+                        <p class="fs-5 d-flex align-items-center gap-3">🎯 Online Money Maker Coach</p>
                     </div>
-                    <div class="p-3 rounded-2 mb-3 animate-stagger light-effect" style="--order: 7; background: linear-gradient(135deg, var(--soft-rose), var(--white));">
-                        <h3 class="h5 fw-bold mb-2">🎯 Mera Vision Simple Hai:</h3>
-                        <p class="fs-5 fw-semibold mb-0" style="color: var(--midnight);">
-                            "Empowering Females to Empower" - Har ladki ke liye jo sapne jeena chahti hai.
+                    
+                    <div class="p-3 rounded-2 mb-3 glow-border" style="background: linear-gradient(135deg, var(--soft-lilac), var(--white));">
+                        <h3 class="h5 fw-bold mb-2">🎯 Mera Vision:</h3>
+                        <p class="fs-5 fw-semibold mb-0" style="color: var(--dark-navy);">
+                            "Empowering Females to Empower"
                         </p>
                     </div>
                     
-                    <!-- MOBILE OPTIMIZED STATS -->
-                    <div class="row g-2">
-                        <div class="col-12 col-md-4 animate-stagger" style="--order: 8;">
-                            <div class="stat-card light-effect">
+                    <button class="wa-btn mb-4 open-any shine-effect" data-source="About Section">
+                        <i data-lucide="message-circle" width="20"></i>
+                        Connect on WhatsApp
+                    </button>
+
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="stat-card shine-effect">
                                 <div class="counter" data-target="5" data-suffix="+">0</div>
-                                <div class="text-muted">Years Experience</div>
+                                <div class="text-muted small">Years Experience</div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-4 animate-stagger" style="--order: 9;">
-                            <div class="stat-card light-effect">
+                        <div class="col-md-4">
+                            <div class="stat-card shine-effect">
                                 <div class="counter" data-target="300" data-suffix="+">0</div>
-                                <div class="text-muted">Students Helped</div>
+                                <div class="text-muted small">Students Helped</div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-4 animate-stagger" style="--order: 10;">
-                            <div class="stat-card light-effect">
+                        <div class="col-md-4">
+                            <div class="stat-card shine-effect">
                                 <div class="counter" data-target="100000" data-prefix="₹">0</div>
-                                <div class="text-muted">Monthly Earning</div>
+                                <div class="text-muted small">Monthly Earning</div>
                             </div>
                         </div>
                     </div>
@@ -487,43 +507,53 @@
         </div>
     </section>
 
-    <!-- ===== FEEDBACK SECTION ===== -->
-    <section class="py-5" style="background: linear-gradient(135deg, var(--soft-rose), var(--white));">
+    <!-- ===== VIDEO FEEDBACK SECTION - MANUAL SCROLL ENABLED ===== -->
+    <section class="py-5" style="background: linear-gradient(135deg, var(--soft-lilac), var(--white));">
         <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-3 animate-stagger light-effect" style="--order: 1;">✨ Student Feedback & Proof</h2>
-            <p class="text-center text-muted mb-4 animate-stagger" style="--order: 2;">Real screenshots from our successful students</p>
+            <h2 class="text-center display-5 fw-bold mb-3 animate-stagger" style="--order: 1;">✨ Real Success Stories</h2>
+            <p class="text-center text-muted mb-4 animate-stagger" style="--order: 2;">Watch authentic feedback from our thriving community</p>
             
-            <div class="feedback-viewport animate-stagger light-effect" style="--order: 3;">
+            <div class="feedback-viewport animate-stagger" style="--order: 3;">
                 <div class="feedback-track" id="feedbackTrack">
-                    <a class="feedback-item" href="https://ibb.co/8ghTj2zj" target="_blank" rel="noopener">
-                        <img src="https://i.ibb.co/v4tgJmsJ/premimun-fb.jpg" alt="Student Feedback 1">
-                    </a>
-                    <a class="feedback-item" href="https://ibb.co/9HtMg85b" target="_blank" rel="noopener">
-                        <img src="https://i.ibb.co/whsvg0mS/Whats-App-Image-2025-11-02-at-12-10-25-PM-4.jpg" alt="Student Feedback 2">
-                    </a>
-                    <a class="feedback-item" href="https://ibb.co/XZS8Jqm4" target="_blank" rel="noopener">
-                        <img src="https://i.ibb.co/pvJyXSCP/Whats-App-Image-2025-11-02-at-12-10-25-PM-1.jpg" alt="Student Feedback 3">
-                    </a>
-                    <a class="feedback-item" href="https://ibb.co/gLGpY8wZ" target="_blank" rel="noopener">
-                        <img src="https://i.ibb.co/C3qZLyvK/Whats-App-Image-2025-11-02-at-12-10-24-PM-1.jpg" alt="Student Feedback 4">
-                    </a>
-                    <a class="feedback-item" href="https://ibb.co/N6dGqGcn" target="_blank" rel="noopener">
-                        <img src="https://i.ibb.co/yncxCxHB/Whats-App-Image-2025-11-02-at-12-10-24-PM.jpg" alt="Student Feedback 5">
-                    </a>
-                    <!-- Duplicate for seamless loop -->
-                    <a class="feedback-item" href="https://ibb.co/8ghTj2zj" target="_blank" rel="noopener">
-                        <img src="https://i.ibb.co/v4tgJmsJ/premimun-fb.jpg" alt="Student Feedback 1">
-                    </a>
-                    <a class="feedback-item" href="https://ibb.co/9HtMg85b" target="_blank" rel="noopener">
-                        <img src="https://i.ibb.co/whsvg0mS/Whats-App-Image-2025-11-02-at-12-10-25-PM-4.jpg" alt="Student Feedback 2">
-                    </a>
+                    <!-- Video 1: Business person feedback -->
+                    <div class="feedback-item">
+                        <iframe src="https://www.youtube.com/embed/IS5KDW5NBYo?rel=0&modestbranding=1" allowfullscreen></iframe>
+                    </div>
+                    <!-- Video 2: Student feedback -->
+                    <div class="feedback-item">
+                        <iframe src="https://www.youtube.com/embed/m0Dp-U2jzrQ?rel=0&modestbranding=1" allowfullscreen></iframe>
+                    </div>
+                    <!-- Video 3: House wife feedbacks -->
+                    <div class="feedback-item">
+                        <iframe src="https://www.youtube.com/embed/gsBAY-zZ5CM?rel=0&modestbranding=1" allowfullscreen></iframe>
+                    </div>
+                    <!-- Video 4: Video editing student -->
+                    <div class="feedback-item">
+                        <iframe src="https://www.youtube.com/embed/56QMKtQzD5U?rel=0&modestbranding=1" allowfullscreen></iframe>
+                    </div>
+                    <!-- Video 5: Doctor learn digital marketing -->
+                    <div class="feedback-item">
+                        <iframe src="https://www.youtube.com/embed/3SZogWt3ME8?rel=0&modestbranding=1" allowfullscreen></iframe>
+                    </div>
+                    <!-- Video 6: Company AVP feedback -->
+                    <div class="feedback-item">
+                        <iframe src="https://www.youtube.com/embed/IiQpipMNwug?rel=0&modestbranding=1" allowfullscreen></iframe>
+                    </div>
+                    <!-- Video 7: Job person feedbacks -->
+                    <div class="feedback-item">
+                        <iframe src="https://www.youtube.com/embed/_RRXQmcaDqU?rel=0&modestbranding=1" allowfullscreen></iframe>
+                    </div>
+                    <!-- Video 8: Responsibility woman feedback -->
+                    <div class="feedback-item">
+                        <iframe src="https://www.youtube.com/embed/sx7CvJKXXzM?rel=0&modestbranding=1" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
             
             <div class="text-center mt-4">
-                <button class="wa-btn pulse-soft open-any animate-stagger light-effect" style="--order: 4;" data-source="Feedback">
+                <button class="wa-btn open-any shine-effect" data-source="Feedback Section">
                     <i data-lucide="message-circle" width="20"></i>
-                    Chat on WhatsApp: 7017839604
+                    Join Our Success Stories
                 </button>
             </div>
         </div>
@@ -532,79 +562,81 @@
     <!-- ===== STEPS SECTION ===== -->
     <section class="py-5 bg-white">
         <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-4 animate-stagger light-effect" style="--order: 1;">What Happens When You Join?</h2>
-            <div class="row g-2">
-                <div class="col-md-6 col-lg-3 animate-stagger light-effect" style="--order: 2;">
-                    <div class="step-card">
+            <h2 class="text-center display-5 fw-bold mb-4">What Happens When You Join?</h2>
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card shine-effect">
                         <div class="d-flex align-items-start gap-3">
                             <div class="step-number">1</div>
                             <div>
                                 <h3 class="h5 fw-bold mb-2">Instant Connection</h3>
-                                <p class="text-muted mb-0">Direct WhatsApp connection with Mariyam for personal guidance.</p>
+                                <p class="text-muted mb-0 small">Direct WhatsApp access to Ise</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 animate-stagger light-effect" style="--order: 3;">
-                    <div class="step-card">
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card shine-effect">
                         <div class="d-flex align-items-start gap-3">
                             <div class="step-number">2</div>
                             <div>
                                 <h3 class="h5 fw-bold mb-2">Complete Access</h3>
-                                <p class="text-muted mb-0">Unlock proven step-by-step training and earning system.</p>
+                                <p class="text-muted mb-0 small">Proven step-by-step training system</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 animate-stagger light-effect" style="--order: 4;">
-                    <div class="step-card">
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card shine-effect">
                         <div class="d-flex align-items-start gap-3">
                             <div class="step-number">3</div>
                             <div>
                                 <h3 class="h5 fw-bold mb-2">Daily Mentorship</h3>
-                                <p class="text-muted mb-0">Daily support, tools, and mentorship for success.</p>
+                                <p class="text-muted mb-0 small">24/7 support & community access</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 animate-stagger light-effect" style="--order: 5;">
-                    <div class="step-card">
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card shine-effect">
                         <div class="d-flex align-items-start gap-3">
                             <div class="step-number">4</div>
                             <div>
                                 <h3 class="h5 fw-bold mb-2">Start Earning</h3>
-                                <p class="text-muted mb-0">Begin your earning journey confidently from Week 1.</p>
+                                <p class="text-muted mb-0 small">Begin from Week 1 confidently</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="text-center mt-5">
+                <button class="wa-btn open-any shine-effect" data-source="Steps">
+                    <i data-lucide="message-circle" width="20"></i>
+                    Get Started Now
+                </button>
+            </div>
         </div>
     </section>
 
     <!-- ===== STATS SECTION ===== -->
-    <section class="py-5" style="background: linear-gradient(135deg, var(--soft-rose), var(--white));">
+    <section class="py-5" style="background: linear-gradient(135deg, var(--soft-lilac), var(--white));">
         <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-4 animate-stagger light-effect" style="--order: 1;">Know Your Coach</h2>
+            <h2 class="text-center display-5 fw-bold mb-4">Know Your Coach</h2>
             <div class="row g-3 align-items-center">
                 <div class="col-md-6">
-                    <div class="d-flex align-items-center gap-3 p-3 rounded-2 mb-3 shadow-sm animate-stagger light-effect" style="--order: 2; background: linear-gradient(135deg, var(--soft-rose), var(--white));">
-                        <div class="text-white d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary-coral), var(--lavender));">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M9.669.864 8 0 6.331.864 5.4 2.5 4.017 3.066 4.29 4.71 3.466 6.098 4.857 6.567 5.4 8 6.99 8.121 8 9.5l1.01-1.379L10.6 8l.543-1.433 1.39-.469-.823-1.389.273-1.645-1.383-.566L9.669.864zM8 3.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
-                                <path d="M7.117 10.804 5.27 14H3l1.447-2.789A6.978 6.978 0 0 1 8 10a6.978 6.978 0 0 1 3.553.711L13 14h-2.27l-1.847-3.196A7.007 7.007 0 0 0 8 11a7.007 7.007 0 0 0-.883-.196z"/>
-                            </svg>
+                    <div class="d-flex align-items-center gap-3 p-3 rounded-2 mb-3 shadow-sm glow-border" style="background: linear-gradient(135deg, var(--soft-lilac), var(--white));">
+                        <div class="text-white d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--royal-blue), var(--hot-pink));">
+                            ⭐
                         </div>
                         <div>
                             <h3 class="fw-bold mb-1 fs-2"><span class="counter" data-target="5" data-suffix="+">0</span></h3>
                             <p class="mb-0 text-muted fs-5">Years of Experience</p>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center gap-3 p-3 rounded-2 shadow-sm animate-stagger light-effect" style="--order: 3; background: linear-gradient(135deg, var(--white), var(--soft-rose));">
-                        <div class="text-white d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--lavender), var(--midnight));">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M13 7c0-1.105-.672-2-1.5-2S10 5.895 10 7s.672 2 1.5 2S13 8.105 13 7zM4.5 9C5.328 9 6 8.105 6 7S5.328 5 4.5 5 3 5.895 3 7s.672 2 1.5 2zm5.493 2.574a4.87 4.87 0 0 0-1.483-.228H7.49c-.517 0-1.018.08-1.484.228C4.41 11.891 3 13.27 3 15h10c0-1.73-1.41-3.109-3.007-3.426z"/>
-                            </svg>
+                    <div class="d-flex align-items-center gap-3 p-3 rounded-2 shadow-sm glow-border" style="background: linear-gradient(135deg, var(--white), var(--soft-lilac));">
+                        <div class="text-white d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--hot-pink), var(--dark-navy));">
+                            👥
                         </div>
                         <div>
                             <h3 class="fw-bold mb-1 fs-2"><span class="counter" data-target="1000" data-suffix="+">0</span></h3>
@@ -612,10 +644,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 text-center animate-stagger" style="--order: 4;">
-                    <div class="p-4 rounded-3 shadow-lg text-white light-effect" style="background: linear-gradient(135deg, var(--midnight), var(--primary-coral));">
-                        <h3 class="fw-bold fs-3 mb-3">🔥 Now it's YOUR time</h3>
-                        <p class="fs-5 mb-3">Let's change your future — Together! 💪</p>
+                <div class="col-md-6 text-center">
+                    <div class="p-4 rounded-3 shadow-lg text-white glow-pulse" style="background: linear-gradient(135deg, var(--dark-navy), var(--royal-blue));">
+                        <h3 class="fw-bold fs-3 mb-2">🔥 Now it's YOUR time</h3>
                         <div class="row text-center">
                             <div class="col-6">
                                 <h4 class="fw-bold fs-2 mb-0">₹<span class="counter" data-target="1600000">0</span></h4>
@@ -635,41 +666,41 @@
     <!-- ===== FAQ SECTION ===== -->
     <section class="py-5 bg-white">
         <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-4 animate-stagger light-effect" style="--order: 1;">Frequently Asked Questions</h2>
+            <h2 class="text-center display-5 fw-bold mb-4">Frequently Asked Questions</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="accordion" id="faqAccordion">
-                        <div class="accordion-item animate-stagger light-effect" style="--order: 2;">
+                        <div class="accordion-item glow-border">
                             <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">What kind of work will I be doing?</button></h2>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Digital skills: social media management, content creation, digital marketing, online business strategies. 100% legitimate & skill-based.</div></div>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Digital skills: social media, content creation, digital marketing. 100% legitimate.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger light-effect" style="--order: 3;">
+                        <div class="accordion-item glow-border">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">Is this program legitimate & safe?</button></h2>
-                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Genuine skill-based training. 300+ students earning consistently. Verify my credentials & testimonials.</div></div>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Genuine training. 300+ students earning consistently. Verify credentials.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger light-effect" style="--order: 4;">
+                        <div class="accordion-item glow-border">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">How much time daily?</button></h2>
-                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Just 2-3 hours daily. Flexible for housewives, students & professionals.</div></div>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Just 2-3 hours daily. Flexible for everyone.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger light-effect" style="--order: 5;">
+                        <div class="accordion-item glow-border">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq4">When will I start earning?</button></h2>
-                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Most students see income within 1 month. Sustainable income builds in 2-3 months.</div></div>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Within 1 month. Sustainable income in 2-3 months.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger light-effect" style="--order: 6;">
+                        <div class="accordion-item glow-border">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq5">Any prior experience needed?</button></h2>
-                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">No experience needed! Step-by-step guidance. Just need smartphone & internet.</div></div>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">No experience needed! Step-by-step guidance provided.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger light-effect" style="--order: 7;">
+                        <div class="accordion-item glow-border">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq6">What support after joining?</button></h2>
-                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Daily mentorship, 24/7 WhatsApp support, weekly calls & access to successful student community.</div></div>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Daily mentorship, 24/7 WhatsApp, weekly calls & community.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger light-effect" style="--order: 8;">
+                        <div class="accordion-item glow-border">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq7">Any investment required?</button></h2>
-                            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Nominal training fee covers all materials & mentorship. No hidden costs.</div></div>
+                            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Nominal fee covers everything. No hidden costs.</div></div>
                         </div>
-                        <div class="accordion-item animate-stagger light-effect" style="--order: 9;">
+                        <div class="accordion-item glow-border">
                             <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq8">Can I do this alongside job/studies?</button></h2>
-                            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Yes! Designed for busy people. Learn & implement in your free time.</div></div>
+                            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Yes! Designed for busy people. Learn in free time.</div></div>
                         </div>
                     </div>
                 </div>
@@ -678,74 +709,102 @@
     </section>
 
     <!-- ===== FINAL CTA SECTION ===== -->
-    <section class="py-5 text-white" style="background: linear-gradient(135deg, var(--midnight), var(--primary-coral));">
+    <section class="py-5 text-white" style="background: linear-gradient(135deg, var(--dark-navy), var(--royal-blue));">
         <div class="container text-center">
-            <h2 class="display-5 fw-bold mb-3 animate-stagger light-effect" style="--order: 1;">Ready to Transform Your Life?</h2>
-            <p class="fs-5 mb-4 opacity-90 animate-stagger" style="--order: 2;">Join thousands of women on their journey to financial independence</p>
+            <h2 class="display-4 fw-bold mb-3">Ready to Transform Your Life?</h2>
+            <p class="fs-5 mb-4">Join thousands of women on their journey to financial independence</p>
             
-            <!-- FIXED BOX SECTION - INCREASED OPACITY FOR CLARITY -->
-            <div class="card bg-white bg-opacity-35 backdrop-blur border-0 p-4 p-md-5 mb-4 animate-stagger light-effect" style="--order: 3;">
-                <h3 class="h4 fw-bold mb-3">📲 How to Start?</h3>
-                <p class="fs-5 mb-3">Bas mujhe WhatsApp par message karein:</p>
+            <div class="card border-0 p-4 p-md-5 mb-4 glow-pulse" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(5px);">
+                <h3 class="h4 fw-bold mb-3 text-white">📲 How to Start?</h3>
+                <p class="fs-5 mb-3 text-white">Bas mujhe WhatsApp par message karein:</p>
                 <div class="row g-2 mb-3">
-                    <div class="col-md-4"><div class="bg-white bg-opacity-30 p-3 rounded"><strong>📝 Name:</strong> Your Full Name</div></div>
-                    <div class="col-md-4"><div class="bg-white bg-opacity-30 p-3 rounded"><strong>🎂 Age:</strong> Your Age</div></div>
-                    <div class="col-md-4"><div class="bg-white bg-opacity-30 p-3 rounded"><strong>💼 Profession:</strong> Current Status</div></div>
+                    <div class="col-md-4"><div class="glow-border text-white p-3 rounded" style="background: rgba(255,255,255,0.15);"><strong>📝 Name:</strong> Full Name</div></div>
+                    <div class="col-md-4"><div class="glow-border text-white p-3 rounded" style="background: rgba(255,255,255,0.15);"><strong>🎂 Age:</strong> Your Age</div></div>
+                    <div class="col-md-4"><div class="glow-border text-white p-3 rounded" style="background: rgba(255,255,255,0.15);"><strong>💼 Profession:</strong> Current Status</div></div>
                 </div>
-                <p class="fs-6 fw-semibold mb-3">📌 Save My Number: 7017839604</p>
-                <button class="wa-btn pulse-soft open-any animate-stagger" style="--order: 4; background: white; color: var(--success);">
+                <p class="fs-6 fw-semibold mb-2 text-white">📌 Save My Number: 79819 91377</p>
+                <p class="fs-6 fw-semibold mb-3 text-white">📍 Address: 19-2-81/3/1/A, Khaja Pahadi, Tadban, Palm, Hyderabad, Telangana, Hyderabad – 500064</p>
+                
+                <button class="wa-btn open-any glow-pulse" data-source="Final CTA" style="background: white; color: var(--emerald);">
                     <i data-lucide="message-circle" width="22"></i>
-                    Click to Message on WhatsApp
+                    Message on WhatsApp Now
                 </button>
             </div>
             
-            <div class="card bg-white bg-opacity-25 border-0 p-3 mb-3 animate-stagger light-effect" style="--order: 5;">
+            <div class="card border-0 p-3 mb-3 glow-border" style="background: rgba(255,255,255,0.15);">
                 <h4 class="h5 fw-bold mb-2 text-white">⏳ Within 24 hours:</h4>
                 <div class="row text-white">
-                    <div class="col-md-6"><div class="d-flex align-items-center gap-2 justify-content-center"><svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>📋 Complete Details</div></div>
-                    <div class="col-md-6"><div class="d-flex align-items-center gap-2 justify-content-center"><svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>🗺 Clear Roadmap</div></div>
+                    <div class="col-md-6"><div class="d-flex align-items-center gap-2 justify-content-center">📋 Complete Details</div></div>
+                    <div class="col-md-6"><div class="d-flex align-items-center gap-2 justify-content-center">🗺 Clear Roadmap</div></div>
                 </div>
             </div>
             
-            <p class="fs-6 mb-2 animate-stagger" style="--order: 6;">🌟 Empower her with skills • 🌈 Support her with vision • 🚀 Dreams to direction</p>
-            <p class="fs-4 fw-bold mb-1 animate-stagger" style="--order: 7;">❤ With Strength & Sincerity, Mariyam Siddiqui</p>
-            <p class="fs-6 opacity-90 animate-stagger" style="--order: 8;">👩‍🏫 Empowering Females to Empower</p>
+            <p class="fs-6 mb-2 text-white">🌟 Empower her with skills • 🌈 Support her with vision • 🚀 Dreams to direction</p>
+            <p class="fs-4 fw-bold mb-1 text-white">❤️ With Strength & Sincerity, Ahmadi Sultana</p>
+            <p class="fs-6 opacity-90 mb-0 text-white">👩‍🏫 Empowering Females to Empower</p>
         </div>
     </section>
 
     <!-- ===== FORM POPUP ===== -->
     <div id="formContainer">
-        <div class="card form-card">
+        <div class="card form-card glow-pulse">
             <div class="card-body p-4 position-relative">
                 <button id="closeFormBtn" class="btn-close position-absolute top-0 end-0 m-3" aria-label="Close"></button>
-                <div class="text-center mb-3">
-                    <h2 class="h4 fw-bold mb-1">🔥 Start Your Journey Today</h2>
-                    <p class="text-muted small">Fill details to unlock your potential</p>
+                <div class="text-center mb-4">
+                    <h2 class="h4 fw-bold mb-1">🚀 Start Your Journey</h2>
+                    <p class="text-muted small">Fill details to get started</p>
                 </div>
                 <form id="mainForm" novalidate>
                     <input type="hidden" id="sourceInfo" name="sourceInfo">
                     <div class="row g-2">
-                        <div class="col-12"><label class="form-label d-flex align-items-center gap-2"><i data-lucide="user" style="width: 16px;"></i> Full Name</label><input id="inp_name" type="text" class="form-control" required placeholder="Enter full name"></div>
-                        <div class="col-12"><label class="form-label d-flex align-items-center gap-2"><i data-lucide="phone" style="width: 16px;"></i> Phone</label><input id="inp_phone" type="tel" class="form-control" required placeholder="Enter phone number"></div>
-                        <!-- AGE AND GENDER SIDE BY SIDE -->
-                        <div class="col-6"><label class="form-label d-flex align-items-center gap-2"><i data-lucide="calendar" style="width: 16px;"></i> Age</label><input id="inp_age" type="number" class="form-control" required placeholder="Enter age" min="10" max="120"></div>
-                        <div class="col-6"><label class="form-label d-flex align-items-center gap-2"><i data-lucide="users" style="width: 16px;"></i> Gender</label><select id="inp_gender" class="form-select" required><option value="">Select Gender</option><option value="female">Female</option><option value="male">Male</option><option value="other">Other</option></select></div>
-                        <div class="col-12"><label class="form-label d-flex align-items-center gap-2"><i data-lucide="briefcase" style="width: 16px;"></i> Profession</label><select id="inp_profession" class="form-select" required><option value="">Select Profession</option><option>Student</option><option>Housewife</option><option>Job</option><option>Other</option></select></div>
-                        <div class="col-12"><button type="submit" class="wa-btn w-100">🚀 Send to WhatsApp & Start</button></div>
+                        <div class="col-12">
+                            <label class="form-label d-flex align-items-center gap-2"><i data-lucide="user" style="width: 16px;"></i> Full Name *</label>
+                            <input id="inp_name" type="text" class="form-control" required placeholder="Your full name">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label d-flex align-items-center gap-2"><i data-lucide="phone" style="width: 16px;"></i> Phone *</label>
+                            <input id="inp_phone" type="tel" class="form-control" required placeholder="10-digit number" maxlength="10">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label d-flex align-items-center gap-2"><i data-lucide="calendar" style="width: 16px;"></i> Age *</label>
+                            <input id="inp_age" type="number" class="form-control" required placeholder="Age" min="15" max="65">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label d-flex align-items-center gap-2"><i data-lucide="users" style="width: 16px;"></i> Gender *</label>
+                            <select id="inp_gender" class="form-select" required>
+                                <option value="">Select</option>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label d-flex align-items-center gap-2"><i data-lucide="briefcase" style="width: 16px;"></i> Profession *</label>
+                            <select id="inp_profession" class="form-select" required>
+                                <option value="">Select Profession</option>
+                                <option>Student</option>
+                                <option>Housewife</option>
+                                <option>Working Professional</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="wa-btn w-100">📲 Send to WhatsApp</button>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap Bundle -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // ==== INITIALIZE LUCIDE ICONS ====
+        // ===== OPTIMIZED SCRIPT =====
         lucide.createIcons();
 
-        // ==== COUNTER ANIMATION ====
+        // Counter Animation
         const counters = document.querySelectorAll('.counter');
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -755,43 +814,36 @@
                     const prefix = entry.target.getAttribute('data-prefix') || '';
                     const suffix = entry.target.getAttribute('data-suffix') || '';
                     let current = 0;
-                    const increment = Math.max(1, Math.floor(target / 100));
+                    const increment = Math.max(1, Math.floor(target / 50));
                     const timer = setInterval(() => {
                         current += increment;
                         if(current >= target) {
                             current = target;
                             clearInterval(timer);
-                            entry.target.textContent = prefix + current.toLocaleString() + suffix;
-                        } else {
-                            entry.target.textContent = prefix + current + suffix;
                         }
-                    }, 18);
+                        entry.target.textContent = prefix + current.toLocaleString() + suffix;
+                    }, 30);
                 }
             });
         }, { threshold: 0.3 });
         counters.forEach(counter => counterObserver.observe(counter));
 
-        // ==== FEEDBACK CAROUSEL DUPLICATION ====
-        const feedbackTrack = document.getElementById('feedbackTrack');
-        if(feedbackTrack) {
-            const children = Array.from(feedbackTrack.children);
-            children.forEach(child => feedbackTrack.appendChild(child.cloneNode(true)));
-        }
-
-        // ==== FORM LOGIC ====
+        // ===== GOOGLE SHEET + WHATSAPP FORM LOGIC =====
         const formBackdrop = document.getElementById('formBackdrop');
         const formContainer = document.getElementById('formContainer');
         const mainForm = document.getElementById('mainForm');
         const sourceInfo = document.getElementById('sourceInfo');
         const closeFormBtn = document.getElementById('closeFormBtn');
-        const WA_NUMBER_INT = "917017839604";
+        
+        // 👇 yaha tumhara Apps Script URL
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzAKEJn5TNrIz1_qGtpx6UuSQCwf_moZZyKPMIrwYMke-LKrkTldf8MB3dW_peafLiM/exec";
+        const WA_NUMBER_INT = "917981991377";
 
         function openForm(source = 'site') {
             sourceInfo.value = source;
             formBackdrop.classList.add('show');
             formContainer.classList.add('show');
             document.body.style.overflow = 'hidden';
-            setTimeout(() => document.getElementById('inp_name')?.focus(), 300);
         }
 
         function closeForm() {
@@ -801,20 +853,17 @@
             setTimeout(() => mainForm.reset(), 300);
         }
 
-        formBackdrop?.addEventListener('click', closeForm);
-        closeFormBtn?.addEventListener('click', closeForm);
+        formBackdrop.addEventListener('click', closeForm);
+        closeFormBtn.addEventListener('click', closeForm);
 
-        // Universal click handler for all buttons with open-any class
         document.addEventListener('click', (e) => {
             const trigger = e.target.closest('.open-any');
             if(trigger && !trigger.closest('#formContainer')) {
                 e.preventDefault();
-                const source = trigger.getAttribute('data-source') || trigger.textContent.trim();
-                openForm(source);
+                openForm(trigger.getAttribute('data-source') || 'Website');
             }
         });
 
-        // Form submission
         mainForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('inp_name').value.trim();
@@ -828,15 +877,43 @@
                 return;
             }
 
+            // ---- 1) SEND DATA TO GOOGLE SHEET ----
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('phone', phone);
+            formData.append('age', age);
+            formData.append('gender', gender);
+            formData.append('profession', profession);
+            formData.append('source', sourceInfo.value || 'Website');
+            formData.append('timestamp', new Date().toISOString());
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            }).catch(err => {
+                console.error('Sheet error:', err);
+            });
+
+            // ---- 2) WHATSAPP MESSAGE REDIRECT ----
             const message = encodeURIComponent(
-                `Hello Mariyam Ma'am,\n\nI am interested in your program. Here are my details:\n\nName: ${name}\nPhone: ${phone}\nAge: ${age}\nGender: ${gender}\nProfession: ${profession}\n\nPlease share next steps. Thank you!`
+                `Hello Ise Ma'am,\n\nI am interested in your program. Here are my details:\n\nName: ${name}\nPhone: ${phone}\nAge: ${age}\nGender: ${gender}\nProfession: ${profession}\n\nPlease share next steps. Thank you!`
             );
+
+            // Track Meta Pixel events before redirect
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact');
+                fbq('track', 'Lead', {
+                    content_name: 'WhatsApp Form Submission',
+                    content_category: 'Lead Generation',
+                    content_source: sourceInfo.value
+                });
+            }
 
             window.open(`https://wa.me/${WA_NUMBER_INT}?text=${message}`, '_blank');
             closeForm();
         });
 
-        // ESC key to close form
         document.addEventListener('keydown', (e) => {
             if(e.key === 'Escape') closeForm();
         });
