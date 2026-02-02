@@ -1510,17 +1510,17 @@
       }
     }
 
-    /* Contact Section */
+    /* Contact Section - Only 2 Cards */
     .contact-section {
       padding: 100px 24px;
       background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.02) 50%, transparent 100%);
     }
 
     .contact-grid {
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
 
@@ -1575,19 +1575,13 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 968px) {
-      .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     @media (max-width: 520px) {
       .contact-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    /* FAQ Section */
+    /* FAQ Section - Accordion Style */
     .faq-section {
       padding: 100px 24px;
       max-width: 800px;
@@ -2203,10 +2197,10 @@
           <span>⚡</span>
           Claim Your ₹99 Consultation
         </button>
-        <a href="tel:7258055245" class="btn-secondary">
+        <button class="btn-secondary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
           <span>📞</span>
-          Call Now: 7258055245
-        </a>
+          Call Now
+        </button>
       </div>
     </div>
   </section>
@@ -2470,7 +2464,7 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact Section - Only Email and Support -->
   <section class="contact-section" id="contact">
     <div class="section-header reveal">
       <div class="section-tag">Get in Touch</div>
@@ -2484,18 +2478,6 @@
         <h3>Email Us</h3>
         <p>General inquiries</p>
         <a href="mailto:adhabits5@gmail.com">adhabits5@gmail.com</a>
-      </div>
-      <div class="contact-card reveal">
-        <div class="contact-icon">📱</div>
-        <h3>WhatsApp / Phone</h3>
-        <p>Business hours: 9 AM - 6 PM IST</p>
-        <a href="tel:7258055245">7258055245</a>
-      </div>
-      <div class="contact-card reveal">
-        <div class="contact-icon">📍</div>
-        <h3>Location</h3>
-        <p>Motihari, Bihar, India</p>
-        <p style="color: var(--muted); font-size: 13px; margin-top: 8px;">PIN: 845304</p>
       </div>
       <div class="contact-card reveal">
         <div class="contact-icon">💬</div>
@@ -2572,11 +2554,12 @@
     </div>
   </section>
 
-  <!-- FAQ Section -->
+  <!-- FAQ Section - Accordion Style -->
   <section class="faq-section" id="faq">
     <div class="section-header reveal" style="margin-bottom: 40px;">
       <div class="section-tag">FAQ</div>
       <h2 class="section-title">Common Questions</h2>
+      <p class="section-subtitle">Click on any question to see the answer</p>
     </div>
 
     <div class="faq-item reveal">
@@ -2891,7 +2874,7 @@
   </div>
 
   <script>
-    // Preloader Animation - Faster
+    // Preloader Animation
     let progress = 0;
     const preloader = document.getElementById('preloader');
     const progressEl = document.getElementById('preloaderProgress');
@@ -2903,10 +2886,10 @@
         clearInterval(loadInterval);
         setTimeout(() => {
           preloader.classList.add('hidden');
-        }, 300); // Faster fade out
+        }, 300);
       }
       progressEl.textContent = Math.floor(progress) + '%';
-    }, 100); // Faster increment
+    }, 100);
 
     // Countdown Timer
     function startTimer() {
@@ -2998,15 +2981,17 @@
     
     reveals.forEach(el => revealObserver.observe(el));
 
-    // FAQ Toggle
+    // FAQ Toggle - Accordion Style
     function toggleFaq(btn) {
       const item = btn.parentElement;
       const isActive = item.classList.contains('active');
       
+      // Close all FAQ items first
       document.querySelectorAll('.faq-item').forEach(faq => {
         faq.classList.remove('active');
       });
       
+      // Open clicked item if it wasn't active
       if (!isActive) {
         item.classList.add('active');
       }
@@ -3033,8 +3018,6 @@
     }
 
     // Payment Modal Functions
-    let formData = {};
-
     function openModal() {
       document.getElementById('paymentModal').classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -3064,15 +3047,16 @@
       }
 
       // Store form data
-      formData = {platform, name, phone, timestamp: new Date().toISOString()};
+      const formData = {platform, name, phone, timestamp: new Date().toISOString()};
+      sessionStorage.setItem('adh_form', JSON.stringify(formData));
       
-      // Disable button and show loading
+      // Show loading state
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span class="spinner"></span> Processing...';
-      
+
       try {
-        // Send data to Google Sheets
-        const response = await fetch('https://script.google.com/macros/s/AKfycbxjfAuKc39Jbkzer9yxrCbArub72AnB18pnHqYpUEfZFFuXf_-fEkXHdvBiKyPfpv5_/exec', {
+        // Send to Google Sheets
+        await fetch('https://script.google.com/macros/s/AKfycbxjfAuKc39Jbkzer9yxrCbArub72AnB18pnHqYpUEfZFFuXf_-fEkXHdvBiKyPfpv5_/exec', {
           method: 'POST',
           mode: 'no-cors',
           headers: {
@@ -3082,16 +3066,15 @@
             platform: platform,
             name: name,
             phone: phone,
-            source: 'AdHabits Landing Page',
             date: new Date().toLocaleString('en-IN')
           })
         });
         
-        // Open payment modal after saving to sheet
+        // Open payment modal
         openModal();
         
       } catch (error) {
-        console.error('Error saving to sheet:', error);
+        console.error('Error:', error);
         // Still open modal even if sheet fails
         openModal();
       } finally {
@@ -3103,6 +3086,8 @@
 
     // Razorpay Payment
     function processPayment() {
+      const formData = JSON.parse(sessionStorage.getItem('adh_form') || '{}');
+      
       const options = {
         key: "rzp_test_YOUR_KEY_HERE",
         amount: 9900,
@@ -3126,6 +3111,7 @@
 
     function handlePaymentSuccess(response) {
       const paymentId = response.razorpay_payment_id;
+      const formData = JSON.parse(sessionStorage.getItem('adh_form') || {});
       
       fbq('track', 'Purchase', {
         value: 99,
@@ -3133,17 +3119,12 @@
         transaction_id: paymentId
       });
 
-      // Send to WhatsApp with payment confirmation
+      // Send to WhatsApp
       const msg = `Hello Rahman sir,\n\nI have paid ₹99 for consultation (ID: ${paymentId}).\n\nMy details:\n📋 Platform: ${formData.platform}\n👤 Name: ${formData.name}\n📱 Phone: ${formData.phone}\n\nReady to discuss my ad strategy!`;
       
       window.open(`https://wa.me/917258055245?text=${encodeURIComponent(msg)}`, '_blank');
       
       closeModal();
-      
-      // Show success message
-      setTimeout(() => {
-        alert('Payment successful! Redirecting to WhatsApp...');
-      }, 500);
     }
 
     // Back to Top
