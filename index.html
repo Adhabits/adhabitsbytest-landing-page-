@@ -2652,29 +2652,53 @@
     </div>
   </div>
 
-  <!-- Payment Modal -->
-  <div class="modal-overlay" id="paymentModal" onclick="closeModalOnOverlay(event)">
-    <div class="modal">
-      <button class="modal-close" onclick="closeModal()">×</button>
-      <div class="modal-header">
-        <h3>Unlock WhatsApp Consultation</h3>
-        <div class="modal-price">₹99</div>
-        <p style="color: var(--muted); font-size: 14px;">One-time payment • 24h refund guarantee</p>
-      </div>
-      <ul class="modal-features">
-        <li>Direct WhatsApp access to Rahman</li>
-        <li>Personalized ad strategy discussion</li>
-        <li>Platform-specific recommendations</li>
-        <li>₹99 adjustable in future plans</li>
-      </ul>
-      <button class="pay-btn-large" onclick="processPayment()">
-        <span>💳</span>
-        Pay Securely with Razorpay
-      </button>
-    </div>
-  </div>
+ <!-- Payment Modal -->
+<div class="modal-overlay" id="paymentModal" onclick="closeModalOnOverlay(event)">
+  <div class="modal">
+    
+    <button class="modal-close" onclick="closeModal()">×</button>
 
-  <script>
+    <div class="modal-header">
+      <h3>Unlock WhatsApp Consultation</h3>
+      <div class="modal-price">₹99</div>
+      <p style="color: var(--muted); font-size: 14px;">
+        One-time payment • 24h refund guarantee
+      </p>
+    </div>
+
+    <ul class="modal-features">
+      <li>Direct WhatsApp access to Rahman</li>
+      <li>Personalized ad strategy discussion</li>
+      <li>Platform-specific recommendations</li>
+      <li>₹99 adjustable in future plans</li>
+    </ul>
+
+    <!-- PAYMENT BUTTON -->
+    <button class="pay-btn-large" onclick="goToSuperProfile()">
+      <span>💳</span>
+      Pay Securely
+    </button>
+
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+  function goToSuperProfile() {
+    window.location.href = "https://superprofile.bio/vp/adhabits";
+  }
+
+  function closeModal() {
+    document.getElementById("paymentModal").style.display = "none";
+  }
+
+  function closeModalOnOverlay(e) {
+    if (e.target.id === "paymentModal") {
+      closeModal();
+    }
+  }
+</script>
+
     // Preloader
     let progress = 0;
     const preloader = document.getElementById('preloader');
