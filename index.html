@@ -12,25 +12,25 @@
   <meta property="og:title" content="AdHabits — Professional Meta Ads for Affiliates" />
   <meta property="og:description" content="Let us run your Meta Ads & get you more leads. 3+ years experience, 290+ affiliates served." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://adhabits.in" />
-  <meta property="og:image" content="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" />
+  <meta property="og:url" content="https://adhabits.in  " />
+  <meta property="og:image" content="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png  " />
 
   <!-- Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://connect.facebook.net" />
-  <link rel="preconnect" href="https://checkout.razorpay.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com  " />
+  <link rel="preconnect" href="https://fonts.gstatic.com  " crossorigin />
+  <link rel="preconnect" href="https://connect.facebook.net  " />
+  <link rel="preconnect" href="https://checkout.razorpay.com  " />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300  ;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Favicon -->
-  <link rel="icon" href="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" type="image/png" />
+  <link rel="icon" href="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png  " type="image/png" />
 
   <title>AdHabits — Professional Meta Ads for Affiliate Marketers</title>
 
   <!-- Razorpay -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js  "></script>
 
   <style>
     :root {
@@ -81,14 +81,16 @@
     }
 
     /* ============================================
-       CONTINUOUS SHINE EFFECT FOR ALL BUTTONS
+       ENHANCED BUTTON EFFECTS WITH SHAKE/VIBRATE
        ============================================ */
-    .btn-primary, .btn-secondary, .pay-btn-large, .nav-links a.btn, .mid-cta-buttons button, .cta-group button {
+    .btn-primary, .btn-secondary, .pay-btn-large, .nav-links a.btn {
       position: relative;
       overflow: hidden;
+      transition: all 0.3s ease;
     }
 
-    .btn-primary::after, .btn-secondary::after, .pay-btn-large::after, .nav-links a.btn::after, .mid-cta-buttons button::after, .cta-group button::after {
+    /* Shimmer overlay */
+    .btn-primary::before, .btn-secondary::before, .pay-btn-large::before, .nav-links a.btn::before {
       content: '';
       position: absolute;
       top: 0;
@@ -107,24 +109,81 @@
       z-index: 1;
     }
 
-    @keyframes shimmer {
-      0% {
-        left: -100%;
-      }
-      20% {
-        left: 200%;
-      }
-      100% {
-        left: 200%;
-      }
+    .btn-secondary::before {
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 107, 53, 0.3) 50%,
+        transparent 100%
+      );
+      animation: shimmer 3s infinite 0.5s;
     }
 
-    .btn-primary span, .btn-primary svg, .btn-secondary span, .pay-btn-large span, .nav-links a.btn span {
+    .nav-links a.btn::before {
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        transparent 100%
+      );
+      animation: shimmer 3s infinite 0.3s;
+    }
+
+    @keyframes shimmer {
+      0% { left: -100%; }
+      20% { left: 200%; }
+      100% { left: 200%; }
+    }
+
+    .btn-primary:hover::before, .btn-secondary:hover::before, 
+    .pay-btn-large:hover::before, .nav-links a.btn:hover::before {
+      animation: shimmer 1.5s infinite;
+    }
+
+    /* VIBRATE/SHAKE ANIMATION ON HOVER */
+    .btn-primary:hover, .nav-links a.btn:hover {
+      animation: vibrate 0.3s ease-in-out infinite;
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(255,107,53,0.4);
+    }
+
+    .btn-secondary:hover {
+      animation: gentle-shake 0.4s ease-in-out;
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    @keyframes vibrate {
+      0%, 100% { transform: translateY(-3px) translateX(0); }
+      20% { transform: translateY(-3px) translateX(-2px) rotate(-1deg); }
+      40% { transform: translateY(-3px) translateX(2px) rotate(1deg); }
+      60% { transform: translateY(-3px) translateX(-1px) rotate(-0.5deg); }
+      80% { transform: translateY(-3px) translateX(1px) rotate(0.5deg); }
+    }
+
+    @keyframes gentle-shake {
+      0%, 100% { transform: translateY(-2px) rotate(0deg); }
+      25% { transform: translateY(-2px) rotate(-1deg); }
+      75% { transform: translateY(-2px) rotate(1deg); }
+    }
+
+    /* Click/Tap feedback */
+    .btn-primary:active, .btn-secondary:active, .pay-btn-large:active {
+      transform: scale(0.95) !important;
+      animation: none;
+    }
+
+    /* Ensure button text stays above effects */
+    .btn-primary span, .btn-primary svg,
+    .btn-secondary span, .btn-secondary svg,
+    .pay-btn-large span, .pay-btn-large svg,
+    .nav-links a.btn span {
       position: relative;
       z-index: 2;
     }
 
-    /* Preloader */
+    /* Preloader - 1 SECOND ONLY */
     .preloader {
       position: fixed;
       inset: 0;
@@ -219,6 +278,7 @@
       transform: translateY(-100%);
       animation: slideDown 0.6s ease forwards;
       animation-delay: 1.2s;
+      flex-wrap: wrap;
     }
 
     @keyframes slideDown {
@@ -351,11 +411,6 @@
       display: none;
     }
 
-    .nav-links a.btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(255,107,53,0.3);
-    }
-
     .hamb {
       display: none;
       cursor: pointer;
@@ -393,6 +448,10 @@
       }
       .hamb {
         display: flex;
+      }
+      .urgency-bar {
+        font-size: 11px;
+        padding: 8px;
       }
     }
 
@@ -577,11 +636,6 @@
       text-decoration: none;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(255,107,53,0.4);
-    }
-
     .btn-secondary {
       background: #fff;
       color: var(--text);
@@ -596,12 +650,6 @@
       align-items: center;
       gap: 8px;
       text-decoration: none;
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
     }
 
     .hero-right {
@@ -1191,25 +1239,28 @@
       color: var(--muted);
     }
 
-    /* Form Section - SEPARATE TARGET */
+    /* SEPARATE FORM SECTION - FULLY VISIBLE */
     .form-section {
       padding: 100px 24px;
-      scroll-margin-top: 120px;
-      background: linear-gradient(180deg, rgba(255,107,53,0.05) 0%, transparent 50%, rgba(255,107,53,0.05) 100%);
+      background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(247,147,30,0.05) 100%);
+      border-top: 2px solid rgba(255,107,53,0.1);
+      border-bottom: 2px solid rgba(255,107,53,0.1);
+      scroll-margin-top: 100px;
     }
 
-    .form-card {
-      max-width: 600px;
+    .form-container {
+      max-width: 800px;
       margin: 0 auto;
       background: var(--card);
       border-radius: 32px;
-      padding: 48px;
+      padding: 60px 40px;
       box-shadow: 0 40px 100px rgba(0,0,0,0.1);
       border: 1px solid var(--stroke);
       position: relative;
+      overflow: visible;
     }
 
-    .form-card::before {
+    .form-container::before {
       content: '';
       position: absolute;
       top: 0;
@@ -1222,62 +1273,34 @@
 
     .form-header {
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
     }
 
     .form-header h2 {
       font-family: 'Poppins', sans-serif;
-      font-size: clamp(24px, 3vw, 32px);
+      font-size: clamp(28px, 4vw, 40px);
       font-weight: 700;
       margin-bottom: 12px;
     }
 
-    .form-header > p {
+    .form-header p {
       color: var(--muted);
-      font-size: 16px;
+      font-size: 18px;
     }
 
-    .price-display {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin: 24px 0;
-    }
-
-    .price-display .current {
-      font-family: 'Poppins', sans-serif;
-      font-size: 48px;
-      font-weight: 700;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .price-display .original {
-      font-size: 24px;
-      color: var(--muted);
-      text-decoration: line-through;
-    }
-
-    .guarantee-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      background: rgba(34, 197, 94, 0.1);
-      color: var(--success);
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .consultation-form {
-      margin-top: 24px;
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 0;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
     }
 
     .form-group label {
@@ -1291,28 +1314,33 @@
     .form-group input,
     .form-group select {
       width: 100%;
-      padding: 16px;
-      border: 1px solid var(--stroke);
+      padding: 16px 18px;
+      border: 2px solid var(--stroke);
       border-radius: 12px;
-      font-size: 15px;
+      font-size: 16px;
       background: var(--card);
       transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
     }
 
     .form-group input:focus,
     .form-group select:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
+      box-shadow: 0 0 0 4px rgba(255,107,53,0.1);
     }
 
-    .pay-btn-large {
+    .form-group input::placeholder {
+      color: #999;
+    }
+
+    .submit-btn {
       width: 100%;
       background: var(--gradient);
       color: #fff;
-      padding: 18px;
+      padding: 20px;
       border-radius: 12px;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
       border: none;
       cursor: pointer;
@@ -1321,123 +1349,88 @@
       justify-content: center;
       gap: 12px;
       box-shadow: 0 10px 30px rgba(255,107,53,0.3);
+      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
       transition: all 0.3s ease;
     }
 
-    .pay-btn-large:hover {
-      transform: translateY(-2px);
+    .submit-btn:hover {
+      animation: vibrate 0.3s ease-in-out infinite;
+      transform: translateY(-3px);
       box-shadow: 0 20px 40px rgba(255,107,53,0.4);
     }
 
-    .secure-note {
+    .submit-btn:active {
+      transform: scale(0.98);
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        transparent 100%
+      );
+      transform: skewX(-25deg);
+      animation: shimmer 3s infinite;
+    }
+
+    .form-security {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      margin-top: 16px;
-      font-size: 13px;
+      margin-top: 20px;
+      font-size: 14px;
       color: var(--muted);
     }
 
-    @media (max-width: 768px) {
-      .form-card {
-        padding: 32px 24px;
-      }
-    }
-
-    /* Consultation Info Section */
-    .consultation-info-section {
-      padding: 80px 24px;
-      background: var(--card);
-    }
-
-    .consultation-info-grid {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .consultation-left {
-      padding-right: 40px;
-    }
-
-    .consultation-left h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(28px, 3vw, 40px);
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .consultation-left > p {
-      color: var(--muted);
-      font-size: 18px;
-      margin-bottom: 32px;
-    }
-
-    .benefits-list {
-      list-style: none;
-      margin-bottom: 32px;
-    }
-
-    .benefits-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-      font-size: 15px;
-      color: var(--text);
-    }
-
-    .benefits-list li::before {
-      content: '✓';
-      width: 24px;
-      height: 24px;
-      background: var(--gradient-soft);
-      color: var(--accent);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .consultation-right {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-      background: var(--gradient-soft);
-      border-radius: 24px;
+    .price-highlight {
       text-align: center;
+      margin: 24px 0;
+      padding: 20px;
+      background: var(--gradient-soft);
+      border-radius: 16px;
+      border: 2px dashed var(--accent);
     }
 
-    .consultation-right .big-price {
+    .price-highlight .current {
       font-family: 'Poppins', sans-serif;
-      font-size: 72px;
+      font-size: 48px;
       font-weight: 700;
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      line-height: 1;
     }
 
-    .consultation-right .big-price span {
+    .price-highlight .original {
       font-size: 24px;
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-left: 12px;
     }
 
     @media (max-width: 768px) {
-      .consultation-info-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+      .form-section {
+        padding: 60px 16px;
       }
-      .consultation-left {
-        padding-right: 0;
+      .form-container {
+        padding: 40px 24px;
+        border-radius: 24px;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .price-highlight .current {
+        font-size: 36px;
       }
     }
 
@@ -1508,9 +1501,7 @@
       }
     }
 
-    /* ============================================
-       FAQ ACCORDION - UP/DOWN TOGGLE STYLE
-       ============================================ */
+    /* FAQ SECTION */
     .faq-section {
       padding: 100px 24px;
       max-width: 800px;
@@ -1569,7 +1560,6 @@
       position: relative;
     }
 
-    /* Plus icon (horizontal line) */
     .faq-icon::before {
       content: '';
       position: absolute;
@@ -1579,7 +1569,6 @@
       transition: all 0.3s ease;
     }
 
-    /* Plus icon (vertical line) */
     .faq-icon::after {
       content: '';
       position: absolute;
@@ -1589,7 +1578,6 @@
       transition: all 0.3s ease;
     }
 
-    /* When active (open), rotate to make X or keep as minus */
     .faq-item.active .faq-icon {
       background: var(--gradient);
       transform: rotate(45deg);
@@ -1600,22 +1588,19 @@
       background: #fff;
     }
 
-    /* Answer container */
     .faq-answer {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
-      padding: 0 24px;
     }
 
     .faq-answer p {
       color: var(--muted);
       line-height: 1.8;
-      padding-bottom: 24px;
+      padding: 0 24px 24px 24px;
       font-size: 15px;
     }
 
-    /* Active state - expanded */
     .faq-item.active .faq-answer {
       max-height: 500px;
     }
@@ -1806,93 +1791,6 @@
       border-bottom: 1px solid var(--stroke);
     }
 
-    /* Payment Modal */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      z-index: 9998;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .modal-overlay.active {
-      display: flex;
-      opacity: 1;
-    }
-
-    .modal {
-      background: var(--card);
-      border-radius: 24px;
-      padding: 40px;
-      max-width: 420px;
-      width: 100%;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.3);
-      transform: scale(0.9) translateY(20px);
-      transition: transform 0.3s ease;
-      position: relative;
-    }
-
-    .modal-overlay.active .modal {
-      transform: scale(1) translateY(0);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: none;
-      background: #f5f5f5;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-    }
-
-    .modal-header {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-
-    .modal-price {
-      font-family: 'Poppins', sans-serif;
-      font-size: 48px;
-      font-weight: 700;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 20px 0;
-    }
-
-    .modal-features {
-      list-style: none;
-      margin-bottom: 24px;
-    }
-
-    .modal-features li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--stroke);
-      font-size: 14px;
-    }
-
-    .modal-features li::before {
-      content: '✓';
-      color: var(--success);
-      font-weight: 700;
-    }
-
     /* Scroll Reveal */
     .reveal {
       opacity: 0;
@@ -1936,7 +1834,7 @@
       transform: translateY(0);
     }
 
-    .back-to-top::after {
+    .back-to-top::before {
       content: '';
       position: absolute;
       top: 0;
@@ -1966,6 +1864,36 @@
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      background: rgba(34, 197, 94, 0.1);
+      border-radius: 16px;
+      border: 2px solid var(--success);
+    }
+
+    .success-message.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .success-message h3 {
+      color: var(--success);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .success-message p {
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .success-message .btn-primary {
+      display: inline-flex;
+    }
   </style>
 
   <!-- Meta Pixels -->
@@ -1974,7 +1902,7 @@
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js  ');
     
     fbq('init', '1615358806544488');
     fbq('init', '1255041905596153');
@@ -1986,7 +1914,7 @@
   <!-- Preloader -->
   <div class="preloader" id="preloader">
     <div class="preloader-circle">
-      <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" alt="AdHabits" />
+      <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png  " alt="AdHabits" />
     </div>
     <div class="preloader-text">Welcome Affiliates</div>
     <div class="preloader-progress" id="preloaderProgress">0%</div>
@@ -2006,7 +1934,7 @@
     <div class="nav-inner">
       <div class="brand">
         <div class="logo">
-          <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" alt="AdHabits" />
+          <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png  " alt="AdHabits" />
         </div>
         <span>AdHabits</span>
       </div>
@@ -2017,7 +1945,7 @@
         <a href="#expert"><span>Expert</span></a>
         <a href="#testimonials"><span>Results</span></a>
         <a href="#contact"><span>Contact</span></a>
-        <a href="#form-section" class="btn">Pay ₹99</a>
+        <a href="#consultation" class="btn" onclick="scrollToForm()">Pay ₹99</a>
       </div>
       <button class="hamb" id="hamb">
         <span></span>
@@ -2063,7 +1991,7 @@
       <div class="hero-right">
         <div class="hero-card">
           <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/SG5MdFiP1zA?rel=0&modestbranding=1" title="AdHabits Intro" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/SG5MdFiP1zA?rel=0&modestbranding=1  " title="AdHabits Intro" allowfullscreen></iframe>
           </div>
           <div class="floating-badge badge-1">
             <div class="badge-icon">🏆</div>
@@ -2271,7 +2199,7 @@
     <div class="expert-grid">
       <div class="expert-image reveal">
         <div class="expert-image-wrapper">
-          <img src="https://i.postimg.cc/cC2f5c0G/IMG-5862-2.avif" alt="Rahman - Meta Ads Expert" />
+          <img src="https://i.postimg.cc/cC2f5c0G/IMG-5862-2.avif  " alt="Rahman - Meta Ads Expert" />
         </div>
         <div class="experience-badge">
           <div class="years">3+</div>
@@ -2312,63 +2240,63 @@
     <div class="testimonials-track" id="testimonialsTrack">
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg" alt="Nasreen's Result" />
+          <img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg  " alt="Nasreen's Result" />
         </div>
         <div class="testimonial-name">Nasreen</div>
         <div class="testimonial-platform">IDP Affiliate</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg" alt="Rukkaya's Result" />
+          <img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg  " alt="Rukkaya's Result" />
         </div>
         <div class="testimonial-name">Rukkaya</div>
         <div class="testimonial-platform">Bizgurukul Affiliate</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg" alt="Farheen's Result" />
+          <img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg  " alt="Farheen's Result" />
         </div>
         <div class="testimonial-name">Farheen</div>
         <div class="testimonial-platform">LeadsGuru Affiliate</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/vBDGBcp7/Firdous-finel.jpg" alt="Firdous's Result" />
+          <img src="https://i.postimg.cc/vBDGBcp7/Firdous-finel.jpg  " alt="Firdous's Result" />
         </div>
         <div class="testimonial-name">Firdous</div>
         <div class="testimonial-platform">MillionaireTrack</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/CxF50LL7/Ahemadi-mam-finel.jpg" alt="Ahemadi's Result" />
+          <img src="https://i.postimg.cc/CxF50LL7/Ahemadi-mam-finel.jpg  " alt="Ahemadi's Result" />
         </div>
         <div class="testimonial-name">Ahemadi</div>
         <div class="testimonial-platform">RichIND Affiliate</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/nhcF5R0w/balvinder-finel.jpg" alt="Balvinder's Result" />
+          <img src="https://i.postimg.cc/nhcF5R0w/balvinder-finel.jpg  " alt="Balvinder's Result" />
         </div>
         <div class="testimonial-name">Balvinder</div>
         <div class="testimonial-platform">Forever Affiliate</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/rFhXd8NQ/faizeen-finel.jpg" alt="Faizeen's Result" />
+          <img src="https://i.postimg.cc/rFhXd8NQ/faizeen-finel.jpg  " alt="Faizeen's Result" />
         </div>
         <div class="testimonial-name">Faizeen</div>
         <div class="testimonial-platform">GyaanGrowth</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/FRbwhmKb/Nadeem-finel.jpg" alt="Nadeem's Result" />
+          <img src="https://i.postimg.cc/FRbwhmKb/Nadeem-finel.jpg  " alt="Nadeem's Result" />
         </div>
         <div class="testimonial-name">Nadeem</div>
         <div class="testimonial-platform">Starteazy Affiliate</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/pL97pKTL/Rukhsaar-finel.jpg" alt="Rukhsaar's Result" />
+          <img src="https://i.postimg.cc/pL97pKTL/Rukhsaar-finel.jpg  " alt="Rukhsaar's Result" />
         </div>
         <div class="testimonial-name">Rukhsaar</div>
         <div class="testimonial-platform">IDP Affiliate</div>
@@ -2400,96 +2328,79 @@
     </div>
   </section>
 
-  <!-- Consultation Info Section -->
-  <section class="consultation-info-section" id="consultation">
-    <div class="section-header reveal">
-      <div class="section-tag">Limited Time Offer</div>
-      <h2 class="section-title">Get Personal WhatsApp Consultation</h2>
-      <p class="section-subtitle">Pay ₹99 to unlock direct access to Rahman</p>
-    </div>
-
-    <div class="consultation-info-grid reveal">
-      <div class="consultation-left">
-        <h2>Why Book a Consultation?</h2>
-        <p>Discuss your ad strategy, get personalized advice, and start scaling your affiliate business with expert guidance.</p>
-        
-        <ul class="benefits-list">
-          <li>1-on-1 WhatsApp Consultation</li>
-          <li>Ad Strategy Review</li>
-          <li>₹99 Adjustable in Any Future Plan</li>
-          <li>24-Hour Money Back Guarantee</li>
-        </ul>
-
-        <div class="guarantee-pill">
-          <span>🛡️</span>
-          <span>100% Refund within 24 Hours</span>
-        </div>
-      </div>
-
-      <div class="consultation-right">
-        <div class="big-price"><span>₹</span>99</div>
-        <p style="color: var(--muted); font-size: 18px; text-decoration: line-through; margin-bottom: 8px;">₹999</p>
-        <p style="color: var(--accent); font-weight: 600;">Limited Time Offer</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORM SECTION - SEPARATE TARGET -->
-  <section class="form-section" id="form-section">
-    <div class="form-card reveal">
+  <!-- SEPARATE FORM SECTION - STANDALONE -->
+  <section class="form-section" id="consultation">
+    <div class="form-container reveal">
       <div class="form-header">
-        <div class="section-tag">Secure Your Spot</div>
-        <h2>Book Your Consultation</h2>
-        <p>Fill in your details below to proceed with payment</p>
-        
-        <div class="price-display">
-          <span class="current">₹99</span>
-          <span class="original">₹999</span>
-        </div>
-        
-        <div class="guarantee-pill">
-          <span>🛡️</span>
-          <span>100% Refund within 24 Hours</span>
-        </div>
+        <div class="section-tag">Limited Time Offer</div>
+        <h2>Get Personal WhatsApp Consultation</h2>
+        <p>Fill in your details below to unlock direct access to Rahman</p>
       </div>
 
-      <form class="consultation-form" id="consultForm" onsubmit="handleSubmit(event)">
-        <div class="form-group">
-          <label for="platform">Select Your Platform *</label>
-          <select id="platform" required>
-            <option value="">Choose Platform</option>
-            <option value="IDP">IDP</option>
-            <option value="Bizgurukul">Bizgurukul</option>
-            <option value="LeadsGuru">LeadsGuru</option>
-            <option value="MillionaireTrack">MillionaireTrack</option>
-            <option value="GyaanGrowth">GyaanGrowth</option>
-            <option value="RichIND">RichIND</option>
-            <option value="Forever">Forever</option>
-            <option value="Starteazy">Starteazy</option>
-            <option value="Other">Other</option>
-          </select>
+      <div class="price-highlight">
+        <span class="current">₹99</span>
+        <span class="original">₹999</span>
+      </div>
+
+      <!-- Form -->
+      <form id="leadForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="platform">Select Your Platform *</label>
+            <select id="platform" name="platform" required>
+              <option value="">Choose Platform</option>
+              <option value="IDP">IDP</option>
+              <option value="Bizgurukul">Bizgurukul</option>
+              <option value="LeadsGuru">LeadsGuru</option>
+              <option value="MillionaireTrack">MillionaireTrack</option>
+              <option value="GyaanGrowth">GyaanGrowth</option>
+              <option value="RichIND">RichIND</option>
+              <option value="Forever">Forever</option>
+              <option value="Starteazy">Starteazy</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email (Optional)</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" />
+          </div>
         </div>
-        <div class="form-group">
-          <label for="name">Your Name *</label>
-          <input type="text" id="name" placeholder="Enter your name" required />
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone Number *</label>
-          <input type="tel" id="phone" placeholder="10-digit number" pattern="[0-9]{10}" required />
-        </div>
-        <button type="submit" class="pay-btn-large" id="submitBtn">
+
+        <button type="submit" class="submit-btn" id="submitBtn">
           <span>🔒</span>
-          Pay ₹99 & Unlock WhatsApp
+          Pay ₹99 & Unlock WhatsApp Access
         </button>
-        <div class="secure-note">
+        
+        <div class="form-security">
           <span>🔒</span>
-          <span>Secured by Razorpay • Instant Access</span>
+          <span>Secured by Razorpay • 100% Refund Guarantee • Instant Access</span>
         </div>
       </form>
+
+      <!-- Success Message (Hidden by default) -->
+      <div class="success-message" id="successMessage">
+        <h3>✅ Details Saved Successfully!</h3>
+        <p>Redirecting you to payment page...</p>
+        <button class="btn-primary" onclick="redirectToPayment()">
+          <span>💳</span>
+          Complete Payment Now
+        </button>
+      </div>
     </div>
   </section>
 
-  <!-- FAQ SECTION - ACCORDION STYLE -->
+  <!-- FAQ SECTION -->
   <section class="faq-section" id="faq">
     <div class="section-header reveal" style="margin-bottom: 40px;">
       <div class="section-tag">FAQ</div>
@@ -2558,7 +2469,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo-text">
-          <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" alt="" width="32" height="32" style="border-radius: 8px;" />
+          <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png  " alt="" width="32" height="32" style="border-radius: 8px;" />
           AdHabits
         </div>
         <p>Professional Meta Ads management for affiliate marketers. Helping you scale with data-driven strategies and personalized support.</p>
@@ -2578,7 +2489,7 @@
         <a href="#services">Meta Ads</a>
         <a href="#services">Instagram Growth</a>
         <a href="#services">Lead Generation</a>
-        <a href="#consultation">Consultation</a>
+        <a href="#consultation" onclick="scrollToForm()">Consultation</a>
       </div>
       <div class="footer-column">
         <h4>Company</h4>
@@ -2592,7 +2503,7 @@
         <a onclick="openPolicyModal('privacy')">Privacy Policy</a>
         <a onclick="openPolicyModal('terms')">Terms & Conditions</a>
         <a onclick="openPolicyModal('refund')">Refund Policy</a>
-        <a href="https://instagram.com/adhabits.in" target="_blank">Instagram</a>
+        <a href="https://instagram.com/adhabits.in  " target="_blank">Instagram</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -2652,54 +2563,11 @@
     </div>
   </div>
 
- <!-- Payment Modal -->
-<div class="modal-overlay" id="paymentModal" onclick="closeModalOnOverlay(event)">
-  <div class="modal">
+  <script>
+    // GOOGLE SHEET CONFIGURATION
+    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwQvmLoM4FhipK-UZhvFgb_mCl1uq_-VtyK4NpW8QxsEOOgyBDgxEEuBU0m_wGcWZOkLg/exec  ';
     
-    <button class="modal-close" onclick="closeModal()">×</button>
-
-    <div class="modal-header">
-      <h3>Unlock WhatsApp Consultation</h3>
-      <div class="modal-price">₹99</div>
-      <p style="color: var(--muted); font-size: 14px;">
-        One-time payment • 24h refund guarantee
-      </p>
-    </div>
-
-    <ul class="modal-features">
-      <li>Direct WhatsApp access to Rahman</li>
-      <li>Personalized ad strategy discussion</li>
-      <li>Platform-specific recommendations</li>
-      <li>₹99 adjustable in future plans</li>
-    </ul>
-
-    <!-- PAYMENT BUTTON -->
-    <button class="pay-btn-large" onclick="goToSuperProfile()">
-      <span>💳</span>
-      Pay Securely
-    </button>
-
-  </div>
-</div>
-
-<!-- SCRIPT -->
-<script>
-  function goToSuperProfile() {
-    window.location.href = "https://superprofile.bio/vp/adhabits";
-  }
-
-  function closeModal() {
-    document.getElementById("paymentModal").style.display = "none";
-  }
-
-  function closeModalOnOverlay(e) {
-    if (e.target.id === "paymentModal") {
-      closeModal();
-    }
-  }
-</script>
-
-    // Preloader
+    // Preloader - 1 SECOND ONLY
     let progress = 0;
     const preloader = document.getElementById('preloader');
     const progressEl = document.getElementById('preloaderProgress');
@@ -2802,32 +2670,38 @@
     
     reveals.forEach(el => revealObserver.observe(el));
 
-    // Scroll to Form Section - DIRECT SCROLL
+    // SCROLL TO FORM FUNCTION - ALL BUTTONS USE THIS
     function scrollToForm() {
-      const formSection = document.getElementById('form-section');
+      const formSection = document.getElementById('consultation');
       const navHeight = 120; // Height of fixed nav + urgency bar
       
+      // Calculate position
       const elementPosition = formSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navHeight;
       
+      // Smooth scroll
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       });
+      
+      // Track event
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'InitiateCheckout');
+      }
+      
+      // Highlight effect
+      setTimeout(() => {
+        formSection.querySelector('.form-container').style.transform = 'scale(1.02)';
+        setTimeout(() => {
+          formSection.querySelector('.form-container').style.transform = 'scale(1)';
+        }, 300);
+      }, 800);
     }
 
-    // FAQ TOGGLE - UP/DOWN STYLE
+    // FAQ TOGGLE
     function toggleFaq(btn) {
       const faqItem = btn.parentElement;
-      
-      // Close all other FAQs
-      document.querySelectorAll('.faq-item').forEach(item => {
-        if (item !== faqItem) {
-          item.classList.remove('active');
-        }
-      });
-      
-      // Toggle current FAQ
       faqItem.classList.toggle('active');
     }
 
@@ -2848,81 +2722,142 @@
       }
     }
 
-    // Payment Modal
-    function openModal() {
-      document.getElementById('paymentModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      document.getElementById('paymentModal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    function closeModalOnOverlay(e) {
-      if (e.target === e.currentTarget) closeModal();
-    }
-
-    // Form Submit
-    async function handleSubmit(e) {
+    // FORM SUBMIT HANDLER - SAVE TO GOOGLE SHEET & TRACK
+    async function handleFormSubmit(e) {
       e.preventDefault();
-      const platform = document.getElementById('platform').value;
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const submitBtn = document.getElementById('submitBtn');
       
-      if (!platform || !name || !phone) {
-        alert('Please fill all fields');
+      const form = document.getElementById('leadForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const successMsg = document.getElementById('successMessage');
+      
+      // Get form data
+      const formData = {
+        platform: document.getElementById('platform').value,
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value || 'Not provided',
+        timestamp: new Date().toLocaleString('en-IN'),
+        date: new Date().toISOString()
+      };
+      
+      // Validation
+      if (!formData.platform || !formData.name || !formData.phone) {
+        alert('Please fill all required fields');
         return;
       }
-
-      const formData = {platform, name, phone, timestamp: new Date().toISOString()};
-      sessionStorage.setItem('adh_form', JSON.stringify(formData));
       
-      submitBtn.innerHTML = '<span class="spinner"></span> Processing...';
-
+      // Show loading
+      submitBtn.innerHTML = '<span class="spinner"></span> Saving Details...';
+      submitBtn.disabled = true;
+      
       try {
-        await fetch('https://script.google.com/macros/s/AKfycbxjfAuKc39Jbkzer9yxrCbArub72AnB18pnHqYpUEfZFFuXf_-fEkXHdvBiKyPfpv5_/exec', {
+        // 1. SAVE TO GOOGLE SHEETS
+        const sheetResponse = await fetch(GOOGLE_SHEET_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({platform, name, phone, date: new Date().toLocaleString('en-IN')})
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
         });
-        openModal();
+        
+        // 2. TRACK FACEBOOK PIXEL - LEAD EVENT
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Lead', {
+            content_name: 'Consultation Form',
+            content_category: 'Affiliate Marketing',
+            value: 99.00,
+            currency: 'INR',
+            platform: formData.platform
+          });
+          
+          // Also track custom event
+          fbq('trackCustom', 'FormSubmit', {
+            platform: formData.platform,
+            phone: formData.phone
+          });
+        }
+        
+        // 3. STORE IN SESSION FOR PAYMENT
+        sessionStorage.setItem('adh_user_data', JSON.stringify(formData));
+        
+        // 4. SHOW SUCCESS & REDIRECT
+        form.style.display = 'none';
+        successMsg.classList.add('show');
+        
+        // Auto redirect after 2 seconds
+        setTimeout(() => {
+          redirectToPayment();
+        }, 2000);
+        
       } catch (error) {
-        openModal();
-      } finally {
-        submitBtn.innerHTML = '<span>🔒</span> Pay ₹99 & Unlock WhatsApp';
+        console.error('Error:', error);
+        // Even if error, proceed to payment
+        sessionStorage.setItem('adh_user_data', JSON.stringify(formData));
+        redirectToPayment();
       }
     }
 
-    // Payment
-    function processPayment() {
-      const formData = JSON.parse(sessionStorage.getItem('adh_form') || '{}');
+    // REDIRECT TO RAZORPAY PAYMENT
+    function redirectToPayment() {
+      const userData = JSON.parse(sessionStorage.getItem('adh_user_data') || '{}');
       
+      // Razorpay configuration
       const options = {
-        key: "rzp_test_YOUR_KEY_HERE",
-        amount: 9900,
+        key: "rzp_test_YOUR_KEY_HERE", // REPLACE WITH YOUR KEY
+        amount: 9900, // ₹99 in paise
         currency: "INR",
         name: "AdHabits",
         description: "WhatsApp Consultation with Rahman",
-        image: "https://i.postimg.cc/3rVMTKYG/adhabits-logo.png",
+        image: "https://i.postimg.cc/3rVMTKYG/adhabits-logo.png  ",
+        
         handler: function(response) {
           const paymentId = response.razorpay_payment_id;
-          const msg = `Hello Rahman sir,\n\nI have paid ₹99 for consultation (ID: ${paymentId}).\n\nMy details:\n📋 Platform: ${formData.platform}\n👤 Name: ${formData.name}\n📱 Phone: ${formData.phone}\n\nReady to discuss my ad strategy!`;
           
-          window.open(`https://wa.me/917258055245?text=${encodeURIComponent(msg)}`, '_blank');
-          closeModal();
+          // Track purchase
+          if (typeof fbq !== 'undefined') {
+            fbq('track', 'Purchase', {
+              value: 99.00,
+              currency: 'INR',
+              content_name: 'Consultation',
+              content_type: 'product',
+              payment_id: paymentId
+            });
+          }
+          
+          // WhatsApp message with details
+          const msg = `Hello Rahman sir,\n\n✅ *Payment Successful!*\n\n💳 Payment ID: ${paymentId}\n📋 Platform: ${userData.platform}\n👤 Name: ${userData.name}\n📱 Phone: ${userData.phone}\n📧 Email: ${userData.email}\n\nI have paid ₹99 for consultation. Ready to discuss my ad strategy!`;
+          
+          window.open(`https://wa.me/917258055245?text=  ${encodeURIComponent(msg)}`, '_blank');
         },
+        
         prefill: {
-          name: formData.name || "",
-          contact: formData.phone || ""
+          name: userData.name || "",
+          email: userData.email || "",
+          contact: userData.phone || ""
         },
-        theme: { color: "#ff6b35" }
+        
+        theme: {
+          color: "#ff6b35"
+        },
+        
+        modal: {
+          ondismiss: function() {
+            console.log('Payment modal closed');
+          }
+        }
       };
 
       const rzp = new Razorpay(options);
       rzp.open();
+      
+      // Track initiate checkout
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'InitiateCheckout', {
+          value: 99.00,
+          currency: 'INR'
+        });
+      }
     }
 
     // Back to Top
@@ -2942,10 +2877,13 @@
     // Smooth scroll for nav links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const href = this.getAttribute('href');
+        if (href !== '#consultation') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         }
       });
     });
@@ -2953,10 +2891,17 @@
     // Close modals on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        closeModal();
         closePolicyModal('privacy');
         closePolicyModal('terms');
         closePolicyModal('refund');
+      }
+    });
+
+    // Phone input validation - only numbers
+    document.getElementById('phone').addEventListener('input', function(e) {
+      this.value = this.value.replace(/[^0-9]/g, '');
+      if (this.value.length > 10) {
+        this.value = this.value.slice(0, 10);
       }
     });
   </script>
