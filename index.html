@@ -57,7 +57,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px;
+      scroll-padding-top: 120px;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -80,7 +80,51 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Preloader - SLOWED DOWN */
+    /* ============================================
+       CONTINUOUS SHINE EFFECT FOR ALL BUTTONS
+       ============================================ */
+    .btn-primary, .btn-secondary, .pay-btn-large, .nav-links a.btn, .mid-cta-buttons button, .cta-group button {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::after, .btn-secondary::after, .pay-btn-large::after, .nav-links a.btn::after, .mid-cta-buttons button::after, .cta-group button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        transparent 100%
+      );
+      transform: skewX(-25deg);
+      animation: shimmer 3s infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes shimmer {
+      0% {
+        left: -100%;
+      }
+      20% {
+        left: 200%;
+      }
+      100% {
+        left: 200%;
+      }
+    }
+
+    .btn-primary span, .btn-primary svg, .btn-secondary span, .pay-btn-large span, .nav-links a.btn span {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Preloader */
     .preloader {
       position: fixed;
       inset: 0;
@@ -90,7 +134,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      transition: opacity 0.8s ease, visibility 0.8s ease;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
     }
 
     .preloader.hidden {
@@ -138,7 +182,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       opacity: 0;
-      animation: fadeIn 1s ease forwards 0.5s;
+      animation: fadeIn 0.5s ease forwards 0.2s;
     }
 
     .preloader-progress {
@@ -174,7 +218,7 @@
       backdrop-filter: blur(10px);
       transform: translateY(-100%);
       animation: slideDown 0.6s ease forwards;
-      animation-delay: 3.5s; /* Delayed to wait for preloader */
+      animation-delay: 1.2s;
     }
 
     @keyframes slideDown {
@@ -203,7 +247,7 @@
       opacity: 0;
       transform: translateY(-20px);
       animation: fadeInDown 0.8s ease forwards;
-      animation-delay: 3.8s; /* Delayed to wait for preloader */
+      animation-delay: 1.4s;
     }
 
     @keyframes fadeInDown {
@@ -414,7 +458,7 @@
       opacity: 0;
       transform: translateY(40px);
       animation: fadeInUp 1s ease forwards;
-      animation-delay: 4s; /* Delayed to wait for preloader */
+      animation-delay: 1.6s;
     }
 
     @keyframes fadeInUp {
@@ -529,8 +573,6 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      position: relative;
-      overflow: hidden;
       box-shadow: 0 10px 30px rgba(255,107,53,0.3);
       text-decoration: none;
     }
@@ -567,7 +609,7 @@
       opacity: 0;
       transform: translateX(40px);
       animation: fadeInLeft 1s ease forwards;
-      animation-delay: 4.2s; /* Delayed to wait for preloader */
+      animation-delay: 1.8s;
     }
 
     @keyframes fadeInLeft {
@@ -1149,23 +1191,25 @@
       color: var(--muted);
     }
 
-    /* Consultation Section */
-    .consultation-section {
+    /* Form Section - SEPARATE TARGET */
+    .form-section {
       padding: 100px 24px;
+      scroll-margin-top: 120px;
+      background: linear-gradient(180deg, rgba(255,107,53,0.05) 0%, transparent 50%, rgba(255,107,53,0.05) 100%);
     }
 
-    .consultation-card {
-      max-width: 1000px;
+    .form-card {
+      max-width: 600px;
       margin: 0 auto;
       background: var(--card);
       border-radius: 32px;
-      padding: 60px;
+      padding: 48px;
       box-shadow: 0 40px 100px rgba(0,0,0,0.1);
       border: 1px solid var(--stroke);
       position: relative;
     }
 
-    .consultation-card::before {
+    .form-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -1173,13 +1217,151 @@
       right: 0;
       height: 4px;
       background: var(--gradient);
+      border-radius: 32px 32px 0 0;
     }
 
-    .consultation-grid {
+    .form-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .form-header h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .form-header > p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .price-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .price-display .current {
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .price-display .original {
+      font-size: 24px;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .guarantee-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(34, 197, 94, 0.1);
+      color: var(--success);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .consultation-form {
+      margin-top: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid var(--stroke);
+      border-radius: 12px;
+      font-size: 15px;
+      background: var(--card);
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
+    }
+
+    .pay-btn-large {
+      width: 100%;
+      background: var(--gradient);
+      color: #fff;
+      padding: 18px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 10px 30px rgba(255,107,53,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .pay-btn-large:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(255,107,53,0.4);
+    }
+
+    .secure-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      .form-card {
+        padding: 32px 24px;
+      }
+    }
+
+    /* Consultation Info Section */
+    .consultation-info-section {
+      padding: 80px 24px;
+      background: var(--card);
+    }
+
+    .consultation-info-grid {
+      max-width: 1000px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: center;
+    }
+
+    .consultation-left {
+      padding-right: 40px;
     }
 
     .consultation-left h2 {
@@ -1206,6 +1388,7 @@
       gap: 12px;
       margin-bottom: 16px;
       font-size: 15px;
+      color: var(--text);
     }
 
     .benefits-list li::before {
@@ -1220,109 +1403,41 @@
       justify-content: center;
       font-size: 12px;
       font-weight: 700;
+      flex-shrink: 0;
     }
 
-    .price-tag {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 24px;
+    .consultation-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      background: var(--gradient-soft);
+      border-radius: 24px;
+      text-align: center;
     }
 
-    .price-tag .current {
+    .consultation-right .big-price {
       font-family: 'Poppins', sans-serif;
-      font-size: 56px;
+      font-size: 72px;
       font-weight: 700;
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      line-height: 1;
     }
 
-    .price-tag .original {
+    .consultation-right .big-price span {
       font-size: 24px;
-      color: var(--muted);
-      text-decoration: line-through;
-    }
-
-    .guarantee-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 20px;
-      background: rgba(34, 197, 94, 0.1);
-      color: var(--success);
-      border-radius: 100px;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
-
-    .consultation-form {
-      background: #fafafa;
-      border-radius: 20px;
-      padding: 32px;
-      border: 1px solid var(--stroke);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid var(--stroke);
-      border-radius: 12px;
-      font-size: 15px;
-      background: var(--card);
-    }
-
-    .pay-btn-large {
-      width: 100%;
-      background: var(--gradient);
-      color: #fff;
-      padding: 18px;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      box-shadow: 0 10px 30px rgba(255,107,53,0.3);
-    }
-
-    .pay-btn-large:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(255,107,53,0.4);
-    }
-
-    .secure-note {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 16px;
-      font-size: 13px;
-      color: var(--muted);
     }
 
     @media (max-width: 768px) {
-      .consultation-grid {
+      .consultation-info-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
       }
-      .consultation-card {
-        padding: 32px;
+      .consultation-left {
+        padding-right: 0;
       }
     }
 
@@ -1394,9 +1509,7 @@
     }
 
     /* ============================================
-       FAQ SECTION - FIXED INDEPENDENT TOGGLE
-       Only answer hides/shows, question always visible
-       Multiple can be open at once
+       FAQ ACCORDION - UP/DOWN TOGGLE STYLE
        ============================================ */
     .faq-section {
       padding: 100px 24px;
@@ -1404,7 +1517,6 @@
       margin: 0 auto;
     }
 
-    /* FAQ Item Container */
     .faq-item {
       background: var(--card);
       border: 1px solid var(--stroke);
@@ -1419,7 +1531,6 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
-    /* Question Button - Always Visible */
     .faq-question {
       width: 100%;
       padding: 24px;
@@ -1440,12 +1551,10 @@
       color: var(--accent);
     }
 
-    /* Active state for question text */
     .faq-item.active .faq-question {
       color: var(--accent);
     }
 
-    /* Plus/Minus Icon */
     .faq-icon {
       width: 32px;
       height: 32px;
@@ -1460,7 +1569,7 @@
       position: relative;
     }
 
-    /* Horizontal line of plus */
+    /* Plus icon (horizontal line) */
     .faq-icon::before {
       content: '';
       position: absolute;
@@ -1470,7 +1579,7 @@
       transition: all 0.3s ease;
     }
 
-    /* Vertical line of plus */
+    /* Plus icon (vertical line) */
     .faq-icon::after {
       content: '';
       position: absolute;
@@ -1480,7 +1589,7 @@
       transition: all 0.3s ease;
     }
 
-    /* When active (open), rotate to make X */
+    /* When active (open), rotate to make X or keep as minus */
     .faq-item.active .faq-icon {
       background: var(--gradient);
       transform: rotate(45deg);
@@ -1491,27 +1600,25 @@
       background: #fff;
     }
 
-    /* Answer Container - Hidden by default */
+    /* Answer container */
     .faq-answer {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+      padding: 0 24px;
     }
 
-    /* Answer Text */
     .faq-answer p {
       color: var(--muted);
       line-height: 1.8;
-      padding: 0 24px 24px 24px;
+      padding-bottom: 24px;
       font-size: 15px;
     }
 
-    /* When active, show answer */
+    /* Active state - expanded */
     .faq-item.active .faq-answer {
       max-height: 500px;
     }
-
-    /* ============================================ */
 
     /* Footer */
     footer {
@@ -1820,12 +1927,30 @@
       transition: all 0.3s ease;
       box-shadow: 0 10px 30px rgba(255,107,53,0.3);
       z-index: 999;
+      overflow: hidden;
     }
 
     .back-to-top.visible {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
+    }
+
+    .back-to-top::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        transparent 100%
+      );
+      transform: skewX(-25deg);
+      animation: shimmer 3s infinite;
     }
 
     .spinner {
@@ -1892,7 +2017,7 @@
         <a href="#expert"><span>Expert</span></a>
         <a href="#testimonials"><span>Results</span></a>
         <a href="#contact"><span>Contact</span></a>
-        <a href="#consultation" class="btn">Pay ₹99</a>
+        <a href="#form-section" class="btn">Pay ₹99</a>
       </div>
       <button class="hamb" id="hamb">
         <span></span>
@@ -1927,7 +2052,7 @@
         </div>
 
         <div class="cta-group">
-          <button class="btn-primary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+          <button class="btn-primary" onclick="scrollToForm()">
             <span>🔥</span>
             Pay ₹99 & Chat on WhatsApp
           </button>
@@ -1980,11 +2105,11 @@
       <h2>🚀 Ready to Scale Your Affiliate Business?</h2>
       <p>Join 290+ successful affiliates who trust AdHabits for their Meta Ads. Limited spots available!</p>
       <div class="mid-cta-buttons">
-        <button class="btn-primary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+        <button class="btn-primary" onclick="scrollToForm()">
           <span>⚡</span>
           Claim Your ₹99 Consultation
         </button>
-        <button class="btn-secondary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+        <button class="btn-secondary" onclick="scrollToForm()">
           <span>📞</span>
           Call Now
         </button>
@@ -2129,7 +2254,7 @@
       <h2>💎 Don't Miss Out - Only 7 Spots Left!</h2>
       <p>Hundreds of affiliates are already scaling with us. Secure your consultation before prices go back to ₹999!</p>
       <div class="mid-cta-buttons">
-        <button class="btn-primary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+        <button class="btn-primary" onclick="scrollToForm()">
           <span>🔥</span>
           Book Now @ ₹99 Only
         </button>
@@ -2169,7 +2294,7 @@
           </div>
         </div>
 
-        <button class="btn-primary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+        <button class="btn-primary" onclick="scrollToForm()">
           Pay ₹99 & Talk to Rahman
         </button>
       </div>
@@ -2275,75 +2400,96 @@
     </div>
   </section>
 
-  <!-- Consultation Section -->
-  <section class="consultation-section" id="consultation">
-    <div class="consultation-card reveal">
-      <div class="consultation-grid">
-        <div class="consultation-left">
-          <div class="section-tag">Limited Time Offer</div>
-          <h2>Get Personal WhatsApp Consultation</h2>
-          <p>Pay ₹99 to unlock direct access to Rahman. Discuss your ad strategy, get personalized advice, and start scaling your affiliate business.</p>
-          
-          <ul class="benefits-list">
-            <li>1-on-1 WhatsApp Consultation</li>
-            <li>Ad Strategy Review</li>
-            <li>₹99 Adjustable in Any Future Plan</li>
-            <li>24-Hour Money Back Guarantee</li>
-          </ul>
+  <!-- Consultation Info Section -->
+  <section class="consultation-info-section" id="consultation">
+    <div class="section-header reveal">
+      <div class="section-tag">Limited Time Offer</div>
+      <h2 class="section-title">Get Personal WhatsApp Consultation</h2>
+      <p class="section-subtitle">Pay ₹99 to unlock direct access to Rahman</p>
+    </div>
 
-          <div class="price-tag">
-            <span class="current">₹99</span>
-            <span class="original">₹999</span>
-          </div>
+    <div class="consultation-info-grid reveal">
+      <div class="consultation-left">
+        <h2>Why Book a Consultation?</h2>
+        <p>Discuss your ad strategy, get personalized advice, and start scaling your affiliate business with expert guidance.</p>
+        
+        <ul class="benefits-list">
+          <li>1-on-1 WhatsApp Consultation</li>
+          <li>Ad Strategy Review</li>
+          <li>₹99 Adjustable in Any Future Plan</li>
+          <li>24-Hour Money Back Guarantee</li>
+        </ul>
 
-          <div class="guarantee-badge">
-            <span>🛡️</span>
-            <span>100% Refund within 24 Hours</span>
-          </div>
+        <div class="guarantee-pill">
+          <span>🛡️</span>
+          <span>100% Refund within 24 Hours</span>
         </div>
+      </div>
 
-        <div class="consultation-right">
-          <form class="consultation-form" id="consultForm" onsubmit="handleSubmit(event)">
-            <div class="form-group">
-              <label for="platform">Select Your Platform *</label>
-              <select id="platform" required>
-                <option value="">Choose Platform</option>
-                <option value="IDP">IDP</option>
-                <option value="Bizgurukul">Bizgurukul</option>
-                <option value="LeadsGuru">LeadsGuru</option>
-                <option value="MillionaireTrack">MillionaireTrack</option>
-                <option value="GyaanGrowth">GyaanGrowth</option>
-                <option value="RichIND">RichIND</option>
-                <option value="Forever">Forever</option>
-                <option value="Starteazy">Starteazy</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="name">Your Name *</label>
-              <input type="text" id="name" placeholder="Enter your name" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" placeholder="10-digit number" pattern="[0-9]{10}" required />
-            </div>
-            <button type="submit" class="pay-btn-large" id="submitBtn">
-              <span>🔒</span>
-              Pay ₹99 & Unlock WhatsApp
-            </button>
-            <div class="secure-note">
-              <span>🔒</span>
-              <span>Secured by Razorpay • Instant Access</span>
-            </div>
-          </form>
-        </div>
+      <div class="consultation-right">
+        <div class="big-price"><span>₹</span>99</div>
+        <p style="color: var(--muted); font-size: 18px; text-decoration: line-through; margin-bottom: 8px;">₹999</p>
+        <p style="color: var(--accent); font-weight: 600;">Limited Time Offer</p>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       FAQ SECTION - FIXED INDEPENDENT TOGGLE
-       ============================================ -->
+  <!-- FORM SECTION - SEPARATE TARGET -->
+  <section class="form-section" id="form-section">
+    <div class="form-card reveal">
+      <div class="form-header">
+        <div class="section-tag">Secure Your Spot</div>
+        <h2>Book Your Consultation</h2>
+        <p>Fill in your details below to proceed with payment</p>
+        
+        <div class="price-display">
+          <span class="current">₹99</span>
+          <span class="original">₹999</span>
+        </div>
+        
+        <div class="guarantee-pill">
+          <span>🛡️</span>
+          <span>100% Refund within 24 Hours</span>
+        </div>
+      </div>
+
+      <form class="consultation-form" id="consultForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="platform">Select Your Platform *</label>
+          <select id="platform" required>
+            <option value="">Choose Platform</option>
+            <option value="IDP">IDP</option>
+            <option value="Bizgurukul">Bizgurukul</option>
+            <option value="LeadsGuru">LeadsGuru</option>
+            <option value="MillionaireTrack">MillionaireTrack</option>
+            <option value="GyaanGrowth">GyaanGrowth</option>
+            <option value="RichIND">RichIND</option>
+            <option value="Forever">Forever</option>
+            <option value="Starteazy">Starteazy</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" placeholder="Enter your name" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" placeholder="10-digit number" pattern="[0-9]{10}" required />
+        </div>
+        <button type="submit" class="pay-btn-large" id="submitBtn">
+          <span>🔒</span>
+          Pay ₹99 & Unlock WhatsApp
+        </button>
+        <div class="secure-note">
+          <span>🔒</span>
+          <span>Secured by Razorpay • Instant Access</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION - ACCORDION STYLE -->
   <section class="faq-section" id="faq">
     <div class="section-header reveal" style="margin-bottom: 40px;">
       <div class="section-tag">FAQ</div>
@@ -2406,7 +2552,6 @@
       </div>
     </div>
   </section>
-  <!-- ============================================ -->
 
   <!-- Footer -->
   <footer>
@@ -2530,24 +2675,22 @@
   </div>
 
   <script>
-    // Preloader - Slowed Down Logic
+    // Preloader
     let progress = 0;
     const preloader = document.getElementById('preloader');
     const progressEl = document.getElementById('preloaderProgress');
     
-    // Slowed down interval from 100ms to 1000ms (1 second per step)
     const loadInterval = setInterval(() => {
-      // Increment by smaller random amounts to ensure it takes at least 2.5 seconds
-      progress += Math.random() * 15; 
+      progress += Math.random() * 30; 
       if (progress >= 100) {
         progress = 100;
         clearInterval(loadInterval);
         setTimeout(() => {
           preloader.classList.add('hidden');
-        }, 800); // Extra delay before hiding
+        }, 400);
       }
       progressEl.textContent = Math.floor(progress) + '%';
-    }, 250); // Increased interval to slow down the counting
+    }, 100);
 
     // Countdown Timer
     function startTimer() {
@@ -2565,8 +2708,7 @@
         if (time > 0) time--;
       }, 1000);
     }
-    // Delay timer start to sync with preloader
-    setTimeout(startTimer, 3000);
+    setTimeout(startTimer, 1500);
 
     // Navigation Scroll
     const nav = document.getElementById('nav');
@@ -2636,19 +2778,34 @@
     
     reveals.forEach(el => revealObserver.observe(el));
 
-    // ============================================
-    // FAQ TOGGLE - FIXED INDEPENDENT TOGGLE
-    // Only toggles the clicked item, others stay as-is
-    // ============================================
+    // Scroll to Form Section - DIRECT SCROLL
+    function scrollToForm() {
+      const formSection = document.getElementById('form-section');
+      const navHeight = 120; // Height of fixed nav + urgency bar
+      
+      const elementPosition = formSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+
+    // FAQ TOGGLE - UP/DOWN STYLE
     function toggleFaq(btn) {
-      // Get the parent faq-item of the clicked button
       const faqItem = btn.parentElement;
       
-      // Simply toggle the active class on this item
-      // This allows multiple items to be open at once
+      // Close all other FAQs
+      document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== faqItem) {
+          item.classList.remove('active');
+        }
+      });
+      
+      // Toggle current FAQ
       faqItem.classList.toggle('active');
     }
-    // ============================================
 
     // Policy Modal Functions
     function openPolicyModal(type) {
