@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description" content="AdHabits — Professional Meta Ads Management for Affiliate Marketers." />
   <meta name="keywords" content="meta ads, affiliate marketing, Facebook ads, lead generation" />
   <meta name="author" content="AdHabits" />
@@ -12,25 +12,22 @@
   <meta property="og:title" content="AdHabits — Professional Meta Ads for Affiliates" />
   <meta property="og:description" content="Let us run your Meta Ads & get you more leads. 3+ years experience, 290+ affiliates served." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://adhabits.in  " />
-  <meta property="og:image" content="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png  " />
+  <meta property="og:url" content="https://adhabits.in" />
+  <meta property="og:image" content="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" />
 
   <!-- Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com  " />
-  <link rel="preconnect" href="https://fonts.gstatic.com  " crossorigin />
-  <link rel="preconnect" href="https://connect.facebook.net  " />
-  <link rel="preconnect" href="https://checkout.razorpay.com  " />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://connect.facebook.net" />
+  <link rel="preconnect" href="https://superprofile.bio" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300  ;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Favicon -->
-  <link rel="icon" href="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png  " type="image/png" />
+  <link rel="icon" href="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" type="image/png" />
 
   <title>AdHabits — Professional Meta Ads for Affiliate Marketers</title>
-
-  <!-- Razorpay -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js  "></script>
 
   <style>
     :root {
@@ -57,13 +54,11 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 120px;
+      scroll-padding-top: 140px;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
+      html { scroll-behavior: auto; }
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
@@ -80,29 +75,23 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ============================================
-       ENHANCED BUTTON EFFECTS WITH SHAKE/VIBRATE
-       ============================================ */
-    .btn-primary, .btn-secondary, .pay-btn-large, .nav-links a.btn {
+    /* BUTTON EFFECTS WITH SHAKE/VIBRATE */
+    .btn-primary, .btn-secondary, .submit-btn, .nav-links a.btn {
       position: relative;
       overflow: hidden;
       transition: all 0.3s ease;
+      -webkit-tap-highlight-color: transparent;
     }
 
     /* Shimmer overlay */
-    .btn-primary::before, .btn-secondary::before, .pay-btn-large::before, .nav-links a.btn::before {
+    .btn-primary::before, .btn-secondary::before, .submit-btn::before, .nav-links a.btn::before {
       content: '';
       position: absolute;
       top: 0;
       left: -100%;
       width: 50%;
       height: 100%;
-      background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.6) 50%,
-        transparent 100%
-      );
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
       transform: skewX(-25deg);
       animation: shimmer 3s infinite;
       pointer-events: none;
@@ -110,23 +99,8 @@
     }
 
     .btn-secondary::before {
-      background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255, 107, 53, 0.3) 50%,
-        transparent 100%
-      );
+      background: linear-gradient(120deg, transparent 0%, rgba(255,107,53,0.3) 50%, transparent 100%);
       animation: shimmer 3s infinite 0.5s;
-    }
-
-    .nav-links a.btn::before {
-      background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.5) 50%,
-        transparent 100%
-      );
-      animation: shimmer 3s infinite 0.3s;
     }
 
     @keyframes shimmer {
@@ -135,13 +109,8 @@
       100% { left: 200%; }
     }
 
-    .btn-primary:hover::before, .btn-secondary:hover::before, 
-    .pay-btn-large:hover::before, .nav-links a.btn:hover::before {
-      animation: shimmer 1.5s infinite;
-    }
-
-    /* VIBRATE/SHAKE ANIMATION ON HOVER */
-    .btn-primary:hover, .nav-links a.btn:hover {
+    /* VIBRATE/SHAKE ANIMATION */
+    .btn-primary:hover, .btn-primary:active, .nav-links a.btn:hover, .submit-btn:hover {
       animation: vibrate 0.3s ease-in-out infinite;
       transform: translateY(-3px);
       box-shadow: 0 20px 40px rgba(255,107,53,0.4);
@@ -168,22 +137,12 @@
       75% { transform: translateY(-2px) rotate(1deg); }
     }
 
-    /* Click/Tap feedback */
-    .btn-primary:active, .btn-secondary:active, .pay-btn-large:active {
+    .btn-primary:active, .btn-secondary:active, .submit-btn:active {
       transform: scale(0.95) !important;
       animation: none;
     }
 
-    /* Ensure button text stays above effects */
-    .btn-primary span, .btn-primary svg,
-    .btn-secondary span, .btn-secondary svg,
-    .pay-btn-large span, .pay-btn-large svg,
-    .nav-links a.btn span {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Preloader - 1 SECOND ONLY */
+    /* Preloader */
     .preloader {
       position: fixed;
       inset: 0;
@@ -207,16 +166,11 @@
       height: 120px;
       border-radius: 50%;
       background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
-      box-shadow: 
-        inset -10px -10px 20px rgba(0,0,0,0.05),
-        inset 10px 10px 20px rgba(255,255,255,0.8),
-        0 10px 40px rgba(0,0,0,0.1);
+      box-shadow: inset -10px -10px 20px rgba(0,0,0,0.05), inset 10px 10px 20px rgba(255,255,255,0.8), 0 10px 40px rgba(0,0,0,0.1);
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       animation: pulse-soft 2s ease-in-out infinite;
-      overflow: hidden;
     }
 
     .preloader-circle img {
@@ -237,7 +191,6 @@
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       opacity: 0;
@@ -253,11 +206,9 @@
       opacity: 0.8;
     }
     
-    @keyframes fadeIn {
-        to { opacity: 1; }
-    }
+    @keyframes fadeIn { to { opacity: 1; } }
 
-    /* Urgency Bar */
+    /* URGENCY BAR - MOBILE FIXED */
     .urgency-bar {
       position: fixed;
       top: 0;
@@ -266,19 +217,20 @@
       background: var(--gradient);
       color: #fff;
       text-align: center;
-      padding: 12px;
+      padding: 10px 12px;
       font-weight: 600;
-      font-size: 13px;
+      font-size: 12px;
       z-index: 1001;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 8px;
       backdrop-filter: blur(10px);
       transform: translateY(-100%);
       animation: slideDown 0.6s ease forwards;
       animation-delay: 1.2s;
       flex-wrap: wrap;
+      line-height: 1.4;
     }
 
     @keyframes slideDown {
@@ -288,22 +240,38 @@
     .timer-display {
       background: rgba(0,0,0,0.2);
       color: #fff;
-      padding: 4px 12px;
+      padding: 4px 10px;
       border-radius: 6px;
       font-family: 'Inter', monospace;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: 1px;
     }
 
-    /* Navigation */
+    @media (max-width: 480px) {
+      .urgency-bar {
+        font-size: 11px;
+        padding: 8px 10px;
+        gap: 6px;
+      }
+      .timer-display {
+        font-size: 12px;
+        padding: 3px 8px;
+      }
+      .urgency-bar span:nth-child(2),
+      .urgency-bar span:nth-child(3) {
+        font-size: 11px;
+      }
+    }
+
+    /* NAVIGATION - MOBILE FIXED WITH GAP */
     .nav {
       position: fixed;
-      top: 48px;
+      top: 56px; /* INCREASED GAP from urgency bar */
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 0 24px;
+      padding: 0 16px;
       opacity: 0;
       transform: translateY(-20px);
       animation: fadeInDown 0.8s ease forwards;
@@ -311,39 +279,36 @@
     }
 
     @keyframes fadeInDown {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .nav-inner {
       max-width: 1200px;
       margin: 0 auto;
-      height: 70px;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px) saturate(180%);
       border: 1px solid rgba(0,0,0,0.05);
       border-radius: 16px;
-      padding: 0 24px;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+      padding: 0 20px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
       transition: all 0.3s ease;
     }
 
     .nav.scrolled .nav-inner {
-      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
       border-color: rgba(0,0,0,0.08);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       font-weight: 700;
-      font-size: 20px;
+      font-size: 18px;
       font-family: 'Poppins', sans-serif;
     }
 
@@ -353,25 +318,28 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 2px 10px rgba(255,107,53,0.3);
+      flex-shrink: 0;
+      background: #fff;
     }
 
     .logo img {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      display: block;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .nav-links a {
       color: var(--text);
       font-weight: 500;
-      font-size: 14px;
-      padding: 10px 16px;
+      font-size: 13px;
+      padding: 8px 14px;
       border-radius: 10px;
       transition: all 0.3s ease;
       position: relative;
@@ -389,27 +357,18 @@
       border-radius: 10px;
     }
 
-    .nav-links a:hover::before,
-    .nav-links a.active::before {
-      opacity: 1;
-    }
-
-    .nav-links a span {
-      position: relative;
-      z-index: 1;
-    }
+    .nav-links a:hover::before { opacity: 1; }
+    .nav-links a span { position: relative; z-index: 1; }
 
     .nav-links a.btn {
       background: var(--gradient);
       color: #fff;
       font-weight: 600;
-      padding: 10px 20px;
-      margin-left: 8px;
+      padding: 10px 18px;
+      margin-left: 6px;
     }
 
-    .nav-links a.btn::before {
-      display: none;
-    }
+    .nav-links a.btn::before { display: none; }
 
     .hamb {
       display: none;
@@ -419,6 +378,7 @@
       padding: 8px;
       flex-direction: column;
       gap: 5px;
+      z-index: 1002;
     }
 
     .hamb span {
@@ -430,29 +390,37 @@
       transition: all 0.3s ease;
     }
 
+    /* MOBILE NAVIGATION FIXES */
     @media (max-width: 900px) {
+      .nav { top: 68px; } /* More gap on mobile */
+      .nav-inner { height: 60px; padding: 0 16px; }
+      .brand { font-size: 16px; }
+      .logo { width: 34px; height: 34px; }
+      
       .nav-links {
         display: none;
         position: absolute;
-        top: 80px;
-        left: 24px;
-        right: 24px;
+        top: 70px;
+        left: 16px;
+        right: 16px;
         flex-direction: column;
         background: var(--card);
-        padding: 24px;
+        padding: 20px;
         border-radius: 16px;
         box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        gap: 4px;
       }
-      .nav-links.active {
-        display: flex;
-      }
-      .hamb {
-        display: flex;
-      }
-      .urgency-bar {
-        font-size: 11px;
-        padding: 8px;
-      }
+      .nav-links.active { display: flex; }
+      .nav-links a { width: 100%; text-align: center; padding: 12px; }
+      .nav-links a.btn { margin-left: 0; margin-top: 8px; }
+      .hamb { display: flex; }
+    }
+
+    @media (max-width: 480px) {
+      .nav { top: 72px; padding: 0 12px; }
+      .nav-inner { border-radius: 12px; height: 56px; }
+      .logo { width: 32px; height: 32px; }
+      .brand span { font-size: 15px; }
     }
 
     /* Hero Section */
@@ -460,9 +428,17 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 140px 24px 80px;
+      padding: 160px 24px 80px;
       position: relative;
       overflow: hidden;
+    }
+
+    @media (max-width: 900px) {
+      .hero { padding-top: 180px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 170px 16px 60px; }
     }
 
     .hero-bg {
@@ -521,10 +497,7 @@
     }
 
     @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .eyebrow {
@@ -558,7 +531,7 @@
     h1 {
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
-      font-size: clamp(40px, 5vw, 64px);
+      font-size: clamp(36px, 5vw, 64px);
       line-height: 1.1;
       letter-spacing: -0.02em;
       margin-bottom: 20px;
@@ -661,10 +634,7 @@
     }
 
     @keyframes fadeInLeft {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+      to { opacity: 1; transform: translateX(0); }
     }
 
     .hero-card {
@@ -749,18 +719,10 @@
         grid-template-columns: 1fr;
         text-align: center;
       }
-      .hero-stats {
-        justify-content: center;
-      }
-      .cta-group {
-        justify-content: center;
-      }
-      .hero-right {
-        order: -1;
-      }
-      .floating-badge {
-        display: none;
-      }
+      .hero-stats { justify-content: center; }
+      .cta-group { justify-content: center; }
+      .hero-right { order: -1; }
+      .floating-badge { display: none; }
     }
 
     /* Trust Bar */
@@ -921,9 +883,7 @@
     }
 
     @media (max-width: 768px) {
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
+      .features-grid { grid-template-columns: 1fr; }
     }
 
     /* About Section */
@@ -1011,9 +971,7 @@
     }
 
     @media (max-width: 768px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
+      .about-grid { grid-template-columns: 1fr; }
     }
 
     /* Expert Section */
@@ -1113,9 +1071,7 @@
         grid-template-columns: 1fr;
         gap: 40px;
       }
-      .experience-badge {
-        right: 20px;
-      }
+      .experience-badge { right: 20px; }
     }
 
     /* Services Section */
@@ -1181,9 +1137,7 @@
     }
 
     @media (max-width: 768px) {
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
+      .services-grid { grid-template-columns: 1fr; }
     }
 
     /* Testimonials Section */
@@ -1201,9 +1155,7 @@
       scrollbar-width: none;
     }
 
-    .testimonials-track::-webkit-scrollbar {
-      display: none;
-    }
+    .testimonials-track::-webkit-scrollbar { display: none; }
 
     .testimonial-card {
       flex: 0 0 320px;
@@ -1239,13 +1191,13 @@
       color: var(--muted);
     }
 
-    /* SEPARATE FORM SECTION - FULLY VISIBLE */
+    /* FORM SECTION - STANDALONE */
     .form-section {
       padding: 100px 24px;
       background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(247,147,30,0.05) 100%);
       border-top: 2px solid rgba(255,107,53,0.1);
       border-bottom: 2px solid rgba(255,107,53,0.1);
-      scroll-margin-top: 100px;
+      scroll-margin-top: 140px;
     }
 
     .form-container {
@@ -1299,10 +1251,6 @@
       margin-bottom: 0;
     }
 
-    .form-group.full-width {
-      grid-column: 1 / -1;
-    }
-
     .form-group label {
       display: block;
       font-size: 14px;
@@ -1330,9 +1278,7 @@
       box-shadow: 0 0 0 4px rgba(255,107,53,0.1);
     }
 
-    .form-group input::placeholder {
-      color: #999;
-    }
+    .form-group input::placeholder { color: #999; }
 
     .submit-btn {
       width: 100%;
@@ -1355,16 +1301,6 @@
       transition: all 0.3s ease;
     }
 
-    .submit-btn:hover {
-      animation: vibrate 0.3s ease-in-out infinite;
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(255,107,53,0.4);
-    }
-
-    .submit-btn:active {
-      transform: scale(0.98);
-    }
-
     .submit-btn::before {
       content: '';
       position: absolute;
@@ -1372,12 +1308,7 @@
       left: -100%;
       width: 50%;
       height: 100%;
-      background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.6) 50%,
-        transparent 100%
-      );
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
       transform: skewX(-25deg);
       animation: shimmer 3s infinite;
     }
@@ -1390,6 +1321,8 @@
       margin-top: 20px;
       font-size: 14px;
       color: var(--muted);
+      flex-wrap: wrap;
+      text-align: center;
     }
 
     .price-highlight {
@@ -1418,23 +1351,14 @@
     }
 
     @media (max-width: 768px) {
-      .form-section {
-        padding: 60px 16px;
-      }
-      .form-container {
-        padding: 40px 24px;
-        border-radius: 24px;
-      }
-      .form-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      .price-highlight .current {
-        font-size: 36px;
-      }
+      .form-section { padding: 60px 16px; }
+      .form-container { padding: 40px 24px; border-radius: 24px; }
+      .form-grid { grid-template-columns: 1fr; gap: 20px; }
+      .price-highlight .current { font-size: 36px; }
+      .submit-btn { font-size: 16px; padding: 18px; }
     }
 
-    /* Contact Section - Only 2 Cards */
+    /* Contact Section */
     .contact-section {
       padding: 100px 24px;
       background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.02) 50%, transparent 100%);
@@ -1496,9 +1420,7 @@
     }
 
     @media (max-width: 520px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+      .contact-grid { grid-template-columns: 1fr; }
     }
 
     /* FAQ SECTION */
@@ -1538,13 +1460,8 @@
       transition: color 0.3s ease;
     }
 
-    .faq-question:hover {
-      color: var(--accent);
-    }
-
-    .faq-item.active .faq-question {
-      color: var(--accent);
-    }
+    .faq-question:hover { color: var(--accent); }
+    .faq-item.active .faq-question { color: var(--accent); }
 
     .faq-icon {
       width: 32px;
@@ -1584,9 +1501,7 @@
     }
 
     .faq-item.active .faq-icon::before,
-    .faq-item.active .faq-icon::after {
-      background: #fff;
-    }
+    .faq-item.active .faq-icon::after { background: #fff; }
 
     .faq-answer {
       max-height: 0;
@@ -1601,9 +1516,7 @@
       font-size: 15px;
     }
 
-    .faq-item.active .faq-answer {
-      max-height: 500px;
-    }
+    .faq-item.active .faq-answer { max-height: 500px; }
 
     /* Footer */
     footer {
@@ -1621,9 +1534,7 @@
       margin-bottom: 60px;
     }
 
-    .footer-brand {
-      max-width: 300px;
-    }
+    .footer-brand { max-width: 300px; }
 
     .footer-brand .logo-text {
       font-family: 'Poppins', sans-serif;
@@ -1669,9 +1580,7 @@
       text-decoration: none;
     }
 
-    .footer-column a:hover {
-      color: var(--accent);
-    }
+    .footer-column a:hover { color: var(--accent); }
 
     .footer-bottom {
       max-width: 1200px;
@@ -1688,10 +1597,7 @@
     }
 
     @media (max-width: 768px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
     }
 
     /* Policy Modals */
@@ -1755,13 +1661,9 @@
       font-size: 20px;
     }
 
-    .policy-body {
-      padding: 32px;
-    }
+    .policy-body { padding: 32px; }
 
-    .policy-section {
-      margin-bottom: 32px;
-    }
+    .policy-section { margin-bottom: 32px; }
 
     .policy-section h3 {
       font-family: 'Poppins', sans-serif;
@@ -1778,10 +1680,7 @@
       font-size: 15px;
     }
 
-    .policy-section ul {
-      margin-left: 24px;
-      margin-bottom: 16px;
-    }
+    .policy-section ul { margin-left: 24px; margin-bottom: 16px; }
 
     .policy-date {
       color: var(--muted);
@@ -1841,12 +1740,7 @@
       left: -100%;
       width: 50%;
       height: 100%;
-      background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.5) 50%,
-        transparent 100%
-      );
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.5) 50%, transparent 100%);
       transform: skewX(-25deg);
       animation: shimmer 3s infinite;
     }
@@ -1861,39 +1755,7 @@
       animation: spin 1s linear infinite;
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Success Message */
-    .success-message {
-      display: none;
-      text-align: center;
-      padding: 40px;
-      background: rgba(34, 197, 94, 0.1);
-      border-radius: 16px;
-      border: 2px solid var(--success);
-    }
-
-    .success-message.show {
-      display: block;
-      animation: fadeIn 0.5s ease;
-    }
-
-    .success-message h3 {
-      color: var(--success);
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-
-    .success-message p {
-      color: var(--text);
-      margin-bottom: 24px;
-    }
-
-    .success-message .btn-primary {
-      display: inline-flex;
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 
   <!-- Meta Pixels -->
@@ -1902,7 +1764,7 @@
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js  ');
+    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
     
     fbq('init', '1615358806544488');
     fbq('init', '1255041905596153');
@@ -1914,7 +1776,7 @@
   <!-- Preloader -->
   <div class="preloader" id="preloader">
     <div class="preloader-circle">
-      <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png  " alt="AdHabits" />
+      <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" alt="AdHabits" />
     </div>
     <div class="preloader-text">Welcome Affiliates</div>
     <div class="preloader-progress" id="preloaderProgress">0%</div>
@@ -1926,7 +1788,7 @@
     <span style="text-decoration: line-through; opacity: 0.9;">₹999</span>
     <span style="font-weight: 800;">₹99 Only</span>
     <span class="timer-display" id="countdown">02:59:59</span>
-    <span style="font-size: 12px; opacity: 0.9;">(7 spots left)</span>
+    <span style="font-size: 11px; opacity: 0.9;">(7 spots left)</span>
   </div>
 
   <!-- Navigation -->
@@ -1934,7 +1796,7 @@
     <div class="nav-inner">
       <div class="brand">
         <div class="logo">
-          <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png  " alt="AdHabits" />
+          <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" alt="AdHabits" />
         </div>
         <span>AdHabits</span>
       </div>
@@ -1947,7 +1809,7 @@
         <a href="#contact"><span>Contact</span></a>
         <a href="#consultation" class="btn" onclick="scrollToForm()">Pay ₹99</a>
       </div>
-      <button class="hamb" id="hamb">
+      <button class="hamb" id="hamb" aria-label="Menu">
         <span></span>
         <span></span>
         <span></span>
@@ -1991,7 +1853,7 @@
       <div class="hero-right">
         <div class="hero-card">
           <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/SG5MdFiP1zA?rel=0&modestbranding=1  " title="AdHabits Intro" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/SG5MdFiP1zA?rel=0&modestbranding=1" title="AdHabits Intro" allowfullscreen loading="lazy"></iframe>
           </div>
           <div class="floating-badge badge-1">
             <div class="badge-icon">🏆</div>
@@ -2199,7 +2061,7 @@
     <div class="expert-grid">
       <div class="expert-image reveal">
         <div class="expert-image-wrapper">
-          <img src="https://i.postimg.cc/cC2f5c0G/IMG-5862-2.avif  " alt="Rahman - Meta Ads Expert" />
+          <img src="https://i.postimg.cc/cC2f5c0G/IMG-5862-2.avif" alt="Rahman - Meta Ads Expert" loading="lazy" />
         </div>
         <div class="experience-badge">
           <div class="years">3+</div>
@@ -2240,63 +2102,63 @@
     <div class="testimonials-track" id="testimonialsTrack">
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg  " alt="Nasreen's Result" />
+          <img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg" alt="Nasreen's Result" loading="lazy" />
         </div>
         <div class="testimonial-name">Nasreen</div>
         <div class="testimonial-platform">IDP Affiliate</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg  " alt="Rukkaya's Result" />
+          <img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg" alt="Rukkaya's Result" loading="lazy" />
         </div>
         <div class="testimonial-name">Rukkaya</div>
         <div class="testimonial-platform">Bizgurukul Affiliate</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg  " alt="Farheen's Result" />
+          <img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg" alt="Farheen's Result" loading="lazy" />
         </div>
         <div class="testimonial-name">Farheen</div>
         <div class="testimonial-platform">LeadsGuru Affiliate</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/vBDGBcp7/Firdous-finel.jpg  " alt="Firdous's Result" />
+          <img src="https://i.postimg.cc/vBDGBcp7/Firdous-finel.jpg" alt="Firdous's Result" loading="lazy" />
         </div>
         <div class="testimonial-name">Firdous</div>
         <div class="testimonial-platform">MillionaireTrack</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/CxF50LL7/Ahemadi-mam-finel.jpg  " alt="Ahemadi's Result" />
+          <img src="https://i.postimg.cc/CxF50LL7/Ahemadi-mam-finel.jpg" alt="Ahemadi's Result" loading="lazy" />
         </div>
         <div class="testimonial-name">Ahemadi</div>
         <div class="testimonial-platform">RichIND Affiliate</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/nhcF5R0w/balvinder-finel.jpg  " alt="Balvinder's Result" />
+          <img src="https://i.postimg.cc/nhcF5R0w/balvinder-finel.jpg" alt="Balvinder's Result" loading="lazy" />
         </div>
         <div class="testimonial-name">Balvinder</div>
         <div class="testimonial-platform">Forever Affiliate</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/rFhXd8NQ/faizeen-finel.jpg  " alt="Faizeen's Result" />
+          <img src="https://i.postimg.cc/rFhXd8NQ/faizeen-finel.jpg" alt="Faizeen's Result" loading="lazy" />
         </div>
         <div class="testimonial-name">Faizeen</div>
         <div class="testimonial-platform">GyaanGrowth</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/FRbwhmKb/Nadeem-finel.jpg  " alt="Nadeem's Result" />
+          <img src="https://i.postimg.cc/FRbwhmKb/Nadeem-finel.jpg" alt="Nadeem's Result" loading="lazy" />
         </div>
         <div class="testimonial-name">Nadeem</div>
         <div class="testimonial-platform">Starteazy Affiliate</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-image">
-          <img src="https://i.postimg.cc/pL97pKTL/Rukhsaar-finel.jpg  " alt="Rukhsaar's Result" />
+          <img src="https://i.postimg.cc/pL97pKTL/Rukhsaar-finel.jpg" alt="Rukhsaar's Result" loading="lazy" />
         </div>
         <div class="testimonial-name">Rukhsaar</div>
         <div class="testimonial-platform">IDP Affiliate</div>
@@ -2304,7 +2166,7 @@
     </div>
   </section>
 
-  <!-- Contact Section - Only Email and Support -->
+  <!-- Contact Section -->
   <section class="contact-section" id="contact">
     <div class="section-header reveal">
       <div class="section-tag">Get in Touch</div>
@@ -2328,7 +2190,7 @@
     </div>
   </section>
 
-  <!-- SEPARATE FORM SECTION - STANDALONE -->
+  <!-- FORM SECTION -->
   <section class="form-section" id="consultation">
     <div class="form-container reveal">
       <div class="form-header">
@@ -2384,19 +2246,9 @@
         
         <div class="form-security">
           <span>🔒</span>
-          <span>Secured by Razorpay • 100% Refund Guarantee • Instant Access</span>
+          <span>Secured Payment • 100% Refund Guarantee • Instant Access</span>
         </div>
       </form>
-
-      <!-- Success Message (Hidden by default) -->
-      <div class="success-message" id="successMessage">
-        <h3>✅ Details Saved Successfully!</h3>
-        <p>Redirecting you to payment page...</p>
-        <button class="btn-primary" onclick="redirectToPayment()">
-          <span>💳</span>
-          Complete Payment Now
-        </button>
-      </div>
     </div>
   </section>
 
@@ -2408,7 +2260,6 @@
       <p class="section-subtitle">Click on any question to see the answer</p>
     </div>
 
-    <!-- FAQ Item 1 -->
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
         <span>Why do I need to pay ₹99 first?</span>
@@ -2419,7 +2270,6 @@
       </div>
     </div>
 
-    <!-- FAQ Item 2 -->
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
         <span>Which platforms do you work with?</span>
@@ -2430,7 +2280,6 @@
       </div>
     </div>
 
-    <!-- FAQ Item 3 -->
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
         <span>What is the 24-hour refund policy?</span>
@@ -2441,7 +2290,6 @@
       </div>
     </div>
 
-    <!-- FAQ Item 4 -->
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
         <span>How quickly can I see results?</span>
@@ -2452,7 +2300,6 @@
       </div>
     </div>
 
-    <!-- FAQ Item 5 -->
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
         <span>Do you provide ad creatives and copy?</span>
@@ -2469,7 +2316,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo-text">
-          <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png  " alt="" width="32" height="32" style="border-radius: 8px;" />
+          <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" alt="" width="32" height="32" style="border-radius: 8px;" />
           AdHabits
         </div>
         <p>Professional Meta Ads management for affiliate marketers. Helping you scale with data-driven strategies and personalized support.</p>
@@ -2503,7 +2350,7 @@
         <a onclick="openPolicyModal('privacy')">Privacy Policy</a>
         <a onclick="openPolicyModal('terms')">Terms & Conditions</a>
         <a onclick="openPolicyModal('refund')">Refund Policy</a>
-        <a href="https://instagram.com/adhabits.in  " target="_blank">Instagram</a>
+        <a href="https://instagram.com/adhabits.in" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -2512,14 +2359,14 @@
   </footer>
 
   <!-- Back to Top -->
-  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 
   <!-- Policy Modals -->
   <div class="policy-modal" id="privacyModal" onclick="closePolicyModalOnOverlay(event, 'privacy')">
     <div class="policy-content">
       <div class="policy-header">
         <h2>Privacy Policy</h2>
-        <button class="policy-close" onclick="closePolicyModal('privacy')">×</button>
+        <button class="policy-close" onclick="closePolicyModal('privacy')" aria-label="Close">×</button>
       </div>
       <div class="policy-body">
         <div class="policy-date">Last updated: January 31, 2025</div>
@@ -2535,7 +2382,7 @@
     <div class="policy-content">
       <div class="policy-header">
         <h2>Terms & Conditions</h2>
-        <button class="policy-close" onclick="closePolicyModal('terms')">×</button>
+        <button class="policy-close" onclick="closePolicyModal('terms')" aria-label="Close">×</button>
       </div>
       <div class="policy-body">
         <div class="policy-date">Last updated: January 31, 2025</div>
@@ -2551,7 +2398,7 @@
     <div class="policy-content">
       <div class="policy-header">
         <h2>Refund & Cancellation Policy</h2>
-        <button class="policy-close" onclick="closePolicyModal('refund')">×</button>
+        <button class="policy-close" onclick="closePolicyModal('refund')" aria-label="Close">×</button>
       </div>
       <div class="policy-body">
         <div class="policy-date">Last updated: January 31, 2025</div>
@@ -2564,10 +2411,11 @@
   </div>
 
   <script>
-    // GOOGLE SHEET CONFIGURATION
-    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwQvmLoM4FhipK-UZhvFgb_mCl1uq_-VtyK4NpW8QxsEOOgyBDgxEEuBU0m_wGcWZOkLg/exec  ';
+    // CONFIGURATION
+    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwQvmLoM4FhipK-UZhvFgb_mCl1uq_-VtyK4NpW8QxsEOOgyBDgxEEuBU0m_wGcWZOkLg/exec';
+    const PAYMENT_LINK = 'https://superprofile.bio/vp/adhabits';
     
-    // Preloader - 1 SECOND ONLY
+    // Preloader
     let progress = 0;
     const preloader = document.getElementById('preloader');
     const progressEl = document.getElementById('preloaderProgress');
@@ -2670,33 +2518,23 @@
     
     reveals.forEach(el => revealObserver.observe(el));
 
-    // SCROLL TO FORM FUNCTION - ALL BUTTONS USE THIS
+    // SCROLL TO FORM
     function scrollToForm() {
       const formSection = document.getElementById('consultation');
-      const navHeight = 120; // Height of fixed nav + urgency bar
+      const navHeight = 140;
       
-      // Calculate position
       const elementPosition = formSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navHeight;
       
-      // Smooth scroll
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       });
       
-      // Track event
+      // Track
       if (typeof fbq !== 'undefined') {
         fbq('track', 'InitiateCheckout');
       }
-      
-      // Highlight effect
-      setTimeout(() => {
-        formSection.querySelector('.form-container').style.transform = 'scale(1.02)';
-        setTimeout(() => {
-          formSection.querySelector('.form-container').style.transform = 'scale(1)';
-        }, 300);
-      }, 800);
     }
 
     // FAQ TOGGLE
@@ -2705,7 +2543,7 @@
       faqItem.classList.toggle('active');
     }
 
-    // Policy Modal Functions
+    // Policy Modals
     function openPolicyModal(type) {
       document.getElementById(type + 'Modal').classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -2722,46 +2560,48 @@
       }
     }
 
-    // FORM SUBMIT HANDLER - SAVE TO GOOGLE SHEET & TRACK
+    // FORM SUBMIT - FAST & DIRECT
     async function handleFormSubmit(e) {
       e.preventDefault();
       
-      const form = document.getElementById('leadForm');
       const submitBtn = document.getElementById('submitBtn');
-      const successMsg = document.getElementById('successMessage');
+      const form = document.getElementById('leadForm');
       
-      // Get form data
+      // Get data
       const formData = {
         platform: document.getElementById('platform').value,
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        email: document.getElementById('email').value || 'Not provided',
+        name: document.getElementById('name').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        email: document.getElementById('email').value.trim() || 'Not provided',
         timestamp: new Date().toLocaleString('en-IN'),
         date: new Date().toISOString()
       };
       
-      // Validation
+      // Validate
       if (!formData.platform || !formData.name || !formData.phone) {
         alert('Please fill all required fields');
         return;
       }
       
+      if (formData.phone.length !== 10) {
+        alert('Please enter valid 10-digit phone number');
+        return;
+      }
+      
       // Show loading
-      submitBtn.innerHTML = '<span class="spinner"></span> Saving Details...';
+      submitBtn.innerHTML = '<span class="spinner"></span> Processing...';
       submitBtn.disabled = true;
       
       try {
-        // 1. SAVE TO GOOGLE SHEETS
-        const sheetResponse = await fetch(GOOGLE_SHEET_URL, {
+        // 1. SAVE TO GOOGLE SHEETS (background)
+        fetch(GOOGLE_SHEET_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
-        });
+        }).catch(() => {});
         
-        // 2. TRACK FACEBOOK PIXEL - LEAD EVENT
+        // 2. TRACK PIXEL
         if (typeof fbq !== 'undefined') {
           fbq('track', 'Lead', {
             content_name: 'Consultation Form',
@@ -2770,93 +2610,14 @@
             currency: 'INR',
             platform: formData.platform
           });
-          
-          // Also track custom event
-          fbq('trackCustom', 'FormSubmit', {
-            platform: formData.platform,
-            phone: formData.phone
-          });
         }
         
-        // 3. STORE IN SESSION FOR PAYMENT
-        sessionStorage.setItem('adh_user_data', JSON.stringify(formData));
-        
-        // 4. SHOW SUCCESS & REDIRECT
-        form.style.display = 'none';
-        successMsg.classList.add('show');
-        
-        // Auto redirect after 2 seconds
-        setTimeout(() => {
-          redirectToPayment();
-        }, 2000);
+        // 3. IMMEDIATE REDIRECT - NO WAIT
+        window.location.href = PAYMENT_LINK;
         
       } catch (error) {
-        console.error('Error:', error);
-        // Even if error, proceed to payment
-        sessionStorage.setItem('adh_user_data', JSON.stringify(formData));
-        redirectToPayment();
-      }
-    }
-
-    // REDIRECT TO RAZORPAY PAYMENT
-    function redirectToPayment() {
-      const userData = JSON.parse(sessionStorage.getItem('adh_user_data') || '{}');
-      
-      // Razorpay configuration
-      const options = {
-        key: "rzp_test_YOUR_KEY_HERE", // REPLACE WITH YOUR KEY
-        amount: 9900, // ₹99 in paise
-        currency: "INR",
-        name: "AdHabits",
-        description: "WhatsApp Consultation with Rahman",
-        image: "https://i.postimg.cc/3rVMTKYG/adhabits-logo.png  ",
-        
-        handler: function(response) {
-          const paymentId = response.razorpay_payment_id;
-          
-          // Track purchase
-          if (typeof fbq !== 'undefined') {
-            fbq('track', 'Purchase', {
-              value: 99.00,
-              currency: 'INR',
-              content_name: 'Consultation',
-              content_type: 'product',
-              payment_id: paymentId
-            });
-          }
-          
-          // WhatsApp message with details
-          const msg = `Hello Rahman sir,\n\n✅ *Payment Successful!*\n\n💳 Payment ID: ${paymentId}\n📋 Platform: ${userData.platform}\n👤 Name: ${userData.name}\n📱 Phone: ${userData.phone}\n📧 Email: ${userData.email}\n\nI have paid ₹99 for consultation. Ready to discuss my ad strategy!`;
-          
-          window.open(`https://wa.me/917258055245?text=  ${encodeURIComponent(msg)}`, '_blank');
-        },
-        
-        prefill: {
-          name: userData.name || "",
-          email: userData.email || "",
-          contact: userData.phone || ""
-        },
-        
-        theme: {
-          color: "#ff6b35"
-        },
-        
-        modal: {
-          ondismiss: function() {
-            console.log('Payment modal closed');
-          }
-        }
-      };
-
-      const rzp = new Razorpay(options);
-      rzp.open();
-      
-      // Track initiate checkout
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'InitiateCheckout', {
-          value: 99.00,
-          currency: 'INR'
-        });
+        // If error, still redirect
+        window.location.href = PAYMENT_LINK;
       }
     }
 
@@ -2897,12 +2658,9 @@
       }
     });
 
-    // Phone input validation - only numbers
+    // Phone validation
     document.getElementById('phone').addEventListener('input', function(e) {
-      this.value = this.value.replace(/[^0-9]/g, '');
-      if (this.value.length > 10) {
-        this.value = this.value.slice(0, 10);
-      }
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
     });
   </script>
 </body>
