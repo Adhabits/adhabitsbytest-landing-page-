@@ -110,7 +110,7 @@
     }
 
     /* VIBRATE/SHAKE ANIMATION */
-    .btn-primary:hover, .btn-primary:active, .nav-links a.btn:hover, .submit-btn:hover {
+    .btn-primary:hover, .nav-links a.btn:hover, .submit-btn:hover {
       animation: vibrate 0.3s ease-in-out infinite;
       transform: translateY(-3px);
       box-shadow: 0 20px 40px rgba(255,107,53,0.4);
@@ -208,7 +208,32 @@
     
     @keyframes fadeIn { to { opacity: 1; } }
 
-    /* URGENCY BAR - MOBILE FIXED */
+    /* WELCOME MESSAGE AT TOP */
+    .welcome-message {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--gradient);
+      color: #fff;
+      text-align: center;
+      padding: 16px;
+      font-weight: 600;
+      font-size: 14px;
+      z-index: 9998;
+      transform: translateY(-100%);
+      animation: slideDownWelcome 0.6s ease forwards, slideUpWelcome 0.6s ease forwards 1.6s;
+    }
+
+    @keyframes slideDownWelcome {
+      to { transform: translateY(0); }
+    }
+
+    @keyframes slideUpWelcome {
+      to { transform: translateY(-100%); }
+    }
+
+    /* URGENCY BAR */
     .urgency-bar {
       position: fixed;
       top: 0;
@@ -228,7 +253,7 @@
       backdrop-filter: blur(10px);
       transform: translateY(-100%);
       animation: slideDown 0.6s ease forwards;
-      animation-delay: 1.2s;
+      animation-delay: 2.2s;
       flex-wrap: wrap;
       line-height: 1.4;
     }
@@ -258,16 +283,12 @@
         font-size: 12px;
         padding: 3px 8px;
       }
-      .urgency-bar span:nth-child(2),
-      .urgency-bar span:nth-child(3) {
-        font-size: 11px;
-      }
     }
 
-    /* NAVIGATION - MOBILE FIXED WITH GAP */
+    /* NAVIGATION */
     .nav {
       position: fixed;
-      top: 56px; /* INCREASED GAP from urgency bar */
+      top: 56px;
       left: 0;
       right: 0;
       z-index: 1000;
@@ -275,7 +296,7 @@
       opacity: 0;
       transform: translateY(-20px);
       animation: fadeInDown 0.8s ease forwards;
-      animation-delay: 1.4s;
+      animation-delay: 2.4s;
     }
 
     @keyframes fadeInDown {
@@ -392,7 +413,7 @@
 
     /* MOBILE NAVIGATION FIXES */
     @media (max-width: 900px) {
-      .nav { top: 68px; } /* More gap on mobile */
+      .nav { top: 68px; }
       .nav-inner { height: 60px; padding: 0 16px; }
       .brand { font-size: 16px; }
       .logo { width: 34px; height: 34px; }
@@ -493,7 +514,7 @@
       opacity: 0;
       transform: translateY(40px);
       animation: fadeInUp 1s ease forwards;
-      animation-delay: 1.6s;
+      animation-delay: 2.6s;
     }
 
     @keyframes fadeInUp {
@@ -630,7 +651,7 @@
       opacity: 0;
       transform: translateX(40px);
       animation: fadeInLeft 1s ease forwards;
-      animation-delay: 1.8s;
+      animation-delay: 2.8s;
     }
 
     @keyframes fadeInLeft {
@@ -1773,6 +1794,11 @@
 </head>
 
 <body>
+  <!-- Welcome Message - Shows for 1 second at top -->
+  <div class="welcome-message" id="welcomeMsg">
+    👋 Welcome Affiliate! Special Offer Just for You
+  </div>
+
   <!-- Preloader -->
   <div class="preloader" id="preloader">
     <div class="preloader-circle">
@@ -2432,6 +2458,14 @@
       progressEl.textContent = Math.floor(progress) + '%';
     }, 100);
 
+    // Welcome message hide after 1 second
+    setTimeout(() => {
+      const welcomeMsg = document.getElementById('welcomeMsg');
+      if (welcomeMsg) {
+        welcomeMsg.style.display = 'none';
+      }
+    }, 1600);
+
     // Countdown Timer
     function startTimer() {
       let time = 3 * 60 * 60;
@@ -2448,7 +2482,7 @@
         if (time > 0) time--;
       }, 1000);
     }
-    setTimeout(startTimer, 1500);
+    setTimeout(startTimer, 2200);
 
     // Navigation Scroll
     const nav = document.getElementById('nav');
@@ -2560,7 +2594,7 @@
       }
     }
 
-    // FORM SUBMIT - FAST & DIRECT
+    // FORM SUBMIT - GOOGLE SHEETS + PAYMENT
     async function handleFormSubmit(e) {
       e.preventDefault();
       
@@ -2574,7 +2608,8 @@
         phone: document.getElementById('phone').value.trim(),
         email: document.getElementById('email').value.trim() || 'Not provided',
         timestamp: new Date().toLocaleString('en-IN'),
-        date: new Date().toISOString()
+        date: new Date().toISOString(),
+        source: window.location.href
       };
       
       // Validate
@@ -2593,13 +2628,11 @@
       submitBtn.disabled = true;
       
       try {
-        // 1. SAVE TO GOOGLE SHEETS (background)
-        fetch(GOOGLE_SHEET_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        }).catch(() => {});
+        // 1. SAVE TO GOOGLE SHEETS - Using XMLHttpRequest for better compatibility
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', GOOGLE_SHEET_URL, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(formData));
         
         // 2. TRACK PIXEL
         if (typeof fbq !== 'undefined') {
@@ -2612,11 +2645,14 @@
           });
         }
         
-        // 3. IMMEDIATE REDIRECT - NO WAIT
-        window.location.href = PAYMENT_LINK;
+        // 3. Wait 500ms for data to be sent, then redirect
+        setTimeout(() => {
+          window.location.href = PAYMENT_LINK;
+        }, 500);
         
       } catch (error) {
-        // If error, still redirect
+        console.error('Error:', error);
+        // Still redirect even if error
         window.location.href = PAYMENT_LINK;
       }
     }
