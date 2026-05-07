@@ -1,962 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThriveClip Productions - Digital Marketing & Growth for Schools</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --gold: #FFD700;
-            --gold-light: #FFE44D;
-            --gold-dark: #D4AF37;
-            --black: #0a0a0a;
-            --black-light: #141414;
-            --black-card: #1a1a1a;
-            --gray: #888;
-            --gray-light: #ccc;
-            --white: #ffffff;
-        }
-        body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ThriveClip — More Admissions for Your School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f1419;
+    --ink-soft:#3a4452;
+    --paper:#fbf7f0;
+    --paper-warm:#f3ecdc;
+    --accent:#1f4d3f;        /* deep school green */
+    --accent-soft:#2d6b58;
+    --gold:#d4a02a;          /* school crest gold */
+    --line:#0f141926;
+    --shadow:0 1px 0 #0f14191a, 0 12px 40px -10px #0f141926;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Geist',-apple-system,system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .display{font-family:'Fraunces',serif;font-weight:700;letter-spacing:-0.02em;line-height:1}
+  .container{max-width:1100px;margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
 
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--black); }
-        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+  /* paper texture */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.4;
+    background-image:radial-gradient(#0f141908 1px,transparent 1px);
+    background-size:3px 3px;
+  }
 
-        /* Navbar */
-        .navbar {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 18px 60px; background: rgba(10,10,10,0.95); backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,215,0,0.1); transition: all 0.3s;
-        }
-        .navbar.scrolled { box-shadow: 0 4px 30px rgba(255,215,0,0.1); }
-        .logo { display: flex; align-items: center; gap: 12px; }
-        .logo img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
-        .logo-text { font-size: 22px; font-weight: 800; color: var(--gold); letter-spacing: -0.5px; }
-        .logo-text span { color: var(--white); }
-        .logo-sub { font-size: 10px; color: var(--gray); letter-spacing: 3px; text-transform: uppercase; }
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,247,240,0.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1100px;margin:0 auto;padding:14px 24px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:20px;letter-spacing:-0.02em}
+  .logo-mark{
+    width:32px;height:32px;border-radius:8px;
+    background:var(--accent);color:var(--paper);
+    display:grid;place-items:center;font-size:14px;font-weight:900;
+    box-shadow:inset 0 -2px 0 #0006;
+  }
+  .nav-cta{
+    background:var(--ink);color:var(--paper);
+    padding:10px 18px;border-radius:999px;
+    font-size:14px;font-weight:500;
+    transition:transform .2s;
+  }
+  .nav-cta:hover{transform:translateY(-1px)}
 
-        .nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--gray-light); font-weight: 500; font-size: 14px; transition: color 0.3s; position: relative; }
-        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s; }
-        .nav-links a:hover { color: var(--gold); }
-        .nav-links a:hover::after { width: 100%; }
+  /* HERO */
+  .hero{position:relative;padding:60px 0 80px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 14px;border-radius:999px;
+    background:var(--paper-warm);border:1px solid var(--line);
+    font-size:13px;font-weight:500;margin-bottom:24px;
+  }
+  .badge-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px #22c55e26}
+  h1{font-size:clamp(40px,6vw,68px);margin-bottom:20px}
+  h1 em{font-style:italic;color:var(--accent);font-weight:500}
+  .hero-sub{font-size:18px;color:var(--ink-soft);margin-bottom:32px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .btn-primary{
+    background:var(--accent);color:var(--paper);
+    padding:16px 28px;border-radius:12px;
+    font-weight:600;font-size:15px;
+    box-shadow:var(--shadow);
+    transition:all .2s;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary:hover{background:var(--accent-soft);transform:translateY(-2px)}
+  .btn-ghost{
+    padding:16px 24px;font-weight:500;font-size:15px;
+    color:var(--ink);border-bottom:1px solid var(--ink);
+  }
 
-        .nav-cta {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--black); padding: 12px 28px; border-radius: 50px;
-            text-decoration: none; font-weight: 700; font-size: 14px;
-            display: flex; align-items: center; gap: 8px; transition: all 0.3s;
-            border: none; cursor: pointer;
-        }
-        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,215,0,0.3); }
+  /* hero card */
+  .hero-card{
+    position:relative;background:var(--paper-warm);
+    border:1px solid var(--line);border-radius:24px;
+    padding:32px;box-shadow:var(--shadow);
+    transform:rotate(1deg);
+  }
+  .hero-card::before{
+    content:"";position:absolute;inset:-1px;border-radius:24px;
+    background:linear-gradient(135deg,transparent 60%,#d4a02a20);
+    pointer-events:none;
+  }
+  .stat-block{margin-bottom:20px;padding-bottom:20px;border-bottom:1px dashed var(--line)}
+  .stat-block:last-child{margin-bottom:0;padding-bottom:0;border:none}
+  .stat-num{font-family:'Fraunces',serif;font-size:48px;font-weight:900;line-height:1;letter-spacing:-0.03em}
+  .stat-num .plus{color:var(--gold)}
+  .stat-label{font-size:14px;color:var(--ink-soft);margin-top:6px}
+  .stat-tag{
+    display:inline-block;font-size:11px;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.08em;
+    background:var(--ink);color:var(--paper);
+    padding:3px 8px;border-radius:4px;margin-bottom:8px;
+  }
 
-        /* Hero */
-        .hero {
-            min-height: 100vh; position: relative; padding: 160px 60px 100px;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            border: 1px solid rgba(255,215,0,0.3); padding: 8px 20px;
-            border-radius: 50px; font-size: 12px; color: var(--gold); margin-bottom: 30px;
-            background: rgba(255,215,0,0.05);
-        }
-        .hero h1 {
-            font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 700;
-            line-height: 1.1; margin-bottom: 25px; letter-spacing: -1px;
-        }
-        .hero h1 span { color: var(--gold); }
-        .hero p {
-            font-size: 18px; color: var(--gray); line-height: 1.7; margin-bottom: 40px; max-width: 500px;
-        }
-        .hero-btns { display: flex; gap: 20px; flex-wrap: wrap; }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--black); padding: 16px 36px; border-radius: 50px;
-            text-decoration: none; font-weight: 700; font-size: 15px;
-            display: inline-flex; align-items: center; gap: 10px;
-            transition: all 0.3s; border: none; cursor: pointer;
-        }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(255,215,0,0.3); }
-        .btn-outline {
-            border: 2px solid rgba(255,215,0,0.4); color: var(--gold); padding: 16px 36px;
-            border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 15px;
-            display: inline-flex; align-items: center; gap: 10px;
-            transition: all 0.3s; background: transparent; cursor: pointer;
-        }
-        .btn-outline:hover { background: rgba(255,215,0,0.1); border-color: var(--gold); }
+  /* TRUST BAR */
+  .trust{
+    background:var(--ink);color:var(--paper);
+    padding:20px 0;overflow:hidden;
+    border-top:1px solid #fff1;border-bottom:1px solid #fff1;
+  }
+  .trust-inner{display:flex;align-items:center;gap:40px;font-family:'Fraunces',serif}
+  .trust-label{font-size:13px;text-transform:uppercase;letter-spacing:0.15em;opacity:.6;flex-shrink:0;padding-left:24px}
+  .trust-track{display:flex;gap:48px;animation:scroll 30s linear infinite;white-space:nowrap}
+  .trust-track span{font-size:18px;opacity:.8;font-style:italic}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-        .hero-stats {
-            display: flex; gap: 40px; margin-top: 50px; padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        .hero-stat h3 { font-size: 36px; font-weight: 800; color: var(--gold); }
-        .hero-stat p { font-size: 13px; color: var(--gray); margin-top: 5px; }
+  /* PROBLEM */
+  .section{padding:80px 0}
+  .eyebrow{
+    font-size:12px;text-transform:uppercase;letter-spacing:0.15em;
+    color:var(--accent);font-weight:600;margin-bottom:14px;
+  }
+  h2{font-size:clamp(32px,4.5vw,48px);margin-bottom:18px}
+  .section-sub{font-size:17px;color:var(--ink-soft);max-width:560px}
 
-        .hero-right { position: relative; }
-        .hero-img-wrap {
-            position: relative; border-radius: 30px; overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-        }
-        .hero-img-wrap img { width: 100%; height: 500px; object-fit: cover; }
-        .hero-img-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(180deg, transparent 50%, rgba(10,10,10,0.9) 100%);
-        }
-        .floating-card {
-            position: absolute; background: var(--black-card); border: 1px solid rgba(255,215,0,0.2);
-            border-radius: 16px; padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            animation: float 4s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        .fc-1 { top: 10%; left: -30px; animation-delay: 0s; }
-        .fc-2 { bottom: 20%; right: -20px; animation-delay: 1s; }
-        .fc-stat { font-size: 24px; font-weight: 800; color: var(--gold); }
-        .fc-label { font-size: 12px; color: var(--gray); }
+  .problems{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:48px}
+  .problem-card{background:var(--paper);padding:28px}
+  .problem-icon{font-size:24px;margin-bottom:14px;display:block}
+  .problem-card h3{font-family:'Fraunces',serif;font-size:20px;margin-bottom:8px}
+  .problem-card p{font-size:14px;color:var(--ink-soft)}
 
-        /* Client Logos */
-        .client-logos {
-            padding: 40px 60px; border-top: 1px solid rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05); overflow: hidden;
-        }
-        .logos-track {
-            display: flex; gap: 60px; animation: scroll 30s linear infinite;
-            width: max-content;
-        }
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .logo-item {
-            display: flex; align-items: center; gap: 10px;
-            color: var(--gray); font-size: 18px; font-weight: 600; white-space: nowrap;
-            opacity: 0.5;
-        }
-        .logo-item i { font-size: 24px; color: var(--gold); }
+  /* SERVICES */
+  .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
+  .service{
+    background:var(--paper-warm);border:1px solid var(--line);
+    border-radius:16px;padding:28px;
+    transition:all .25s;position:relative;overflow:hidden;
+  }
+  .service:hover{transform:translateY(-3px);border-color:var(--accent)}
+  .service-num{
+    font-family:'Fraunces',serif;font-size:14px;font-weight:700;
+    color:var(--accent);margin-bottom:12px;display:block;
+  }
+  .service h3{font-family:'Fraunces',serif;font-size:24px;margin-bottom:8px;letter-spacing:-0.01em}
+  .service p{font-size:14px;color:var(--ink-soft);margin-bottom:14px}
+  .service-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .service-tags span{
+    font-size:11px;padding:4px 10px;
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:999px;color:var(--ink-soft);
+  }
 
-        /* Section Header */
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h4 {
-            font-size: 12px; color: var(--gold); text-transform: uppercase;
-            letter-spacing: 3px; margin-bottom: 15px;
-        }
-        .section-header h2 {
-            font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700;
-            margin-bottom: 20px;
-        }
-        .section-header p { font-size: 18px; color: var(--gray); max-width: 600px; margin: 0 auto; }
+  /* PROOF */
+  .proof{background:var(--ink);color:var(--paper);border-radius:24px;padding:60px 48px;margin:80px 0;position:relative;overflow:hidden}
+  .proof::before{
+    content:"";position:absolute;top:-50%;right:-20%;
+    width:600px;height:600px;
+    background:radial-gradient(circle,#d4a02a30,transparent 70%);
+  }
+  .proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;position:relative;z-index:1}
+  .proof h2{color:var(--paper)}
+  .proof-stat{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
+  .proof-stat .num{font-family:'Fraunces',serif;font-size:56px;font-weight:900;color:var(--gold);line-height:1}
+  .proof-stat .label{font-size:15px;opacity:.8}
+  .quote-card{
+    background:#ffffff08;border:1px solid #ffffff20;
+    border-radius:16px;padding:24px;backdrop-filter:blur(10px);
+  }
+  .quote-card p{font-family:'Fraunces',serif;font-size:18px;font-style:italic;line-height:1.4;margin-bottom:16px}
+  .quote-author{display:flex;align-items:center;gap:12px}
+  .quote-avatar{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--gold);color:var(--ink);
+    display:grid;place-items:center;font-weight:700;
+  }
+  .quote-author .name{font-weight:600;font-size:14px}
+  .quote-author .role{font-size:12px;opacity:.7}
 
-        /* About */
-        .about { padding: 120px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .about-img { position: relative; }
-        .about-img img { width: 100%; border-radius: 24px; }
-        .about-img::before {
-            content: ''; position: absolute; top: -20px; left: -20px; right: 20px; bottom: 20px;
-            border: 2px solid var(--gold); border-radius: 24px; z-index: -1;
-        }
-        .about-content h3 {
-            font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700;
-            margin-bottom: 25px; line-height: 1.2;
-        }
-        .about-content p { font-size: 16px; color: var(--gray); line-height: 1.8; margin-bottom: 20px; }
-        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-        .about-feature { display: flex; align-items: center; gap: 12px; }
-        .about-feature i { color: var(--gold); font-size: 18px; }
-        .about-feature span { font-size: 14px; color: var(--gray-light); }
+  /* FORM SECTION */
+  .form-section{
+    background:var(--paper-warm);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:80px 0;position:relative;
+  }
+  .form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .form-left h2{margin-bottom:20px}
+  .form-checks{margin-top:28px;display:flex;flex-direction:column;gap:12px}
+  .form-checks li{display:flex;align-items:flex-start;gap:10px;font-size:15px;list-style:none}
+  .check{
+    width:22px;height:22px;border-radius:6px;background:var(--accent);
+    color:var(--paper);display:grid;place-items:center;flex-shrink:0;font-size:12px;
+  }
+  .form-meta{margin-top:32px;padding-top:24px;border-top:1px dashed var(--line);font-size:13px;color:var(--ink-soft)}
 
-        /* Services */
-        .services { padding: 120px 60px; background: var(--black-light); }
-        .services-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
-        }
-        .service-card {
-            background: var(--black-card); border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 24px; padding: 40px 30px; transition: all 0.4s;
-            position: relative; overflow: hidden;
-        }
-        .service-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-dark)); transform: scaleX(0);
-            transition: transform 0.4s;
-        }
-        .service-card:hover::before { transform: scaleX(1); }
-        .service-card:hover {
-            border-color: rgba(255,215,0,0.2); transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-        }
-        .service-icon-wrap {
-            width: 60px; height: 60px; background: rgba(255,215,0,0.1);
-            border-radius: 16px; display: flex; align-items: center; justify-content: center;
-            margin-bottom: 25px; font-size: 24px; color: var(--gold);
-        }
-        .service-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 15px; }
-        .service-card p { font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 20px; }
-        .service-card ul { list-style: none; }
-        .service-card ul li {
-            font-size: 13px; color: var(--gray-light); padding: 6px 0;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .service-card ul li::before { content: '✓'; color: var(--gold); font-weight: 700; }
-        .service-btn {
-            margin-top: 20px; display: inline-flex; align-items: center; gap: 8px;
-            color: var(--gold); font-weight: 600; font-size: 14px; text-decoration: none;
-            transition: gap 0.3s;
-        }
-        .service-btn:hover { gap: 15px; }
+  form{
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:20px;padding:32px;box-shadow:var(--shadow);
+  }
+  .form-title{font-family:'Fraunces',serif;font-size:22px;margin-bottom:6px}
+  .form-desc{font-size:13px;color:var(--ink-soft);margin-bottom:24px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-soft);margin-bottom:6px}
+  .field input,.field select{
+    width:100%;padding:12px 14px;
+    border:1px solid var(--line);border-radius:10px;
+    background:var(--paper);font-family:inherit;font-size:14px;color:var(--ink);
+    transition:border-color .2s;
+  }
+  .field input:focus,.field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px #1f4d3f15}
+  .submit-btn{
+    width:100%;background:var(--accent);color:var(--paper);
+    padding:16px;border-radius:12px;font-weight:600;font-size:15px;
+    margin-top:8px;transition:all .2s;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+  }
+  .submit-btn:hover{background:var(--accent-soft);transform:translateY(-2px)}
+  .form-note{font-size:11px;color:var(--ink-soft);text-align:center;margin-top:10px}
 
-        /* Process */
-        .process { padding: 120px 60px; }
-        .process-steps {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; position: relative;
-        }
-        .process-steps::before {
-            content: ''; position: absolute; top: 40px; left: 10%; right: 10%; height: 2px;
-            background: linear-gradient(90deg, var(--gold), transparent, var(--gold)); z-index: 0;
-        }
-        .process-step {
-            text-align: center; position: relative; z-index: 1;
-        }
-        .step-num {
-            width: 80px; height: 80px; background: var(--black-card);
-            border: 2px solid var(--gold); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 28px; font-weight: 800; color: var(--gold); margin: 0 auto 25px;
-        }
-        .process-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
-        .process-step p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--paper);padding:48px 0 24px}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+  .footer-logo{font-family:'Fraunces',serif;font-size:22px;font-weight:700}
+  .footer-contact{font-size:14px;opacity:.7}
+  .footer-bottom{margin-top:32px;padding-top:20px;border-top:1px solid #fff1;font-size:12px;opacity:.5;text-align:center}
 
-        /* Why Schools */
-        .why-schools {
-            padding: 120px 60px; background: linear-gradient(135deg, var(--black-light) 0%, var(--black) 100%);
-            position: relative; overflow: hidden;
-        }
-        .why-schools::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFD700' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.5;
-        }
-        .why-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; position: relative; z-index: 1;
-        }
-        .why-card {
-            background: rgba(26,26,26,0.8); backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,215,0,0.1); border-radius: 20px;
-            padding: 35px; transition: all 0.4s;
-        }
-        .why-card:hover { border-color: rgba(255,215,0,0.3); transform: translateY(-5px); }
-        .why-card i { font-size: 32px; color: var(--gold); margin-bottom: 20px; }
-        .why-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
-        .why-card p { font-size: 14px; color: var(--gray); line-height: 1.7; }
-
-        /* Portfolio */
-        .portfolio { padding: 120px 60px; }
-        .portfolio-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;
-        }
-        .portfolio-card {
-            background: var(--black-card); border-radius: 24px; overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05); transition: all 0.4s;
-        }
-        .portfolio-card:hover { border-color: rgba(255,215,0,0.2); transform: translateY(-5px); }
-        .portfolio-card-img { height: 280px; overflow: hidden; position: relative; }
-        .portfolio-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .portfolio-card:hover .portfolio-card-img img { transform: scale(1.05); }
-        .portfolio-card-content { padding: 30px; }
-        .portfolio-tags { display: flex; gap: 10px; margin-bottom: 15px; }
-        .portfolio-tags span {
-            font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
-            padding: 6px 14px; border-radius: 20px; background: rgba(255,215,0,0.1); color: var(--gold);
-        }
-        .portfolio-card-content h3 { font-size: 22px; font-weight: 700; margin-bottom: 15px; }
-        .portfolio-stats { display: flex; gap: 30px; }
-        .portfolio-stat h4 { font-size: 28px; font-weight: 800; color: var(--gold); }
-        .portfolio-stat p { font-size: 12px; color: var(--gray); }
-
-        /* Testimonials */
-        .testimonials { padding: 120px 60px; background: var(--black-light); }
-        .testimonial-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
-        }
-        .testimonial-card {
-            background: var(--black-card); border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 24px; padding: 40px 30px; transition: all 0.4s;
-        }
-        .testimonial-card:hover { border-color: rgba(255,215,0,0.2); }
-        .testimonial-card .quote { font-size: 48px; color: var(--gold); line-height: 1; margin-bottom: 10px; opacity: 0.5; }
-        .testimonial-card p { font-size: 15px; color: var(--gray-light); line-height: 1.8; margin-bottom: 25px; }
-        .testimonial-author { display: flex; align-items: center; gap: 15px; }
-        .testimonial-author img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
-        .testimonial-author h4 { font-size: 16px; font-weight: 700; }
-        .testimonial-author span { font-size: 13px; color: var(--gray); }
-        .stars { color: var(--gold); font-size: 14px; margin-top: 5px; }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 120px 60px; text-align: center; position: relative;
-            background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, transparent 50%, rgba(255,215,0,0.05) 100%);
-        }
-        .cta-section h2 {
-            font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700;
-            margin-bottom: 20px;
-        }
-        .cta-section p { font-size: 18px; color: var(--gray); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
-
-        /* Footer */
-        .footer {
-            background: var(--black-light); padding: 80px 60px 40px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-        .footer-grid {
-            display: grid; grid-template-columns: 2fr 1.5fr 1fr 1fr; gap: 60px; margin-bottom: 60px;
-        }
-        .footer-brand img { width: 60px; height: 60px; border-radius: 50%; margin-bottom: 20px; }
-        .footer-brand h3 { font-size: 24px; font-weight: 800; color: var(--gold); margin-bottom: 15px; }
-        .footer-brand p { font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 20px; }
-        .footer-social { display: flex; gap: 12px; }
-        .footer-social a {
-            width: 40px; height: 40px; border: 1px solid rgba(255,215,0,0.2); border-radius: 10px;
-            display: flex; align-items: center; justify-content: center; color: var(--gold);
-            text-decoration: none; transition: all 0.3s;
-        }
-        .footer-social a:hover { background: var(--gold); color: var(--black); }
-        .footer-col h4 { font-size: 16px; font-weight: 700; margin-bottom: 25px; color: var(--white); }
-        .footer-col a, .footer-col p { display: block; color: var(--gray); text-decoration: none; font-size: 14px; margin-bottom: 12px; transition: color 0.3s; }
-        .footer-col a:hover { color: var(--gold); }
-        .footer-bottom {
-            padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05);
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .footer-bottom p { font-size: 13px; color: var(--gray); }
-
-        /* Popup Form */
-        .popup-overlay {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
-            z-index: 9999; display: none; align-items: center; justify-content: center;
-            padding: 20px; opacity: 0; transition: opacity 0.3s;
-        }
-        .popup-overlay.active { display: flex; opacity: 1; }
-        .popup-form {
-            background: var(--black-card); border: 1px solid rgba(255,215,0,0.2);
-            border-radius: 24px; padding: 50px; max-width: 550px; width: 100%;
-            position: relative; transform: scale(0.9); transition: transform 0.3s;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-        }
-        .popup-overlay.active .popup-form { transform: scale(1); }
-        .popup-close {
-            position: absolute; top: 20px; right: 20px; width: 40px; height: 40px;
-            background: rgba(255,255,255,0.05); border: none; border-radius: 50%;
-            color: var(--gray); font-size: 18px; cursor: pointer; transition: all 0.3s;
-        }
-        .popup-close:hover { background: rgba(255,215,0,0.1); color: var(--gold); }
-        .popup-form h3 {
-            font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .popup-form > p { font-size: 14px; color: var(--gray); margin-bottom: 30px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label {
-            display: block; font-size: 13px; font-weight: 600; color: var(--gray-light);
-            margin-bottom: 8px; text-transform: capitalize;
-        }
-        .form-group input, .form-group select {
-            width: 100%; padding: 14px 18px; background: var(--black);
-            border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
-            color: var(--white); font-size: 14px; font-family: 'Inter', sans-serif;
-            transition: border-color 0.3s;
-        }
-        .form-group input:focus, .form-group select:focus {
-            outline: none; border-color: var(--gold);
-        }
-        .form-group input::placeholder { color: var(--gray); }
-        .submit-btn {
-            width: 100%; padding: 16px; background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            border: none; border-radius: 12px; color: var(--black); font-size: 16px;
-            font-weight: 700; cursor: pointer; transition: all 0.3s; margin-top: 10px;
-        }
-        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,215,0,0.3); }
-        .whatsapp-preview {
-            background: var(--black); border: 1px solid rgba(255,215,0,0.1);
-            border-radius: 12px; padding: 15px; margin-top: 20px; font-size: 12px;
-            color: var(--gray); line-height: 1.6;
-        }
-        .whatsapp-preview strong { color: var(--gold); }
-
-        /* Mobile */
-        @media (max-width: 1024px) {
-            .hero { grid-template-columns: 1fr; text-align: center; }
-            .hero p { margin: 0 auto 40px; }
-            .hero-btns { justify-content: center; }
-            .hero-stats { justify-content: center; }
-            .hero-right { display: none; }
-            .about { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .process-steps { grid-template-columns: repeat(2, 1fr); }
-            .why-grid { grid-template-columns: repeat(2, 1fr); }
-            .portfolio-grid { grid-template-columns: 1fr; }
-            .testimonial-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .navbar { padding: 15px 20px; }
-            .nav-links { display: none; }
-            .hero { padding: 120px 20px 60px; }
-            .hero h1 { font-size: 40px; }
-            .section-header h2 { font-size: 32px; }
-            .services-grid, .process-steps, .why-grid { grid-template-columns: 1fr; }
-            .about, .services, .process, .why-schools, .portfolio, .testimonials, .cta-section, .footer { padding: 80px 20px; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .popup-form { padding: 30px 20px; }
-        }
-    </style>
-<base target="_blank">
+  /* RESPONSIVE */
+  @media(max-width:768px){
+    .hero-grid,.proof-grid,.form-wrap{grid-template-columns:1fr;gap:40px}
+    .services-grid,.problems{grid-template-columns:1fr}
+    .form-row{grid-template-columns:1fr}
+    .proof{padding:40px 24px}
+    .hero-card{transform:none}
+    nav .nav-cta{display:none}
+    .section{padding:56px 0}
+  }
+</style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="logo">
-            <img src="https://i.ibb.co/FL4WKvjR/tcp-gol-logo.jpg" alt="ThriveClip Productions">
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-mark">TC</div>
+      <span>ThriveClip</span>
+    </div>
+    <a href="#form" class="nav-cta">Get Free Audit →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Booking 3 schools for May 2026
+        </div>
+        <h1 class="display">More <em>admissions</em>. Fewer empty seats.</h1>
+        <p class="hero-sub">We help schools fill admission seats through Meta Ads, local SEO, and parent-focused content. Built only for educational institutions.</p>
+        <div class="hero-ctas">
+          <a href="#form" class="btn-primary">Get Free School Audit →</a>
+          <a href="#proof" class="btn-ghost">See Results</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="stat-block">
+          <span class="stat-tag">Avg Result</span>
+          <div class="stat-num">+250<span class="plus">%</span></div>
+          <div class="stat-label">Admission enquiries in 90 days</div>
+        </div>
+        <div class="stat-block">
+          <span class="stat-tag">Cost Per Lead</span>
+          <div class="stat-num">₹85<span class="plus">–₹140</span></div>
+          <div class="stat-label">Qualified parent enquiries via Meta</div>
+        </div>
+        <div class="stat-block">
+          <span class="stat-tag">Schools Served</span>
+          <div class="stat-num">50<span class="plus">+</span></div>
+          <div class="stat-label">Across India since 2022</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-inner">
+    <span class="trust-label">Trusted across</span>
+    <div class="trust-track">
+      <span>Jaipur</span><span>•</span>
+      <span>Delhi NCR</span><span>•</span>
+      <span>Mumbai</span><span>•</span>
+      <span>Bangalore</span><span>•</span>
+      <span>Pune</span><span>•</span>
+      <span>Hyderabad</span><span>•</span>
+      <span>Lucknow</span><span>•</span>
+      <span>Ahmedabad</span><span>•</span>
+      <span>Jaipur</span><span>•</span>
+      <span>Delhi NCR</span><span>•</span>
+      <span>Mumbai</span><span>•</span>
+      <span>Bangalore</span><span>•</span>
+      <span>Pune</span><span>•</span>
+      <span>Hyderabad</span><span>•</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">The Reality</div>
+    <h2 class="display">Schools waste lakhs on the <em>wrong</em> marketing.</h2>
+    <p class="section-sub">Generic agencies treat schools like e-commerce. They aren't. We get this.</p>
+
+    <div class="problems">
+      <div class="problem-card">
+        <span class="problem-icon">📉</span>
+        <h3>Empty seats</h3>
+        <p>Newspaper ads and hoardings don't work for Gen Z parents anymore.</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">📱</span>
+        <h3>Invisible online</h3>
+        <p>Parents Google "best school near me" — and don't find you.</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">💸</span>
+        <h3>Wasted ad spend</h3>
+        <p>Agencies run ads to wrong audiences. CPL hits ₹500+. Zero conversions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="eyebrow">What We Do</div>
+    <h2 class="display">Four services. <em>Built for schools.</em></h2>
+    <p class="section-sub">No fluff. No generic packages. Each service tied to one outcome — admissions.</p>
+
+    <div class="services-grid">
+      <div class="service">
+        <span class="service-num">01 / Lead Engine</span>
+        <h3>Meta Ads for Admissions</h3>
+        <p>Targeted parent campaigns with lead forms. CPL under ₹150 in most cities.</p>
+        <div class="service-tags"><span>Facebook</span><span>Instagram</span><span>Lead Gen</span></div>
+      </div>
+      <div class="service">
+        <span class="service-num">02 / Discovery</span>
+        <h3>Local SEO & Google</h3>
+        <p>Rank #1 for "best school in [your city]". Google My Business optimized.</p>
+        <div class="service-tags"><span>Local SEO</span><span>GMB</span><span>Reviews</span></div>
+      </div>
+      <div class="service">
+        <span class="service-num">03 / Trust</span>
+        <h3>Content & Reels</h3>
+        <p>Campus tours, teacher reels, parent testimonials — content that converts.</p>
+        <div class="service-tags"><span>Reels</span><span>Photography</span><span>Storytelling</span></div>
+      </div>
+      <div class="service">
+        <span class="service-num">04 / Conversion</span>
+        <h3>Admission Website</h3>
+        <p>Fast, mobile-first websites with built-in admission forms and WhatsApp.</p>
+        <div class="service-tags"><span>Web Dev</span><span>Forms</span><span>Speed</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section" id="proof" style="padding-top:0">
+  <div class="container">
+    <div class="proof">
+      <div class="proof-grid">
+        <div>
+          <div class="eyebrow" style="color:var(--gold)">Real Numbers</div>
+          <h2 class="display">Last 90 days,<br>across our schools.</h2>
+          <div style="margin-top:32px">
+            <div class="proof-stat">
+              <span class="num">2,400+</span>
+              <span class="label">Admission enquiries generated</span>
+            </div>
+            <div class="proof-stat">
+              <span class="num">₹112</span>
+              <span class="label">Average cost per qualified lead</span>
+            </div>
+            <div class="proof-stat">
+              <span class="num">14×</span>
+              <span class="label">Average return on ad spend</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-card">
+          <p>"We hit full capacity for Class Nursery to 5 within two months. The Meta Ads alone brought 180 parent walk-ins."</p>
+          <div class="quote-author">
+            <div class="quote-avatar">RS</div>
             <div>
-                <div class="logo-text">Thrive<span>Clip</span></div>
-                <div class="logo-sub">Productions</div>
+              <div class="name">Rajesh Sharma</div>
+              <div class="role">Principal, Green Valley School</div>
             </div>
+          </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#portfolio">Work</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="form">
+  <div class="container">
+    <div class="form-wrap">
+      <div class="form-left">
+        <div class="eyebrow">Free Audit</div>
+        <h2 class="display">Let's see what your school's digital is <em>missing</em>.</h2>
+        <p class="section-sub">Free 20-minute audit call. We'll review your website, ad presence, and Google ranking — and show you 3 fixable gaps.</p>
+
+        <ul class="form-checks">
+          <li><span class="check">✓</span> Custom audit report (your school only)</li>
+          <li><span class="check">✓</span> 3 specific fixes you can apply this week</li>
+          <li><span class="check">✓</span> No sales pressure. No commitment.</li>
+          <li><span class="check">✓</span> Reply within 24 hours on WhatsApp</li>
         </ul>
-        <button class="nav-cta popup-trigger"><i class="fas fa-rocket"></i> Get Started</button>
-    </nav>
 
-    <!-- Hero -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <div class="hero-badge"><i class="fas fa-star"></i> Trusted by 50+ Schools Across India</div>
-            <h1>We Craft <span>Digital Success</span> for Schools & Educational Institutions</h1>
-            <p>From website development to Meta Ads, SEO to Content Creation — we help schools build a powerful digital presence that attracts more admissions and builds trust with parents.</p>
-            <div class="hero-btns">
-                <button class="btn-primary popup-trigger"><i class="fas fa-paper-plane"></i> Book Free Consultation</button>
-                <a href="#portfolio" class="btn-outline"><i class="fas fa-play-circle"></i> See Our Work</a>
-            </div>
-            <div class="hero-stats">
-                <div class="hero-stat"><h3>50+</h3><p>Schools Partnered</p></div>
-                <div class="hero-stat"><h3>3M+</h3><p>Reach Generated</p></div>
-                <div class="hero-stat"><h3>180%</h3><p>Avg. Growth</p></div>
-            </div>
+        <div class="form-meta">
+          ⏱ Takes 30 seconds. We pick up only 3 schools per month.
         </div>
-        <div class="hero-right">
-            <div class="hero-img-wrap">
-                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=500&fit=crop" alt="School Digital Marketing">
-                <div class="hero-img-overlay"></div>
-            </div>
-            <div class="floating-card fc-1">
-                <div class="fc-stat">250%</div>
-                <div class="fc-label">Admission Enquiries<br>Increased</div>
-            </div>
-            <div class="floating-card fc-2">
-                <div class="fc-stat">4.9★</div>
-                <div class="fc-label">Client Satisfaction<br>Rating</div>
-            </div>
-        </div>
-    </section>
+      </div>
 
-    <!-- Client Logos -->
-    <div class="client-logos">
-        <div class="logos-track">
-            <div class="logo-item"><i class="fas fa-school"></i> Delhi Public School</div>
-            <div class="logo-item"><i class="fas fa-graduation-cap"></i> Ryan International</div>
-            <div class="logo-item"><i class="fas fa-university"></i> DAV Public School</div>
-            <div class="logo-item"><i class="fas fa-book-open"></i> Kendriya Vidyalaya</div>
-            <div class="logo-item"><i class="fas fa-chalkboard-teacher"></i> Mount Litera</div>
-            <div class="logo-item"><i class="fas fa-school"></i> Army Public School</div>
-            <div class="logo-item"><i class="fas fa-graduation-cap"></i> St. Xavier's</div>
-            <div class="logo-item"><i class="fas fa-university"></i> Springdales</div>
-            <div class="logo-item"><i class="fas fa-school"></i> Delhi Public School</div>
-            <div class="logo-item"><i class="fas fa-graduation-cap"></i> Ryan International</div>
-            <div class="logo-item"><i class="fas fa-university"></i> DAV Public School</div>
-            <div class="logo-item"><i class="fas fa-book-open"></i> Kendriya Vidyalaya</div>
-            <div class="logo-item"><i class="fas fa-chalkboard-teacher"></i> Mount Litera</div>
-            <div class="logo-item"><i class="fas fa-school"></i> Army Public School</div>
-            <div class="logo-item"><i class="fas fa-graduation-cap"></i> St. Xavier's</div>
-            <div class="logo-item"><i class="fas fa-university"></i> Springdales</div>
-        </div>
-    </div>
+      <form id="leadForm" onsubmit="handleSubmit(event)">
+        <div class="form-title">Get Your Free Audit</div>
+        <div class="form-desc">Pre-filled WhatsApp opens after submit.</div>
 
-    <!-- About -->
-    <section class="about" id="about">
-        <div class="about-img">
-            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=500&fit=crop" alt="School Team">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" required placeholder="Rajesh Sharma">
+          </div>
+          <div class="field">
+            <label for="role">Your Role</label>
+            <select id="role" required>
+              <option value="">Select role</option>
+              <option>Principal</option>
+              <option>Director</option>
+              <option>Owner</option>
+              <option>Marketing Head</option>
+              <option>Other</option>
+            </select>
+          </div>
         </div>
-        <div class="about-content">
-            <h4 style="font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:3px;margin-bottom:15px;">About Us</h4>
-            <h3>Meet ThriveClip: Your School's Digital Growth Partner</h3>
-            <p>We're not just marketers — we're educators at heart who understand the unique challenges schools face in the digital age. From increasing admission enquiries to building a trustworthy brand online, we deliver results that matter.</p>
-            <p>Our team specializes in the education sector, crafting tailored digital strategies that connect schools with parents, students, and the community.</p>
-            <div class="about-features">
-                <div class="about-feature"><i class="fas fa-check-circle"></i><span>Education-Focused Strategy</span></div>
-                <div class="about-feature"><i class="fas fa-check-circle"></i><span>Data-Driven Results</span></div>
-                <div class="about-feature"><i class="fas fa-check-circle"></i><span>Dedicated Account Manager</span></div>
-                <div class="about-feature"><i class="fas fa-check-circle"></i><span>24/7 Support</span></div>
-            </div>
-            <button class="btn-primary popup-trigger" style="margin-top:30px;"><i class="fas fa-rocket"></i> Start Growing Today</button>
-        </div>
-    </section>
 
-    <!-- Services -->
-    <section class="services" id="services">
-        <div class="section-header">
-            <h4>What We Offer</h4>
-            <h2>Complete Digital Solutions for Schools</h2>
-            <p>Everything your school needs to dominate the digital landscape and attract more admissions.</p>
+        <div class="field">
+          <label for="school">School Name</label>
+          <input type="text" id="school" required placeholder="Green Valley Public School">
         </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon-wrap"><i class="fas fa-bullhorn"></i></div>
-                <h3>Digital Marketing</h3>
-                <p>Full-stack digital marketing strategies designed specifically for educational institutions.</p>
-                <ul>
-                    <li>SEO & Local SEO</li>
-                    <li>Google Ads (PPC)</li>
-                    <li>Email Marketing</li>
-                    <li>Content Marketing</li>
-                    <li>Lead Generation</li>
-                    <li>Conversion Optimization</li>
-                </ul>
-                <a href="#" class="service-btn popup-trigger">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon-wrap"><i class="fas fa-code"></i></div>
-                <h3>Website Development</h3>
-                <p>Stunning, fast, and conversion-optimized websites that make your school stand out.</p>
-                <ul>
-                    <li>Custom School Websites</li>
-                    <li>Admission Portals</li>
-                    <li>Payment Integration</li>
-                    <li>Mobile Responsive</li>
-                    <li>Speed Optimized</li>
-                    <li>CMS Integration</li>
-                </ul>
-                <a href="#" class="service-btn popup-trigger">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon-wrap"><i class="fas fa-chart-line"></i></div>
-                <h3>Performance Marketing</h3>
-                <p>Results-driven campaigns that deliver measurable ROI and qualified admission leads.</p>
-                <ul>
-                    <li>Meta Ads (Facebook/Instagram)</li>
-                    <li>Google Ads Management</li>
-                    <li>Retargeting Campaigns</li>
-                    <li>A/B Testing</li>
-                    <li>Analytics & Reporting</li>
-                    <li>Budget Optimization</li>
-                </ul>
-                <a href="#" class="service-btn popup-trigger">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon-wrap"><i class="fas fa-ad"></i></div>
-                <h3>Meta Ads (Facebook/Instagram)</h3>
-                <p>Targeted social media advertising that reaches parents and students in your area.</p>
-                <ul>
-                    <li>Ad Creative Design</li>
-                    <li>Audience Targeting</li>
-                    <li>Lead Form Ads</li>
-                    <li>Video Ads</li>
-                    <li>Carousel Ads</li>
-                    <li>Campaign Management</li>
-                </ul>
-                <a href="#" class="service-btn popup-trigger">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon-wrap"><i class="fas fa-pen-nib"></i></div>
-                <h3>Content Creation</h3>
-                <p>Engaging content that tells your school's story and builds trust with parents.</p>
-                <ul>
-                    <li>Social Media Content</li>
-                    <li>Video Production</li>
-                    <li>Blog Writing</li>
-                    <li>Graphic Design</li>
-                    <li>Reels & Shorts</li>
-                    <li>Brand Storytelling</li>
-                </ul>
-                <a href="#" class="service-btn popup-trigger">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon-wrap"><i class="fas fa-share-alt"></i></div>
-                <h3>SMM Management</h3>
-                <p>Complete social media management to build your school's online community.</p>
-                <ul>
-                    <li>Profile Optimization</li>
-                    <li>Content Calendar</li>
-                    <li>Community Management</li>
-                    <li>Reputation Management</li>
-                    <li>Analytics Reports</li>
-                    <li>Growth Strategy</li>
-                </ul>
-                <a href="#" class="service-btn popup-trigger">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Process -->
-    <section class="process" id="process">
-        <div class="section-header">
-            <h4>How We Work</h4>
-            <h2>Our Proven 4-Step Process</h2>
-            <p>A streamlined approach to take your school from invisible to unstoppable online.</p>
+        <div class="form-row">
+          <div class="field">
+            <label for="city">City</label>
+            <input type="text" id="city" required placeholder="Jaipur">
+          </div>
+          <div class="field">
+            <label for="phone">WhatsApp Number</label>
+            <input type="tel" id="phone" required placeholder="+91 98765 43210">
+          </div>
         </div>
-        <div class="process-steps">
-            <div class="process-step">
-                <div class="step-num">01</div>
-                <h3>Discover</h3>
-                <p>We analyze your school's current digital presence, competitors, and target audience to build a custom strategy.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-num">02</div>
-                <h3>Design</h3>
-                <p>Our team crafts compelling creatives, websites, and content that reflect your school's values and vision.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-num">03</div>
-                <h3>Deploy</h3>
-                <p>We launch targeted campaigns across all digital channels — Meta, Google, SEO, and social media.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-num">04</div>
-                <h3>Deliver</h3>
-                <p>Continuous optimization, detailed reporting, and scaling what works to maximize your ROI.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Why Schools -->
-    <section class="why-schools" id="why">
-        <div class="section-header">
-            <h4>Why Schools Choose Us</h4>
-            <h2>Built for Educational Institutions</h2>
-            <p>We understand the unique challenges schools face in the digital world.</p>
-        </div>
-        <div class="why-grid">
-            <div class="why-card">
-                <i class="fas fa-users"></i>
-                <h3>Parent-Focused Messaging</h3>
-                <p>We create content that speaks directly to parents' concerns — safety, quality education, and future success.</p>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Local SEO Dominance</h3>
-                <p>Rank #1 when parents search "best school near me" in your city with our proven local SEO strategies.</p>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-phone-alt"></i>
-                <h3>Admission Lead Generation</h3>
-                <p>Our campaigns are optimized to generate high-quality admission enquiries, not just clicks.</p>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Trust Building</h3>
-                <p>We help you build a trustworthy online reputation through reviews, testimonials, and transparent communication.</p>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-rupee-sign"></i>
-                <h3>Budget-Friendly Packages</h3>
-                <p>Flexible pricing designed for schools of all sizes — from small private schools to large institutions.</p>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-headset"></i>
-                <h3>Dedicated Support</h3>
-                <p>A dedicated account manager who understands your goals and is available whenever you need assistance.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio -->
-    <section class="portfolio" id="portfolio">
-        <div class="section-header">
-            <h4>Our Work</h4>
-            <h2>Success Stories from Schools Like Yours</h2>
-            <p>Real results we've delivered for educational institutions across India.</p>
-        </div>
-        <div class="portfolio-grid">
-            <div class="portfolio-card">
-                <div class="portfolio-card-img">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop" alt="School Website">
-                </div>
-                <div class="portfolio-card-content">
-                    <div class="portfolio-tags"><span>Website</span><span>SEO</span></div>
-                    <h3>Complete Digital Transformation for Green Valley School</h3>
-                    <div class="portfolio-stats">
-                        <div class="portfolio-stat"><h4>320%</h4><p>Website Traffic</p></div>
-                        <div class="portfolio-stat"><h4>150+</h4><p>Admission Leads</p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-card">
-                <div class="portfolio-card-img">
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop" alt="Meta Ads">
-                </div>
-                <div class="portfolio-card-content">
-                    <div class="portfolio-tags"><span>Meta Ads</span><span>Lead Gen</span></div>
-                    <h3>Meta Ads Campaign for Sunrise Public School</h3>
-                    <div class="portfolio-stats">
-                        <div class="portfolio-stat"><h4>2.5M</h4><p>Reach</p></div>
-                        <div class="portfolio-stat"><h4>85+</h4><p>Qualified Leads</p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-card">
-                <div class="portfolio-card-img">
-                    <img src="https://images.unsplash.com/photo-1427504740708-4a5f4b4a0b8e?w=600&h=400&fit=crop" alt="Social Media">
-                </div>
-                <div class="portfolio-card-content">
-                    <div class="portfolio-tags"><span>SMM</span><span>Content</span></div>
-                    <h3>Social Media Growth for St. Mary's Academy</h3>
-                    <div class="portfolio-stats">
-                        <div class="portfolio-stat"><h4>50K+</h4><p>Followers</p></div>
-                        <div class="portfolio-stat"><h4>12%</h4><p>Engagement</p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-card">
-                <div class="portfolio-card-img">
-                    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&h=400&fit=crop" alt="Branding">
-                </div>
-                <div class="portfolio-card-content">
-                    <div class="portfolio-tags"><span>Branding</span><span>Design</span></div>
-                    <h3>Brand Identity & Website for Modern Kids School</h3>
-                    <div class="portfolio-stats">
-                        <div class="portfolio-stat"><h4>200%</h4><p>Brand Awareness</p></div>
-                        <div class="portfolio-stat"><h4>95+</h4><p>Enquiries</p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
-        <div class="section-header">
-            <h4>Testimonials</h4>
-            <h2>What School Leaders Say About Us</h2>
-            <p>Hear from principals and administrators who transformed their school's digital presence.</p>
-        </div>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <div class="quote">"</div>
-                <p>ThriveClip completely transformed our school's online presence. Within 3 months, our admission enquiries doubled. Their team truly understands the education sector.</p>
-                <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face" alt="Principal">
-                    <div>
-                        <h4>Dr. Rajesh Sharma</h4>
-                        <span>Principal, Green Valley School</span>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="quote">"</div>
-                <p>The Meta Ads campaign they ran for us was incredible. We got 150+ qualified leads in just one month. Best investment we've made for our school's growth.</p>
-                <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face" alt="Director">
-                    <div>
-                        <h4>Mrs. Priya Patel</h4>
-                        <span>Director, Sunrise Public School</span>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="quote">"</div>
-                <p>Professional, responsive, and results-driven. Our new website looks amazing and ranks #1 on Google for "best school in our city". Highly recommended!</p>
-                <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Founder">
-                    <div>
-                        <h4>Mr. Amit Kumar</h4>
-                        <span>Founder, Modern Kids School</span>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-        <h2>Ready to Transform Your School's Digital Presence?</h2>
-        <p>Join 50+ schools already growing with ThriveClip Productions. Book your free consultation today and get a custom strategy for your institution.</p>
-        <button class="btn-primary popup-trigger" style="font-size:18px;padding:18px 50px;">
-            <i class="fab fa-whatsapp"></i> Get Free Consultation on WhatsApp
+        <button type="submit" class="submit-btn">
+          Send on WhatsApp →
         </button>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <img src="https://i.ibb.co/FL4WKvjR/tcp-gol-logo.jpg" alt="ThriveClip">
-                <h3>ThriveClip Productions</h3>
-                <p>Your trusted digital marketing partner for schools and educational institutions. We help you grow, one click at a time.</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Contact Us</h4>
-                <p><i class="fas fa-phone" style="color:var(--gold);margin-right:8px;"></i> +91 72580 55245</p>
-                <p><i class="fas fa-envelope" style="color:var(--gold);margin-right:8px;"></i> info@thriveclip.com</p>
-                <p><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:8px;"></i> India</p>
-                <p><i class="fab fa-whatsapp" style="color:var(--gold);margin-right:8px;"></i> WhatsApp Available</p>
-            </div>
-            <div class="footer-col">
-                <h4>Services</h4>
-                <a href="#services">Digital Marketing</a>
-                <a href="#services">Website Development</a>
-                <a href="#services">Meta Ads</a>
-                <a href="#services">SEO Services</a>
-                <a href="#services">Content Creation</a>
-                <a href="#services">SMM Management</a>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <a href="#about">About Us</a>
-                <a href="#portfolio">Our Work</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#process">Our Process</a>
-                <a href="#" class="popup-trigger">Contact</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 ThriveClip Productions. All Rights Reserved.</p>
-            <p style="color:var(--gold);">Advertising | Business Growth</p>
-        </div>
-    </footer>
-
-    <!-- Popup Form -->
-    <div class="popup-overlay" id="popupForm">
-        <div class="popup-form">
-            <button class="popup-close" onclick="closePopup()">✕</button>
-            <h3>Get Your Free School Digital Audit</h3>
-            <p>Fill in your details and our team will reach out within 24 hours.</p>
-            <form id="schoolForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label>What is your role in the school?</label>
-                    <select name="role" required>
-                        <option value="">Select your role</option>
-                        <option value="Principal">Principal</option>
-                        <option value="Director">Director</option>
-                        <option value="Administrator">Administrator</option>
-                        <option value="Manager">Manager</option>
-                        <option value="Teacher">Teacher</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>What is your school name?</label>
-                    <input type="text" name="school_name" placeholder="Enter your school name" required>
-                </div>
-                <div class="form-group">
-                    <label>School Location (City)</label>
-                    <input type="text" name="city" placeholder="Enter city name" required>
-                </div>
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="full_name" placeholder="Enter your full name" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" name="phone" placeholder="Enter your phone number" required>
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" placeholder="Enter your email" required>
-                </div>
-                <button type="submit" class="submit-btn">
-                    <i class="fab fa-whatsapp"></i> Send Details on WhatsApp
-                </button>
-                <div class="whatsapp-preview">
-                    <strong>Preview:</strong> After submitting, a pre-filled WhatsApp message will open with your details sent to <strong>+91 72580 55245</strong> saying: <em>"Hello team ThriveClip Productions, I am interested in your services. Here are my details..."</em>
-                </div>
-            </form>
-        </div>
+        <div class="form-note">Your info goes only to ThriveClip. Never shared.</div>
+      </form>
     </div>
+  </div>
+</section>
 
-    <script>
-        // Popup Logic
-        const popup = document.getElementById('popupForm');
-        const triggers = document.querySelectorAll('.popup-trigger');
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">ThriveClip Productions</div>
+      <div class="footer-contact">+91 72580 55245 · info@thriveclip.com</div>
+    </div>
+    <div class="footer-bottom">© 2026 ThriveClip Productions · Built for schools, not e-commerce.</div>
+  </div>
+</footer>
 
-        triggers.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                popup.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
+<script>
+function handleSubmit(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const role = document.getElementById('role').value;
+  const school = document.getElementById('school').value;
+  const city = document.getElementById('city').value;
+  const phone = document.getElementById('phone').value;
 
-        function closePopup() {
-            popup.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+  const msg = `Hello team ThriveClip Productions, I am interested in your services.
 
-        popup.addEventListener('click', (e) => {
-            if(e.target === popup) closePopup();
-        });
+Name: ${name}
+Role: ${role}
+School: ${school}
+City: ${city}
+Phone: ${phone}
 
-        // Form Submit → WhatsApp
-        function handleSubmit(e) {
-            e.preventDefault();
-            const form = e.target;
-            const data = {
-                role: form.role.value,
-                school: form.school_name.value,
-                city: form.city.value,
-                name: form.full_name.value,
-                phone: form.phone.value,
-                email: form.email.value
-            };
+Please share details about the free school audit.`;
 
-            const msg = `Hello team ThriveClip Productions,%0A%0AI am interested in your services for our school.%0A%0AHere are my details:%0A%0A👤 *Name:* ${data.name}%0A🏫 *School:* ${data.school}%0A🎓 *Role:* ${data.role}%0A📍 *City:* ${data.city}%0A📞 *Phone:* ${data.phone}%0A📧 *Email:* ${data.email}%0A%0APlease contact me at your earliest convenience.%0A%0AThank you!`;
-
-            window.open(`https://wa.me/917258055245?text=${msg}`, '_blank');
-            closePopup();
-            form.reset();
-        }
-
-        // Navbar scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if(window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if(target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    </script>
+  const url = `https://wa.me/917258055245?text=${encodeURIComponent(msg)}`;
+  window.open(url,'_blank');
+}
+</script>
 </body>
 </html>
