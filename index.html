@@ -1,2216 +1,1855 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Business Growth - Transform Your Institution</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Hifzurrahman Agency Scaling Blueprint: From ₹0 to ₹10 Crore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
     <style>
         :root {
-            --primary: #FF6B35;
-            --primary-dark: #E85A2D;
-            --secondary: #4ECDC4;
-            --accent: #FFE66D;
-            --dark: #2D3436;
-            --light: #F7F9FC;
-            --white: #FFFFFF;
-            --gradient-1: linear-gradient(135deg, #FF6B35 0%, #FF8E53 100%);
-            --gradient-2: linear-gradient(135deg, #4ECDC4 0%, #6EE7DE 100%);
-            --gradient-3: linear-gradient(135deg, #FFE66D 0%, #FFD93D 100%);
-            --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
-            --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
-            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
-            --shadow-primary: 0 10px 40px rgba(255,107,53,0.3);
+            --primary: #1e3a8a;
+            --secondary: #f59e0b;
+            --accent: #059669;
+            --neutral: #374151;
+            --surface: #f8fafc;
+            --text: #1f2937;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
+        
         body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--light);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 4px;
-        }
-
-        /* Utility Classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            width: 100%;
-        }
-
-        .text-center { text-align: center; }
-        .text-primary { color: var(--primary); }
-        .text-secondary { color: var(--secondary); }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        @keyframes float-delayed {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255,107,53,0.4); }
-            50% { box-shadow: 0 0 40px rgba(255,107,53,0.6); }
-        }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-        @keyframes rotate-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        @keyframes blob-morph {
-            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes countUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .animate-delay-1 { transition-delay: 0.1s; }
-        .animate-delay-2 { transition-delay: 0.2s; }
-        .animate-delay-3 { transition-delay: 0.3s; }
-        .animate-delay-4 { transition-delay: 0.4s; }
-        .animate-delay-5 { transition-delay: 0.5s; }
-
-        /* Sticky Header */
-        .sticky-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            padding: 12px 0;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-        .sticky-header.hidden {
-            transform: translateY(-100%);
-        }
-        .sticky-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .sticky-logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .sticky-logo i {
-            font-size: 1.8rem;
-        }
-        .sticky-cta {
-            background: var(--gradient-1);
-            color: var(--white);
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            border: none;
-            cursor: pointer;
-            animation: pulse-glow 2s infinite;
-            transition: all 0.3s ease;
-        }
-        .sticky-cta:hover {
-            transform: scale(1.05);
-            animation: shake 0.5s ease;
-        }
-
-        /* Navigation */
-        .navbar {
-            padding: 20px 0;
-            position: relative;
-            z-index: 100;
-        }
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-        .logo:hover {
-            transform: scale(1.05);
-        }
-        .logo i {
-            font-size: 2.2rem;
-            animation: float 3s ease-in-out infinite;
-        }
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-            align-items: center;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            font-size: 1rem;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        .nav-cta {
-            background: var(--gradient-1);
-            color: var(--white) !important;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: var(--shadow-primary);
-            transition: all 0.3s ease !important;
-        }
-        .nav-cta::after { display: none !important; }
-        .nav-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255,107,53,0.4);
-            animation: shake 0.5s ease;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
-            cursor: pointer;
-        }
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255,255,255,0.98);
-            z-index: 999;
-            padding: 80px 20px 20px;
-            flex-direction: column;
-            gap: 30px;
-            align-items: center;
-        }
-        .mobile-menu.active {
-            display: flex;
-        }
-        .mobile-menu a {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--dark);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .mobile-menu a:hover {
-            color: var(--primary);
-        }
-        .mobile-menu .nav-cta {
-            margin-top: 20px;
-        }
-        .close-menu {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            padding: 120px 0 80px;
-        }
-        .hero-bg-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.6;
-        }
-        .blob-1 {
-            width: 500px;
-            height: 500px;
-            background: var(--primary);
-            top: -10%;
-            right: -10%;
-            animation: blob-morph 8s ease-in-out infinite;
-        }
-        .blob-2 {
-            width: 400px;
-            height: 400px;
-            background: var(--secondary);
-            bottom: -10%;
-            left: -10%;
-            animation: blob-morph 10s ease-in-out infinite reverse;
-        }
-        .blob-3 {
-            width: 300px;
-            height: 300px;
-            background: var(--accent);
-            top: 40%;
-            left: 30%;
-            animation: blob-morph 12s ease-in-out infinite;
-        }
-        .floating-shape {
-            position: absolute;
-            pointer-events: none;
-        }
-        .shape-1 {
-            top: 15%;
-            left: 10%;
-            font-size: 3rem;
-            color: var(--primary);
-            opacity: 0.3;
-            animation: float 4s ease-in-out infinite;
-        }
-        .shape-2 {
-            top: 60%;
-            right: 15%;
-            font-size: 2.5rem;
-            color: var(--secondary);
-            opacity: 0.3;
-            animation: float-delayed 5s ease-in-out infinite;
-        }
-        .shape-3 {
-            bottom: 20%;
-            left: 20%;
-            font-size: 2rem;
-            color: var(--accent);
-            opacity: 0.4;
-            animation: float 6s ease-in-out infinite;
-        }
-        .shape-4 {
-            top: 30%;
-            right: 30%;
-            width: 60px;
-            height: 60px;
-            border: 3px solid var(--primary);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: rotate-slow 20s linear infinite;
-        }
-
-        .hero .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            color: var(--dark);
-        }
-        .hero-content h1 span {
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-        }
-        .hero-content h1 span::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            right: 0;
-            height: 12px;
-            background: var(--accent);
-            z-index: -1;
-            border-radius: 4px;
-            opacity: 0.6;
-        }
-        .hero-content p {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            color: #636e72;
-            margin-bottom: 32px;
-            max-width: 500px;
-        }
-        .hero-badges {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
-        .badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--white);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .badge:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-        .badge i {
-            color: var(--primary);
-        }
-        .hero-cta-group {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .btn-primary {
-            background: var(--gradient-1);
-            color: var(--white);
-            padding: 16px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
-            box-shadow: var(--shadow-primary);
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(255,107,53,0.4);
-            animation: shake 0.5s ease;
-        }
-        .btn-secondary {
-            background: var(--white);
-            color: var(--dark);
-            padding: 16px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            border: 2px solid #e0e0e0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .hero-image {
-            position: relative;
-        }
-        .hero-image-main {
-            width: 100%;
-            max-width: 550px;
-            border-radius: 30px;
-            box-shadow: var(--shadow-lg);
-            animation: float 6s ease-in-out infinite;
-            transition: transform 0.3s ease;
-        }
-        .hero-image-main:hover {
-            transform: scale(1.02);
-        }
-        .hero-float-card {
-            position: absolute;
-            background: var(--white);
-            padding: 16px 24px;
-            border-radius: 16px;
-            box-shadow: var(--shadow-md);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            animation: float 5s ease-in-out infinite;
-        }
-        .float-card-1 {
-            top: 10%;
-            left: -20px;
-        }
-        .float-card-2 {
-            bottom: 15%;
-            right: -10px;
-            animation-delay: 1s;
-        }
-        .float-card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-        .float-card-1 .float-card-icon {
-            background: #FFF3E0;
-            color: var(--primary);
-        }
-        .float-card-2 .float-card-icon {
-            background: #E0F7FA;
-            color: var(--secondary);
-        }
-        .float-card-text {
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .float-card-text small {
-            display: block;
-            color: #636e72;
-            font-weight: 400;
-            font-size: 0.75rem;
-        }
-
-        /* Stats Section */
-        .stats {
-            padding: 60px 0;
-            background: var(--white);
-            position: relative;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-        .stat-card {
-            text-align: center;
-            padding: 30px;
-            border-radius: 20px;
-            background: var(--light);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-md);
-            background: var(--white);
-        }
-        .stat-number {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            color: var(--primary);
-            display: block;
-            margin-bottom: 8px;
-        }
-        .stat-label {
-            font-size: 0.95rem;
-            color: #636e72;
-            font-weight: 500;
-        }
-        .stat-icon {
-            font-size: 2rem;
-            margin-bottom: 12px;
-            color: var(--secondary);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            position: relative;
-        }
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-        .section-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            margin-bottom: 16px;
-            color: var(--dark);
-        }
-        .section-header p {
-            font-size: 1.1rem;
-            color: #636e72;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        .feature-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 40px 30px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-1);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 24px;
-            transition: all 0.3s ease;
-        }
-        .feature-card:nth-child(1) .feature-icon {
-            background: #FFF3E0;
-            color: var(--primary);
-        }
-        .feature-card:nth-child(2) .feature-icon {
-            background: #E0F7FA;
-            color: var(--secondary);
-        }
-        .feature-card:nth-child(3) .feature-icon {
-            background: #FFFDE7;
-            color: #F9A825;
-        }
-        .feature-card:nth-child(4) .feature-icon {
-            background: #F3E5F5;
-            color: #9C27B0;
-        }
-        .feature-card:nth-child(5) .feature-icon {
-            background: #E8F5E9;
-            color: #4CAF50;
-        }
-        .feature-card:nth-child(6) .feature-icon {
-            background: #E3F2FD;
-            color: #2196F3;
-        }
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-        .feature-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-        .feature-card p {
-            color: #636e72;
-            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
             line-height: 1.7;
+            color: var(--text);
         }
-
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background: var(--white);
+        
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #f59e0b 100%);
+        }
+        
+        .toc-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--surface);
+            border-right: 1px solid #e5e7eb;
+            overflow-y: auto;
+            z-index: 50;
+            padding: 2rem 1.5rem;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .section-anchor {
+            scroll-margin-top: 2rem;
+        }
+        
+        .chart-container {
             position: relative;
-            overflow: hidden;
+            height: 400px;
+            margin: 2rem 0;
         }
-        .about .container {
+        
+        .bento-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
-        .about-image {
-            position: relative;
+        
+        .bento-main {
+            grid-row: span 2;
         }
-        .about-image img {
-            width: 100%;
-            border-radius: 30px;
-            box-shadow: var(--shadow-lg);
-            transition: transform 0.3s ease;
-        }
-        .about-image:hover img {
-            transform: scale(1.02);
-        }
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: 20px;
-            bottom: 20px;
-            border: 3px dashed var(--primary);
-            border-radius: 30px;
-            z-index: -1;
-            animation: rotate-slow 60s linear infinite;
-        }
-        .about-content h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 900;
-            margin-bottom: 24px;
-            color: var(--dark);
-        }
-        .about-content h2 span {
-            color: var(--primary);
-        }
-        .about-content p {
-            color: #636e72;
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-        .about-list {
-            list-style: none;
-            margin: 24px 0;
-        }
-        .about-list li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-            font-weight: 500;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        .about-list li:hover {
-            transform: translateX(10px);
-            color: var(--primary);
-        }
-        .about-list li i {
-            width: 32px;
-            height: 32px;
-            background: var(--gradient-1);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            flex-shrink: 0;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 100px 0;
-            background: var(--light);
-            position: relative;
-        }
-        .testimonials-slider {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        .testimonial-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.4s ease;
-            position: relative;
-            cursor: pointer;
-        }
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        .testimonial-quote {
-            font-size: 4rem;
-            color: var(--primary);
-            opacity: 0.2;
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            font-family: serif;
-            line-height: 1;
-        }
-        .testimonial-text {
-            font-size: 1rem;
-            color: #636e72;
-            line-height: 1.8;
-            margin-bottom: 24px;
-            position: relative;
-            z-index: 1;
-        }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .testimonial-author img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary);
-            transition: transform 0.3s ease;
-        }
-        .testimonial-card:hover .testimonial-author img {
-            transform: scale(1.1);
-        }
-        .testimonial-author-info h4 {
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        .testimonial-author-info span {
-            font-size: 0.85rem;
-            color: #636e72;
-        }
-        .testimonial-rating {
-            display: flex;
-            gap: 4px;
-            margin-top: 8px;
-        }
-        .testimonial-rating i {
-            color: #FFD700;
-            font-size: 0.9rem;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 100px 0;
-            background: var(--white);
-            position: relative;
-        }
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .pricing-card {
-            background: var(--light);
-            border-radius: 24px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .pricing-card.featured {
-            background: var(--dark);
-            color: var(--white);
-            transform: scale(1.05);
-            box-shadow: var(--shadow-lg);
-        }
-        .pricing-card.featured::before {
-            content: 'MOST POPULAR';
-            position: absolute;
-            top: 20px;
-            right: -35px;
-            background: var(--primary);
-            color: var(--white);
-            padding: 8px 40px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            transform: rotate(45deg);
-        }
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-        .pricing-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .pricing-card .price {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 900;
-            margin: 20px 0;
-            display: block;
-        }
-        .pricing-card .price span {
-            font-size: 1rem;
-            font-weight: 400;
-            opacity: 0.7;
-        }
-        .pricing-features {
-            list-style: none;
-            margin: 30px 0;
-            text-align: left;
-        }
-        .pricing-features li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
-        .pricing-features li i {
-            color: var(--secondary);
-        }
-        .pricing-card.featured .pricing-features li i {
-            color: var(--accent);
-        }
-        .pricing-btn {
-            width: 100%;
-            padding: 14px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            border: 2px solid var(--dark);
-            background: transparent;
-            color: var(--dark);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .pricing-card.featured .pricing-btn {
-            background: var(--gradient-1);
-            border-color: transparent;
-            color: var(--white);
-            box-shadow: var(--shadow-primary);
-        }
-        .pricing-btn:hover {
-            transform: scale(1.05);
-            animation: shake 0.5s ease;
-        }
-
-        /* Form Section */
-        .form-section {
-            padding: 100px 0;
-            background: var(--gradient-1);
-            position: relative;
-            overflow: hidden;
-        }
-        .form-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            right: -50%;
-            bottom: -50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate-slow 30s linear infinite;
-        }
-        .form-section .container {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .form-content h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            color: var(--white);
-            margin-bottom: 20px;
-        }
-        .form-content p {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-        }
-        .form-benefits {
-            list-style: none;
-        }
-        .form-benefits li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            color: var(--white);
-            font-weight: 500;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        .form-benefits li:hover {
-            transform: translateX(10px);
-        }
-        .form-benefits li i {
-            width: 36px;
-            height: 36px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .form-container {
-            background: var(--white);
-            border-radius: 30px;
-            padding: 50px 40px;
-            box-shadow: var(--shadow-lg);
-        }
-        .form-container h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-align: center;
-        }
-        .form-container > p {
-            text-align: center;
-            color: #636e72;
-            margin-bottom: 30px;
-            font-size: 0.95rem;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--dark);
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 18px;
-            border: 2px solid #e0e0e0;
+        
+        .metric-card {
+            background: white;
+            border: 1px solid #e5e7eb;
             border-radius: 12px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: var(--light);
-        }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: var(--white);
-            box-shadow: 0 0 0 4px rgba(255,107,53,0.1);
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        .submit-btn {
-            width: 100%;
-            padding: 16px;
-            background: var(--gradient-1);
-            color: var(--white);
-            border: none;
-            border-radius: 50px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: var(--shadow-primary);
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 50px rgba(255,107,53,0.4);
-            animation: shake 0.5s ease;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 100px 0;
-            background: var(--light);
-        }
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .faq-item {
-            background: var(--white);
-            border-radius: 16px;
-            margin-bottom: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
             transition: all 0.3s ease;
         }
-        .faq-item:hover {
-            box-shadow: var(--shadow-md);
+        
+        .metric-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
         }
-        .faq-question {
-            padding: 24px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: color 0.3s ease;
-        }
-        .faq-question:hover {
-            color: var(--primary);
-        }
-        .faq-question i {
-            transition: transform 0.3s ease;
-            color: var(--primary);
-        }
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-        }
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-            padding: 0 30px 24px;
-        }
-        .faq-answer p {
-            color: #636e72;
-            line-height: 1.8;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--dark);
-            color: var(--white);
-            padding: 80px 0 30px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-        .footer-brand h3 {
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .footer-brand h3 i {
-            color: var(--primary);
-        }
-        .footer-brand p {
-            color: rgba(255,255,255,0.7);
-            line-height: 1.8;
-            margin-bottom: 24px;
-        }
-        .footer-social {
-            display: flex;
-            gap: 12px;
-        }
-        .footer-social a {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .footer-social a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        .footer-links h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-        .footer-links ul {
-            list-style: none;
-        }
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .footer-links a:hover {
-            color: var(--primary);
-            transform: translateX(5px);
-        }
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 30px;
-            text-align: center;
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9rem;
-        }
-
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-1);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: var(--shadow-primary);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-            border: none;
-        }
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        .back-to-top:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--dark);
-            color: var(--white);
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: var(--shadow-lg);
-            z-index: 10000;
-            opacity: 0;
-            transition: all 0.4s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-        .toast i {
-            color: var(--secondary);
-        }
-
-        /* Responsive Design */
+        
         @media (max-width: 1024px) {
-            .hero .container,
-            .about .container,
-            .form-section .container {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .toc-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
             }
-            .hero-image {
-                order: -1;
+            
+            .toc-sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bento-main {
+                grid-row: span 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .toc-sidebar {
+                width: 100%;
+            }
+            
+            .hero-gradient .flex-col {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-gradient h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
                 text-align: center;
             }
-            .hero-image-main {
-                max-width: 400px;
+            
+            .hero-gradient p {
+                text-align: center;
             }
-            .features-grid,
-            .testimonials-slider,
-            .pricing-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
+            
+            .hero-gradient img {
+                max-width: 100%;
+                height: auto;
             }
         }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
-            .hero {
-                padding: 100px 0 60px;
-                min-height: auto;
-            }
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            .hero-badges {
-                justify-content: center;
-            }
-            .hero-cta-group {
-                justify-content: center;
-            }
-            .features-grid,
-            .testimonials-slider,
-            .pricing-grid,
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-            .pricing-card.featured:hover {
-                transform: scale(1) translateY(-10px);
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            .float-card-1, .float-card-2 {
-                display: none;
-            }
-            .sticky-header .container {
-                padding: 0 15px;
-            }
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-            .about-image::before {
-                display: none;
-            }
+        
+        .citation {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary);
+            transition: all 0.2s ease;
         }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-            .btn-primary, .btn-secondary {
-                padding: 14px 28px;
-                font-size: 1rem;
-                width: 100%;
-                justify-content: center;
-            }
-            .hero-cta-group {
-                flex-direction: column;
-                width: 100%;
-            }
-            .form-container {
-                padding: 30px 20px;
-            }
-            .testimonial-card {
-                padding: 30px 20px;
-            }
-            .feature-card {
-                padding: 30px 20px;
-            }
-            .stat-card {
-                padding: 20px;
-            }
-            .faq-question {
-                padding: 18px 20px;
-                font-size: 0.95rem;
-            }
-            .faq-item.active .faq-answer {
-                padding: 0 20px 18px;
-            }
-        }
-
-        /* Tablet specific */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .hero-image-main {
-                max-width: 450px;
-            }
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Large screens */
-        @media (min-width: 1400px) {
-            .container {
-                max-width: 1320px;
-            }
-        }
-
-        /* Reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* Loading State */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 99999;
-            transition: opacity 0.5s ease;
-        }
-        .loading.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .loading-spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid var(--light);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: rotate-slow 1s linear infinite;
+        
+        .citation:hover {
+            background: var(--primary);
+            color: white;
+            padding: 2px 4px;
+            border-radius: 4px;
         }
     </style>
+  <base target="_blank">
 </head>
-<body>
 
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="loading-spinner"></div>
-    </div>
+  <body class="bg-gray-50">
+    <!-- Table of Contents Sidebar -->
+    <nav class="toc-sidebar">
+      <div class="mb-8">
+        <h3 class="serif text-xl font-bold text-gray-900 mb-4">Scaling Blueprint</h3>
+        <p class="text-sm text-gray-600">From ₹0 to ₹10 Crore Performance Marketing Agency</p>
+      </div>
 
-    <!-- Sticky Header -->
-    <div class="sticky-header" id="stickyHeader">
-        <div class="container">
-            <div class="sticky-logo">
-                <i class="fas fa-graduation-cap"></i>
-                SchoolGrowth
-            </div>
-            <button class="sticky-cta" onclick="scrollToForm()">
-                <i class="fas fa-rocket"></i> Get Started
-            </button>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href="#executive-summary" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">Executive Summary</a>
+        </li>
+        <li>
+          <a href="#current-state" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">Current State Assessment</a>
+        </li>
+        <li>
+          <a href="#strategic-positioning" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">Strategic Positioning</a>
+        </li>
+        <li>
+          <a href="#revenue-roadmap" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">Revenue Roadmap</a>
+        </li>
+        <li>
+          <a href="#team-structure" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">Team Restructuring</a>
+        </li>
+        <li>
+          <a href="#client-acquisition" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">Client Acquisition System</a>
+        </li>
+        <li>
+          <a href="#sops-framework" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">SOPs Framework</a>
+        </li>
+        <li>
+          <a href="#financial-plan" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">Financial Plan</a>
+        </li>
+        <li>
+          <a href="#personal-brand" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">Personal Brand Strategy</a>
+        </li>
+        <li>
+          <a href="#implementation" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">Implementation Timeline</a>
+        </li>
+        <li>
+          <a href="#risk-mitigation" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">Risk Mitigation</a>
+        </li>
+      </ul>
+
+      <div class="mt-8 pt-6 border-t border-gray-200">
+        <p class="text-xs text-gray-500 mb-2">Key Metrics</p>
+        <div class="space-y-2 text-xs">
+          <div class="flex justify-between">
+            <span>Target Revenue</span>
+            <span class="font-semibold text-green-600">₹10 Cr</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Timeline</span>
+            <span class="font-semibold text-blue-600">4 Years</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Initial Investment</span>
+            <span class="font-semibold text-amber-600">₹7L</span>
+          </div>
         </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="close-menu" onclick="toggleMobileMenu()">
-            <i class="fas fa-times"></i>
-        </button>
-        <a href="#features" onclick="toggleMobileMenu()">Features</a>
-        <a href="#about" onclick="toggleMobileMenu()">About</a>
-        <a href="#testimonials" onclick="toggleMobileMenu()">Testimonials</a>
-        <a href="#pricing" onclick="toggleMobileMenu()">Pricing</a>
-        <a href="#faq" onclick="toggleMobileMenu()">FAQ</a>
-        <a href="#form" class="nav-cta" onclick="toggleMobileMenu()">Get Started</a>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="#" class="logo">
-                <i class="fas fa-graduation-cap"></i>
-                SchoolGrowth
-            </a>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#form" class="nav-cta">Get Started</a></li>
-            </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+      </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-bg-shapes">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section with Bento Layout -->
+      <section class="hero-gradient text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+          <img src="https://kimi-web-img.moonshot.cn/img/images.pexels.com/e24d1289bf2385f462e4763586ea7c0e1aa958e0.jpeg" alt="Jaipur city skyline with modern business district" class="w-full h-full object-cover" size="wallpaper" aspect="wide" style="photo" query="jaipur business district skyline" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
         </div>
-        <div class="floating-shape shape-1">
-            <i class="fas fa-star"></i>
-        </div>
-        <div class="floating-shape shape-2">
-            <i class="fas fa-heart"></i>
-        </div>
-        <div class="floating-shape shape-3">
-            <i class="fas fa-lightbulb"></i>
-        </div>
-        <div class="floating-shape shape-4"></div>
 
-        <div class="container">
-            <div class="hero-content animate-on-scroll">
-                <h1>
-                    Transform Your <span>School's</span> Future With Smart Marketing
+        <div class="relative z-10 px-4 md:px-8 py-16">
+          <div class="bento-grid max-w-7xl mx-auto">
+            <!-- Main Content Area -->
+            <div class="bento-main">
+              <div class="mb-8">
+                <h1 class="serif text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                  <em class="block text-amber-200 text-xl md:text-2xl font-normal mb-2">From Loss-Making Generalist to</em>
+                  ₹10 Crore Performance Marketing Powerhouse
                 </h1>
-                <p>
-                    We help educational institutions attract more students, build brand authority, and grow enrollment by 300% using proven digital strategies.
+                <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl">
+                  A strategic blueprint for Hifzurrahman&#39;s agency scaling journey—from local Jaipur struggles to national performance marketing leadership.
                 </p>
-                <div class="hero-badges">
-                    <div class="badge" onclick="scrollToForm()">
-                        <i class="fas fa-check-circle"></i>
-                        <span>500+ Schools Helped</span>
-                    </div>
-                    <div class="badge" onclick="scrollToForm()">
-                        <i class="fas fa-trophy"></i>
-                        <span>Award Winning Agency</span>
-                    </div>
-                </div>
-                <div class="hero-cta-group">
-                    <a href="#form" class="btn-primary" onclick="scrollToForm()">
-                        <i class="fas fa-rocket"></i>
-                        Start Growing Today
-                    </a>
-                    <a href="#about" class="btn-secondary">
-                        <i class="fas fa-play-circle"></i>
-                        Watch Our Story
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image animate-on-scroll animate-delay-2">
-                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=500&fit=crop" alt="Happy students in modern classroom" class="hero-image-main">
-                <div class="hero-float-card float-card-1">
-                    <div class="float-card-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="float-card-text">
-                        <div>300% Growth</div>
-                        <small>Average enrollment increase</small>
-                    </div>
-                </div>
-                <div class="hero-float-card float-card-2">
-                    <div class="float-card-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="float-card-text">
-                        <div>50K+ Students</div>
-                        <small>Connected to schools</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+              </div>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card animate-on-scroll" onclick="scrollToForm()">
-                    <div class="stat-icon"><i class="fas fa-school"></i></div>
-                    <span class="stat-number" data-target="500">0</span>
-                    <div class="stat-label">Schools Partnered</div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <i class="fas fa-rocket text-amber-200 text-2xl mb-2"></i>
+                  <h3 class="font-semibold mb-1">Immediate Triage</h3>
+                  <p class="text-sm text-blue-100">Fire unprofitable clients, restructure team, implement SOPs</p>
                 </div>
-                <div class="stat-card animate-on-scroll animate-delay-1" onclick="scrollToForm()">
-                    <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
-                    <span class="stat-number" data-target="50000">0</span>
-                    <div class="stat-label">Students Enrolled</div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <i class="fas fa-chart-line text-green-300 text-2xl mb-2"></i>
+                  <h3 class="font-semibold mb-1">4-Year Roadmap</h3>
+                  <p class="text-sm text-blue-100">₹3L → ₹1 Cr → ₹3 Cr → ₹6 Cr → ₹10 Cr ARR</p>
                 </div>
-                <div class="stat-card animate-on-scroll animate-delay-2" onclick="scrollToForm()">
-                    <div class="stat-icon"><i class="fas fa-percentage"></i></div>
-                    <span class="stat-number" data-target="300">0</span>
-                    <div class="stat-label">% Growth Rate</div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <i class="fas fa-users text-purple-300 text-2xl mb-2"></i>
+                  <h3 class="font-semibold mb-1">Role Clarity</h3>
+                  <p class="text-sm text-blue-100">Hifzu as CEO/CGO, Arbaz as COO/CCD</p>
                 </div>
-                <div class="stat-card animate-on-scroll animate-delay-3" onclick="scrollToForm()">
-                    <div class="stat-icon"><i class="fas fa-smile"></i></div>
-                    <span class="stat-number" data-target="98">0</span>
-                    <div class="stat-label">% Satisfaction</div>
-                </div>
+              </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Everything You Need to <span class="text-primary">Grow</span></h2>
-                <p>Powerful marketing solutions designed specifically for educational institutions</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card animate-on-scroll" onclick="scrollToForm()">
-                    <div class="feature-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3>Digital Marketing</h3>
-                    <p>Strategic campaigns across Meta, Google, and social platforms that target parents actively seeking quality education.</p>
+            <!-- Executive Summary Card -->
+            <div class="space-y-4">
+              <div class="metric-card">
+                <h3 class="serif text-lg font-semibold text-gray-900 mb-3">Executive Summary</h3>
+                <div class="space-y-3 text-sm">
+                  <div class="flex items-start gap-2">
+                    <i class="fas fa-circle text-amber-500 text-xs mt-2"></i>
+                    <span><strong>Problem:</strong> Loss-making agency with 7-8 low-budget local clients</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <i class="fas fa-circle text-blue-500 text-xs mt-2"></i>
+                    <span><strong>Solution:</strong> Shift from ₹10-20K to ₹50K+ retainers</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <i class="fas fa-circle text-green-500 text-xs mt-2"></i>
+                    <span><strong>Timeline:</strong> 4-year scaling blueprint</span>
+                  </div>
                 </div>
-                <div class="feature-card animate-on-scroll animate-delay-1" onclick="scrollToForm()">
-                    <div class="feature-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>Brand Building</h3>
-                    <p>Create a compelling school brand that resonates with families and stands out in your competitive landscape.</p>
-                </div>
-                <div class="feature-card animate-on-scroll animate-delay-2" onclick="scrollToForm()">
-                    <div class="feature-icon">
-                        <i class="fas fa-funnel-dollar"></i>
-                    </div>
-                    <h3>Lead Generation</h3>
-                    <p>High-converting landing pages and automated systems that turn inquiries into confirmed admissions.</p>
-                </div>
-                <div class="feature-card animate-on-scroll" onclick="scrollToForm()">
-                    <div class="feature-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3>Content Creation</h3>
-                    <p>Professional photos, videos, and virtual tours that showcase your campus and academic excellence.</p>
-                </div>
-                <div class="feature-card animate-on-scroll animate-delay-1" onclick="scrollToForm()">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <h3>Analytics & ROI</h3>
-                    <p>Real-time dashboards tracking every rupee spent, with transparent reporting on enrollment conversions.</p>
-                </div>
-                <div class="feature-card animate-on-scroll animate-delay-2" onclick="scrollToForm()">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Dedicated Support</h3>
-                    <p>Your personal growth manager available 24/7 to optimize campaigns and maximize your enrollment numbers.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+              </div>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-image animate-on-scroll">
-                <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&h=500&fit=crop" alt="School marketing team working">
+              <div class="metric-card">
+                <h4 class="font-semibold text-gray-900 mb-2">Key Investment</h4>
+                <div class="text-2xl font-bold text-amber-600">₹7L</div>
+                <p class="text-sm text-gray-600">Capital reserve for first 3 months</p>
+              </div>
             </div>
-            <div class="about-content animate-on-scroll animate-delay-2">
-                <h2>Why Schools <span>Trust Us</span> With Their Growth</h2>
-                <p>We're not just another marketing agency. We specialize exclusively in education sector growth, understanding the unique challenges schools face in attracting quality students.</p>
-                <p>Our team combines deep education sector expertise with cutting-edge digital marketing techniques to deliver measurable enrollment growth.</p>
-                <ul class="about-list">
-                    <li onclick="scrollToForm()"><i class="fas fa-check"></i> Education sector expertise since 2018</li>
-                    <li onclick="scrollToForm()"><i class="fas fa-check"></i> Proven track record across 500+ institutions</li>
-                    <li onclick="scrollToForm()"><i class="fas fa-check"></i> ROI-focused campaigns with transparent reporting</li>
-                    <li onclick="scrollToForm()"><i class="fas fa-check"></i> End-to-end enrollment funnel management</li>
+          </div>
+        </div>
+      </section>
+
+      <!-- Executive Summary Section -->
+      <section id="executive-summary" class="section-anchor px-8 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div class="lg:col-span-2">
+              <h2 class="serif text-4xl font-bold text-gray-900 mb-6">Executive Summary</h2>
+              <div class="prose prose-lg max-w-none">
+                <p class="text-xl text-gray-700 mb-6 leading-relaxed">
+                  Hifzurrahman&#39;s agency faces a critical juncture: maintaining clients while losing money, with no systematic processes, undefined roles, and excessive founder dependency. This blueprint outlines the path from loss-making generalist to ₹10 crore performance marketing powerhouse.
+                </p>
+
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
+                  <h3 class="font-semibold text-blue-900 mb-3">Current Situation</h3>
+                  <p class="text-blue-800">7-8 low-budget local clients (cafés, gym, salon, real estate) generating insufficient revenue to cover ₹28K monthly office expenses. Founders trapped in execution with no role clarity or SOPs.</p>
+                </div>
+
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-6 my-8">
+                  <h3 class="font-semibold text-amber-900 mb-3">Strategic Shift</h3>
+                  <p class="text-amber-800">Move from ₹10-20K local clients to ₹50K+ mid-market retainers, focusing on Meta Ads performance marketing with systematic processes and clear role definitions.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="metric-card">
+                <h4 class="font-semibold text-gray-900 mb-3">Phase 0: Foundation (Months 1-3)</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span>Target Revenue</span>
+                    <span class="font-semibold text-blue-600">₹3L ARR</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Clients Needed</span>
+                    <span class="font-semibold">5 @ ₹50K</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Focus</span>
+                    <span class="text-xs">Cash flow positive</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="metric-card">
+                <h4 class="font-semibold text-gray-900 mb-3">Phase 1: Engine Build (Year 1)</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span>Target Revenue</span>
+                    <span class="font-semibold text-green-600">₹1 Cr ARR</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Clients Needed</span>
+                    <span class="font-semibold">12-15 @ ₹60K</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Focus</span>
+                    <span class="text-xs">Predictable acquisition</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="metric-card">
+                <h4 class="font-semibold text-gray-900 mb-3">Final Target (Year 4)</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span>Revenue Target</span>
+                    <span class="font-semibold text-purple-600">₹10 Cr ARR</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Client Base</span>
+                    <span class="font-semibold">40-50 @ ₹1.5L</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Valuation</span>
+                    <span class="font-semibold">₹30-50 Cr</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Current State Assessment -->
+      <section id="current-state" class="section-anchor px-8 py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Current State Assessment &amp; Critical Gaps</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="space-y-6">
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <i class="fas fa-building text-blue-500"></i>
+                  Agency Profile Snapshot
+                </h3>
+                <div class="space-y-4">
+                  <div class="flex items-start gap-3">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                    <div>
+                      <p class="font-medium">Founders:</p>
+                      <p class="text-sm text-gray-600">Hifzu (Meta Ads, Strategy) &amp; Arbaz (Editing, Operations)</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                    <div>
+                      <p class="font-medium">Location:</p>
+                      <p class="text-sm text-gray-600">Jaipur, Rajasthan (Tier-2 city with untapped potential)</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <div class="w-2 h-2 bg-amber-500 rounded-full mt-2"></div>
+                    <div>
+                      <p class="font-medium">Current Portfolio:</p>
+                      <p class="text-sm text-gray-600">7-8 low-budget local clients across multiple verticals</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <i class="fas fa-exclamation-triangle text-red-500"></i>
+                  Critical Pain Points
+                </h3>
+                <ul class="space-y-3 text-sm">
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-minus text-red-400 text-xs mt-1"></i>
+                    <span>Agency running at loss despite having clients</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-minus text-red-400 text-xs mt-1"></i>
+                    <span>No role clarity or defined responsibilities</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-minus text-red-400 text-xs mt-1"></i>
+                    <span>Excessive founder dependency for execution</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-minus text-red-400 text-xs mt-1"></i>
+                    <span>Content strategy relies on copying competitors</span>
+                  </li>
                 </ul>
-                <a href="#form" class="btn-primary" onclick="scrollToForm()">
-                    <i class="fas fa-arrow-right"></i>
-                    Start Your Growth Journey
-                </a>
+              </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Loved by <span class="text-primary">School Leaders</span></h2>
-                <p>See what principals and administrators say about working with us</p>
-            </div>
-            <div class="testimonials-slider">
-                <div class="testimonial-card animate-on-scroll" onclick="scrollToForm()">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">Within 3 months of working with SchoolGrowth, our inquiries increased by 400%. Their team understands exactly what parents look for when choosing a school.</p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face" alt="Principal testimonial">
-                        <div class="testimonial-author-info">
-                            <h4>Dr. Priya Sharma</h4>
-                            <span>Principal, Delhi Public School</span>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
+            <div class="space-y-6">
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4">Team Structure Analysis</h3>
+                <div class="space-y-4">
+                  <div class="border-l-4 border-blue-400 pl-4">
+                    <p class="font-medium text-sm">SMM Manager (Farhan)</p>
+                    <p class="text-xs text-gray-600">Commission-based, lacks execution discipline</p>
+                  </div>
+                  <div class="border-l-4 border-amber-400 pl-4">
+                    <p class="font-medium text-sm">Editor (Sonu)</p>
+                    <p class="text-xs text-gray-600">₹15K salary, slow output with quality issues</p>
+                  </div>
+                  <div class="border-l-4 border-gray-400 pl-4">
+                    <p class="font-medium text-sm">2 Editing Interns</p>
+                    <p class="text-xs text-gray-600">Basic skills, one paid ₹5K, one unpaid</p>
+                  </div>
+                  <div class="border-l-4 border-green-400 pl-4">
+                    <p class="font-medium text-sm">Phone Shooter</p>
+                    <p class="text-xs text-gray-600">Basic capability, Arbaz handles premium shoots</p>
+                  </div>
                 </div>
-                <div class="testimonial-card animate-on-scroll animate-delay-1" onclick="scrollToForm()">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">The ROI has been incredible. For every rupee we spend on marketing, we get 15 rupees back in tuition revenue. Best investment we've ever made.</p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face" alt="Director testimonial">
-                        <div class="testimonial-author-info">
-                            <h4>Rajesh Kumar</h4>
-                            <span>Director, Sunrise Academy</span>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card animate-on-scroll animate-delay-2" onclick="scrollToForm()">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">They transformed our entire digital presence. Our school is now the most recognized brand in our city. Enrollment waiting list has grown to 200+ students.</p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face" alt="Founder testimonial">
-                        <div class="testimonial-author-info">
-                            <h4>Anita Desai</h4>
-                            <span>Founder, Global Kids School</span>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+              </div>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Simple, <span class="text-primary">Transparent</span> Pricing</h2>
-                <p>Choose the plan that fits your school's growth ambitions</p>
+              <div class="bg-red-50 border border-red-200 rounded-xl p-6">
+                <h3 class="font-semibold text-red-900 mb-3 flex items-center gap-2">
+                  <i class="fas fa-chart-line-down"></i>
+                  Financial Reality Check
+                </h3>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm">Monthly Office Expense</span>
+                    <span class="font-semibold text-red-700">₹28,000</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm">Average Client Retainer</span>
+                    <span class="font-semibold text-red-700">₹10-20K</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm">Current Status</span>
+                    <span class="font-semibold text-red-700">Loss-making</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="pricing-grid">
-                <div class="pricing-card animate-on-scroll" onclick="scrollToForm()">
-                    <h3>Starter</h3>
-                    <div class="price">₹25,000<span>/month</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Social Media Management</li>
-                        <li><i class="fas fa-check"></i> Basic Landing Page</li>
-                        <li><i class="fas fa-check"></i> Monthly Reports</li>
-                        <li><i class="fas fa-check"></i> Email Support</li>
-                    </ul>
-                    <button class="pricing-btn">Get Started</button>
-                </div>
-                <div class="pricing-card featured animate-on-scroll animate-delay-1" onclick="scrollToForm()">
-                    <h3>Growth</h3>
-                    <div class="price">₹55,000<span>/month</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Everything in Starter</li>
-                        <li><i class="fas fa-check"></i> Meta & Google Ads</li>
-                        <li><i class="fas fa-check"></i> Lead Generation System</li>
-                        <li><i class="fas fa-check"></i> WhatsApp Integration</li>
-                        <li><i class="fas fa-check"></i> Dedicated Manager</li>
-                    </ul>
-                    <button class="pricing-btn">Get Started</button>
-                </div>
-                <div class="pricing-card animate-on-scroll animate-delay-2" onclick="scrollToForm()">
-                    <h3>Enterprise</h3>
-                    <div class="price">Custom<span> pricing</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Everything in Growth</li>
-                        <li><i class="fas fa-check"></i> Video Production</li>
-                        <li><i class="fas fa-check"></i> Brand Strategy</li>
-                        <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
-                        <li><i class="fas fa-check"></i> Custom Integrations</li>
-                    </ul>
-                    <button class="pricing-btn">Contact Us</button>
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Form Section -->
-    <section class="form-section" id="form">
-        <div class="container">
-            <div class="form-content animate-on-scroll">
-                <h2>Ready to Transform Your School?</h2>
-                <p>Get a free consultation and growth strategy tailored for your institution. No commitment required.</p>
-                <ul class="form-benefits">
-                    <li onclick="showToast('Free audit scheduled!')">
-                        <i class="fas fa-gift"></i>
-                        <span>Free Marketing Audit (₹15,000 value)</span>
+      <!-- Strategic Positioning -->
+      <section id="strategic-positioning" class="section-anchor px-8 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Strategic Positioning: Building the Foundation</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div class="lg:col-span-2">
+              <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 mb-8">
+                <h3 class="serif text-2xl font-bold text-gray-900 mb-6">Agency Clarity Framework</h3>
+
+                <div class="space-y-6">
+                  <div>
+                    <h4 class="font-semibold text-blue-900 mb-2">Ideal Client Profile</h4>
+                    <p class="text-gray-700 mb-3">Shift from small local businesses to mid-market revenue-ready clients:</p>
+                    <ul class="text-sm space-y-1 text-gray-600">
+                      <li>• Manufacturing suppliers (Hero MotoCorp/Bosch ecosystem)</li>
+                      <li>• Mid-market healthcare providers</li>
+                      <li>• Established educational institutions</li>
+                      <li>• Multi-location restaurant groups</li>
+                      <li>• Real estate developers/brokers</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 class="font-semibold text-blue-900 mb-2">Core Service Specialization</h4>
+                    <p class="text-gray-700">Meta Ads performance marketing as primary revenue driver, with content creation as enabling infrastructure.</p>
+                  </div>
+
+                  <div>
+                    <h4 class="font-semibold text-blue-900 mb-2">Unique Value Proposition</h4>
+                    <p class="text-gray-700 italic">&#34;Revenue-focused performance marketing for Jaipur&#39;s growth businesses&#34;</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="metric-card">
+                <h4 class="font-semibold text-gray-900 mb-4">Service Packages</h4>
+                <div class="space-y-3 text-sm">
+                  <div class="flex justify-between items-center p-2 bg-blue-50 rounded">
+                    <span class="font-medium">Starter</span>
+                    <span class="font-bold text-blue-600">₹30K</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 bg-green-50 rounded">
+                    <span class="font-medium">Growth</span>
+                    <span class="font-bold text-green-600">₹60K</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 bg-purple-50 rounded">
+                    <span class="font-medium">Scale</span>
+                    <span class="font-bold text-purple-600">₹1.2L</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 bg-amber-50 rounded">
+                    <span class="font-medium">Strategy</span>
+                    <span class="font-bold text-amber-600">₹15K</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="metric-card">
+                <h4 class="font-semibold text-gray-900 mb-3">Client Profile Evolution</h4>
+                <div class="space-y-3">
+                  <div>
+                    <p class="text-xs text-gray-500 mb-1">Current</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div class="bg-red-400 h-2 rounded-full" style="width: 20%"></div>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-1">Small local, ₹10-25K budget</p>
+                  </div>
+                  <div>
+                    <p class="text-xs text-gray-500 mb-1">Target</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div class="bg-green-500 h-2 rounded-full" style="width: 80%"></div>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-1">Mid-market, ₹50K-1.5L budget</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Revenue Roadmap -->
+      <section id="revenue-roadmap" class="section-anchor px-8 py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Phased Revenue Roadmap: ₹0 to ₹10 Crore</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="space-y-6">
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <i class="fas fa-foundation text-blue-500"></i>
+                  Phase 0: Foundation Fix (Months 1-3)
+                </h3>
+                <div class="space-y-4">
+                  <div class="bg-blue-50 p-4 rounded-lg">
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="font-medium">Target Revenue</span>
+                      <span class="font-bold text-blue-600">₹3L ARR</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="text-sm">Clients Needed</span>
+                      <span class="font-semibold text-sm">5 @ ₹50K avg</span>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-2">Focus: Positive cash flow, basic systems implementation</p>
+                  </div>
+
+                  <ul class="text-sm space-y-2">
+                    <li class="flex items-start gap-2">
+                      <i class="fas fa-check-circle text-green-500 text-xs mt-1"></i>
+                      <span>Fire unprofitable clients, free capacity</span>
                     </li>
-                    <li onclick="showToast('Strategy call booked!')">
-                        <i class="fas fa-phone"></i>
-                        <span>1-on-1 Strategy Call with Expert</span>
+                    <li class="flex items-start gap-2">
+                      <i class="fas fa-check-circle text-green-500 text-xs mt-1"></i>
+                      <span>Implement core SOPs and processes</span>
                     </li>
-                    <li onclick="showToast('Report coming soon!')">
-                        <i class="fas fa-file-alt"></i>
-                        <span>Custom Growth Roadmap Report</span>
+                    <li class="flex items-start gap-2">
+                      <i class="fas fa-check-circle text-green-500 text-xs mt-1"></i>
+                      <span>Hire SDR and professional videographer</span>
                     </li>
-                    <li onclick="showToast('No commitment needed!')">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>100% Free - No Credit Card Required</span>
-                    </li>
-                </ul>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <i class="fas fa-cogs text-green-500"></i>
+                  Phase 1: Engine Build (Year 1)
+                </h3>
+                <div class="space-y-4">
+                  <div class="bg-green-50 p-4 rounded-lg">
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="font-medium">Target Revenue</span>
+                      <span class="font-bold text-green-600">₹1 Cr ARR</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="text-sm">Clients Needed</span>
+                      <span class="font-semibold text-sm">12-15 @ ₹60K avg</span>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-2">Focus: Predictable acquisition, full SOP implementation</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="form-container animate-on-scroll animate-delay-2">
-                <h3>Get Your Free Strategy</h3>
-                <p>Fill in your details and we'll reach out within 24 hours</p>
-                <form id="leadForm" onsubmit="handleFormSubmit(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" placeholder="Your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Last Name</label>
-                            <input type="text" placeholder="Your surname" required>
-                        </div>
+
+            <div class="space-y-6">
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <i class="fas fa-expand-arrows-alt text-purple-500"></i>
+                  Phase 2: Channel Diversification (Year 2)
+                </h3>
+                <div class="space-y-4">
+                  <div class="bg-purple-50 p-4 rounded-lg">
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="font-medium">Target Revenue</span>
+                      <span class="font-bold text-purple-600">₹3 Cr ARR</span>
                     </div>
-                    <div class="form-group">
-                        <label>School Name</label>
-                        <input type="text" placeholder="Your school name" required>
+                    <p class="text-xs text-gray-600 mt-2">Focus: Multi-channel services, remote client acquisition</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <i class="fas fa-rocket text-amber-500"></i>
+                  Phase 3: Precision Scaling (Year 3)
+                </h3>
+                <div class="space-y-4">
+                  <div class="bg-amber-50 p-4 rounded-lg">
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="font-medium">Target Revenue</span>
+                      <span class="font-bold text-amber-600">₹6 Cr ARR</span>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Phone Number</label>
-                            <input type="tel" placeholder="+91 98765 43210" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" placeholder="principal@school.edu" required>
-                        </div>
+                    <p class="text-xs text-gray-600 mt-2">Focus: Predictive analytics, strategic partnerships</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <i class="fas fa-trophy text-indigo-500"></i>
+                  Phase 4: ₹10 Crore Achievement (Year 4)
+                </h3>
+                <div class="space-y-4">
+                  <div class="bg-indigo-50 p-4 rounded-lg">
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="font-medium">Target Revenue</span>
+                      <span class="font-bold text-indigo-600">₹10 Cr ARR</span>
                     </div>
-                    <div class="form-group">
-                        <label>City</label>
-                        <input type="text" placeholder="Your city" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Your Role</label>
-                        <select required>
-                            <option value="">Select your role</option>
-                            <option>Principal / Director</option>
-                            <option>Administrator</option>
-                            <option>Marketing Manager</option>
-                            <option>Trustee / Owner</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>How can we help?</label>
-                        <textarea placeholder="Tell us about your current challenges and goals..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i>
-                        Get My Free Strategy
-                    </button>
-                </form>
+                    <p class="text-xs text-gray-600 mt-2">Focus: Portfolio scale, revenue diversification, valuation</p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Frequently Asked <span class="text-primary">Questions</span></h2>
-                <p>Everything you need to know about growing your school</p>
+      <!-- Team Restructuring -->
+      <section id="team-structure" class="section-anchor px-8 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Restructured Team Structure &amp; Role Clarity</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="space-y-6">
+              <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
+                <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <i class="fas fa-crown text-blue-600"></i>
+                  Leadership Layer (Founders)
+                </h3>
+
+                <div class="space-y-4">
+                  <div class="bg-white rounded-lg p-4 border border-blue-200">
+                    <h4 class="font-semibold text-blue-900 mb-2">Hifzu — CEO &amp; Chief Growth Officer</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• Client closing &amp; deal conversion</li>
+                      <li>• Meta Ads strategy &amp; oversight</li>
+                      <li>• Agency content (TCP reels)</li>
+                      <li>• Script final approval</li>
+                      <li>• Strategic partnerships</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-4 border border-green-200">
+                    <h4 class="font-semibold text-green-900 mb-2">Arbaz — COO &amp; Creative Director</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• Team management &amp; coordination</li>
+                      <li>• Editing quality control</li>
+                      <li>• Client relationship management</li>
+                      <li>• Billing &amp; salary administration</li>
+                      <li>• Premium client shoots</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4">Immediate Hires Required</h3>
+                <div class="space-y-4">
+                  <div class="border-l-4 border-blue-400 pl-4">
+                    <p class="font-medium text-sm">Sales Development Representative</p>
+                    <p class="text-xs text-gray-600">₹15K base + ₹5K per closed deal</p>
+                    <p class="text-xs text-gray-500">Lead generation, cold outreach, meeting booking</p>
+                  </div>
+                  <div class="border-l-4 border-green-400 pl-4">
+                    <p class="font-medium text-sm">Professional Videographer</p>
+                    <p class="text-xs text-gray-600">₹25K salary</p>
+                    <p class="text-xs text-gray-500">All client reel shoots, agency content</p>
+                  </div>
+                  <div class="border-l-4 border-purple-400 pl-4">
+                    <p class="font-medium text-sm">Videographer Assistant</p>
+                    <p class="text-xs text-gray-600">₹8K stipend</p>
+                    <p class="text-xs text-gray-500">Lighting, equipment, B-roll support</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="faq-list">
-                <div class="faq-item animate-on-scroll" onclick="toggleFaq(this)">
-                    <div class="faq-question">
-                        <span>How quickly can we see results?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Most schools start seeing increased inquiries within 2-3 weeks of campaign launch. Significant enrollment growth typically happens within 2-3 months as we optimize based on data.</p>
-                    </div>
+
+            <div class="space-y-6">
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4">Production Team Optimization</h3>
+                <div class="space-y-4">
+                  <div class="bg-amber-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-amber-900 mb-2">Scripting Lead (Farhan Elevated)</h4>
+                    <p class="text-sm text-gray-700 mb-2">₹20K base + 10% commission on upsells</p>
+                    <ul class="text-xs space-y-1 text-gray-600">
+                      <li>• Client script creation</li>
+                      <li>• Platform strategy</li>
+                      <li>• SOP adherence</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-green-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-green-900 mb-2">Senior Editor (Sonu with PIP)</h4>
+                    <p class="text-sm text-gray-700 mb-2">₹20K with quality benchmarks</p>
+                    <ul class="text-xs space-y-1 text-gray-600">
+                      <li>• 48-hour turnaround</li>
+                      <li>• Zero spelling errors</li>
+                      <li>• Quality score &gt;80%</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-blue-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-blue-900 mb-2">Junior Editor</h4>
+                    <p class="text-sm text-gray-700">₹12K for basic edits and template work</p>
+                  </div>
                 </div>
-                <div class="faq-item animate-on-scroll animate-delay-1" onclick="toggleFaq(this)">
-                    <div class="faq-question">
-                        <span>Do you work with all types of schools?</span>
-                        <i class="fas fa-chevron-down"></i>
+              </div>
+
+              <div class="bg-gray-50 rounded-xl p-6">
+                <h3 class="font-semibold text-gray-900 mb-4">Future Hires Timeline</h3>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <div>
+                      <p class="font-medium text-sm">Account Manager</p>
+                      <p class="text-xs text-gray-600">Phase 1 (15+ clients)</p>
                     </div>
-                    <div class="faq-answer">
-                        <p>Yes! We work with CBSE, ICSE, IB, State Board, and International schools. We also help pre-schools, coaching centers, and higher education institutions.</p>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <div>
+                      <p class="font-medium text-sm">Paid Ads Specialist</p>
+                      <p class="text-xs text-gray-600">Phase 2 (Google/YouTube expansion)</p>
                     </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                    <div>
+                      <p class="font-medium text-sm">Content Strategist</p>
+                      <p class="text-xs text-gray-600">Phase 2+ (Industry SOPs)</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="faq-item animate-on-scroll animate-delay-2" onclick="toggleFaq(this)">
-                    <div class="faq-question">
-                        <span>What makes you different from other agencies?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We exclusively serve educational institutions. This specialization means we understand parent psychology, admission cycles, and education-specific compliance requirements better than generalist agencies.</p>
-                    </div>
-                </div>
-                <div class="faq-item animate-on-scroll" onclick="toggleFaq(this)">
-                    <div class="faq-question">
-                        <span>Is there any long-term contract?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>No! We believe in earning your business every month. Our Growth and Enterprise plans are month-to-month. You can pause or cancel anytime with 15 days notice.</p>
-                    </div>
-                </div>
-                <div class="faq-item animate-on-scroll animate-delay-1" onclick="toggleFaq(this)">
-                    <div class="faq-question">
-                        <span>How do you measure success?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We track everything - from impressions and clicks to actual enrollment conversions. You'll get a real-time dashboard showing cost per lead, cost per admission, and overall ROI.</p>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3><i class="fas fa-graduation-cap"></i> SchoolGrowth</h3>
-                    <p>India's leading school marketing agency. We help educational institutions grow enrollment, build brand authority, and create lasting impact in their communities.</p>
-                    <div class="footer-social">
-                        <a href="#" onclick="showToast('Facebook page coming soon!')"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" onclick="showToast('Instagram page coming soon!')"><i class="fab fa-instagram"></i></a>
-                        <a href="#" onclick="showToast('LinkedIn page coming soon!')"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" onclick="showToast('YouTube channel coming soon!')"><i class="fab fa-youtube"></i></a>
+      <!-- Client Acquisition System -->
+      <section id="client-acquisition" class="section-anchor px-8 py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Client Acquisition System: Local Jaipur + Remote India</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div class="lg:col-span-2">
+              <div class="space-y-6">
+                <div class="bg-white rounded-xl p-6 border border-gray-200">
+                  <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-map-marker-alt text-blue-500"></i>
+                    Local Jaipur Dominance Strategy
+                  </h3>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                      <h4 class="font-medium text-blue-900 mb-2">Manufacturing Sector</h4>
+                      <p class="text-sm text-gray-700">Target companies in Sitapura, VKI, Malviya industrial areas</p>
+                      <ul class="text-xs space-y-1 mt-2 text-gray-600">
+                        <li>• Hero MotoCorp supplier network</li>
+                        <li>• Bosch ecosystem partners</li>
+                        <li>• B2B lead generation focus</li>
+                      </ul>
                     </div>
+
+                    <div class="bg-green-50 p-4 rounded-lg">
+                      <h4 class="font-medium text-green-900 mb-2">Business Associations</h4>
+                      <p class="text-sm text-gray-700">CII, PHDCCI, Jaipur Trade Fair participation</p>
+                      <ul class="text-xs space-y-1 mt-2 text-gray-600">
+                        <li>• Industry event sponsorship</li>
+                        <li>• Educational content presentations</li>
+                        <li>• Credibility building</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="bg-amber-50 p-4 rounded-lg">
+                    <h4 class="font-medium text-amber-900 mb-2">Referral Engine</h4>
+                    <p class="text-sm text-gray-700">20% commission for qualified client introductions</p>
+                    <div class="flex items-center gap-2 mt-2">
+                      <i class="fas fa-gift text-amber-600"></i>
+                      <span class="text-xs text-gray-600">Quarterly partner appreciation events</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="footer-links">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#features" onclick="scrollToForm()"><i class="fas fa-arrow-right"></i> Digital Marketing</a></li>
-                        <li><a href="#features" onclick="scrollToForm()"><i class="fas fa-arrow-right"></i> Brand Building</a></li>
-                        <li><a href="#features" onclick="scrollToForm()"><i class="fas fa-arrow-right"></i> Lead Generation</a></li>
-                        <li><a href="#features" onclick="scrollToForm()"><i class="fas fa-arrow-right"></i> Content Creation</a></li>
-                    </ul>
+
+                <div class="bg-white rounded-xl p-6 border border-gray-200">
+                  <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    <i class="fab fa-linkedin text-blue-600"></i>
+                    LinkedIn B2B Lead Generation
+                  </h3>
+
+                  <div class="space-y-4">
+                    <div class="border-l-4 border-blue-400 pl-4">
+                      <h4 class="font-medium text-sm">Hifzu Personal Brand</h4>
+                      <p class="text-xs text-gray-600">Daily content on Meta Ads tactics, client results, agency journey</p>
+                    </div>
+                    <div class="border-l-4 border-green-400 pl-4">
+                      <h4 class="font-medium text-sm">Arbaz LinkedIn Presence</h4>
+                      <p class="text-xs text-gray-600">Behind-the-scenes creative process, editing tips</p>
+                    </div>
+                    <div class="border-l-4 border-purple-400 pl-4">
+                      <h4 class="font-medium text-sm">SDR LinkedIn Outreach</h4>
+                      <p class="text-xs text-gray-600">50 personalized connection requests/day, systematic follow-up</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#about" onclick="scrollToForm()"><i class="fas fa-arrow-right"></i> About Us</a></li>
-                        <li><a href="#testimonials" onclick="scrollToForm()"><i class="fas fa-arrow-right"></i> Case Studies</a></li>
-                        <li><a href="#pricing" onclick="scrollToForm()"><i class="fas fa-arrow-right"></i> Pricing</a></li>
-                        <li><a href="#form" onclick="scrollToForm()"><i class="fas fa-arrow-right"></i> Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#faq" onclick="scrollToForm()"><i class="fas fa-arrow-right"></i> FAQ</a></li>
-                        <li><a href="#" onclick="showToast('Help center coming soon!')"><i class="fas fa-arrow-right"></i> Help Center</a></li>
-                        <li><a href="#" onclick="showToast('Privacy policy coming soon!')"><i class="fas fa-arrow-right"></i> Privacy Policy</a></li>
-                        <li><a href="#" onclick="showToast('Terms coming soon!')"><i class="fas fa-arrow-right"></i> Terms of Service</a></li>
-                    </ul>
-                </div>
+              </div>
             </div>
-            <div class="footer-bottom">
-                <p>© 2026 SchoolGrowth. All rights reserved. Made with <i class="fas fa-heart text-primary"></i> for education.</p>
+
+            <div class="space-y-6">
+              <div class="metric-card">
+                <h4 class="font-semibold text-gray-900 mb-4">Lead Generation Funnel</h4>
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between p-2 bg-blue-50 rounded">
+                    <span class="text-sm">Lead to Meeting</span>
+                    <span class="font-bold text-blue-600">20%</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 bg-green-50 rounded">
+                    <span class="text-sm">Meeting to Close</span>
+                    <span class="font-bold text-green-600">30%</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 bg-purple-50 rounded">
+                    <span class="text-sm">Referral % Target</span>
+                    <span class="font-bold text-purple-600">25-40%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="metric-card">
+                <h4 class="font-semibold text-gray-900 mb-4">Free Strategy Session</h4>
+                <div class="bg-amber-50 p-4 rounded-lg">
+                  <h5 class="font-medium text-amber-900 mb-2">&#34;Revenue Audit&#34;</h5>
+                  <p class="text-sm text-gray-700 mb-3">30-minute lead magnet offering</p>
+                  <div class="space-y-2 text-xs">
+                    <div class="flex justify-between">
+                      <span>Current Situation</span>
+                      <span class="text-amber-600">10 min</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Opportunity ID</span>
+                      <span class="text-amber-600">10 min</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Next Steps</span>
+                      <span class="text-amber-600">10 min</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-4 border border-gray-200">
+                <h4 class="font-semibold text-gray-900 mb-3">SDR Daily Targets</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span>LinkedIn Outreach</span>
+                    <span class="font-semibold">50/day</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Follow-up Messages</span>
+                    <span class="font-semibold">20/day</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Meetings Booked</span>
+                    <span class="font-semibold">15-20/month</span>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </footer>
+      </section>
 
-    <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+      <!-- SOPs Framework -->
+      <section id="sops-framework" class="section-anchor px-8 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Standard Operating Procedures (SOPs) Framework</h2>
 
-    <!-- Toast -->
-    <div class="toast" id="toast">
-        <i class="fas fa-check-circle"></i>
-        <span id="toastMessage">Action completed!</span>
-    </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="space-y-6">
+              <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
+                <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <i class="fas fa-lifecycle text-blue-600"></i>
+                  Client Lifecycle SOPs
+                </h3>
+
+                <div class="space-y-4">
+                  <div class="bg-white rounded-lg p-4 border border-blue-200">
+                    <h4 class="font-semibold text-blue-900 mb-2">1. Client Qualification</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• Budget threshold: ₹30K+ monthly minimum</li>
+                      <li>• Decision-maker access required</li>
+                      <li>• Growth readiness assessment</li>
+                      <li>• Industry vertical alignment</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-4 border border-green-200">
+                    <h4 class="font-semibold text-green-900 mb-2">2. Onboarding Process</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• 48-hour kickoff from contract signature</li>
+                      <li>• Asset collection checklist</li>
+                      <li>• Goal-setting workshop</li>
+                      <li>• Tracking implementation verification</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-4 border border-purple-200">
+                    <h4 class="font-semibold text-purple-900 mb-2">3. Monthly Reporting</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• ROAS and lead cost dashboard</li>
+                      <li>• Conversion rate analysis</li>
+                      <li>• Creative performance metrics</li>
+                      <li>• Weekly snapshot emails</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4">Content Production SOPs</h3>
+                <div class="space-y-3">
+                  <div class="border-l-4 border-blue-400 pl-4">
+                    <p class="font-medium text-sm">Scripting Template</p>
+                    <p class="text-xs text-gray-600">Hook-Problem-Solution-CTA structure with industry variations</p>
+                  </div>
+                  <div class="border-l-4 border-green-400 pl-4">
+                    <p class="font-medium text-sm">Shooting Checklist</p>
+                    <p class="text-xs text-gray-600">Equipment, lighting, audio, B-roll requirements per video type</p>
+                  </div>
+                  <div class="border-l-4 border-amber-400 pl-4">
+                    <p class="font-medium text-sm">Editing Standards</p>
+                    <p class="text-xs text-gray-600">Turnaround times, quality checklist, revision protocols</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4">Meta Ads Management SOPs</h3>
+                <div class="space-y-4">
+                  <div class="bg-blue-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-blue-900 mb-2">Campaign Setup</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• Tracking verification mandatory</li>
+                      <li>• Pixel installation &amp; CAPI configuration</li>
+                      <li>• UTM parameter standardization</li>
+                      <li>• Event tracking implementation</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-green-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-green-900 mb-2">Creative Testing</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• 3 hooks × 2 visuals × 2 CTAs = 12 variations</li>
+                      <li>• 72-hour minimum testing period</li>
+                      <li>• 20% performance improvement threshold</li>
+                      <li>• Systematic scaling protocol</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-amber-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-amber-900 mb-2">Budget Allocation</h4>
+                    <div class="flex items-center gap-2 mb-2">
+                      <div class="w-16 bg-amber-200 h-4 rounded"></div>
+                      <span class="text-xs">70% Proven Winners</span>
+                    </div>
+                    <div class="flex items-center gap-2 mb-2">
+                      <div class="w-8 bg-amber-300 h-4 rounded"></div>
+                      <span class="text-xs">20% Testing</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <div class="w-4 bg-amber-400 h-4 rounded"></div>
+                      <span class="text-xs">10% Experimental</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 rounded-xl p-6">
+                <h3 class="font-semibold text-gray-900 mb-4">Team Communication SOPs</h3>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <div>
+                      <p class="font-medium text-sm">Daily Standups</p>
+                      <p class="text-xs text-gray-600">15-minute sync on blockers and priorities</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <div>
+                      <p class="font-medium text-sm">Weekly Review</p>
+                      <p class="text-xs text-gray-600">Client performance, creative pipeline, sales metrics</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                    <div>
+                      <p class="font-medium text-sm">Monthly All-Hands</p>
+                      <p class="text-xs text-gray-600">Financial review, goal progress, training session</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Financial Plan -->
+      <section id="financial-plan" class="section-anchor px-8 py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Financial Plan &amp; Scaling Budget</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div class="lg:col-span-2">
+              <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+                <h3 class="font-semibold text-gray-900 mb-4">Month 1-3 Restructuring Budget</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 class="font-medium text-gray-900 mb-3">Team Costs (Monthly)</h4>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span>Hifzu (Founder)</span>
+                        <span>₹20,000</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Arbaz (Founder)</span>
+                        <span>₹20,000</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Farhan (Scripting Lead)</span>
+                        <span>₹20,000</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Sonu (Senior Editor)</span>
+                        <span>₹20,000</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Junior Editor</span>
+                        <span>₹12,000</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>SDR (New Hire)</span>
+                        <span>₹15,000</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Videographer</span>
+                        <span>₹25,000</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Assistant</span>
+                        <span>₹8,000</span>
+                      </div>
+                      <hr class="my-2"/>
+                      <div class="flex justify-between font-semibold">
+                        <span>Total Team</span>
+                        <span class="text-blue-600">₹1,40,000</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 class="font-medium text-gray-900 mb-3">Operational Costs</h4>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span>Office &amp; Operations</span>
+                        <span>₹45,000</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Tools &amp; Software</span>
+                        <span>₹15,000</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Founder Living</span>
+                        <span>₹40,000</span>
+                      </div>
+                      <hr class="my-2"/>
+                      <div class="flex justify-between font-semibold">
+                        <span>Total Monthly Burn</span>
+                        <span class="text-red-600">₹2,40,000</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-amber-50 rounded-lg">
+                  <h4 class="font-medium text-amber-900 mb-2">Required Capital Reserve</h4>
+                  <div class="flex justify-between items-center">
+                    <span>3 months operating reserve</span>
+                    <span class="font-bold text-amber-600">₹7,20,000</span>
+                  </div>
+                  <p class="text-xs text-gray-600 mt-1">Recommended with contingency: ₹10,00,000</p>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4">Revenue Milestones &amp; Profitability</h3>
+                <div class="space-y-4">
+                  <div class="bg-blue-50 p-4 rounded-lg">
+                    <h4 class="font-medium text-blue-900 mb-2">Break-Even: Month 2</h4>
+                    <p class="text-sm text-gray-700">₹2.5L monthly revenue with 5 clients @ ₹50K average</p>
+                  </div>
+
+                  <div class="bg-green-50 p-4 rounded-lg">
+                    <h4 class="font-medium text-green-900 mb-2">Profitability: Month 4</h4>
+                    <p class="text-sm text-gray-700">₹4L monthly revenue with 40% net margin</p>
+                    <p class="text-xs text-gray-600 mt-1">₹1.6L monthly surplus generated</p>
+                  </div>
+
+                  <div class="bg-purple-50 p-4 rounded-lg">
+                    <h4 class="font-medium text-purple-900 mb-2">Scaling Inflection: Month 9</h4>
+                    <p class="text-sm text-gray-700">₹8L monthly revenue triggers Account Manager hire</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="metric-card">
+                <h4 class="font-semibold text-gray-900 mb-4">Year 1 Financial Projection</h4>
+                <div class="space-y-4">
+                  <div class="text-center p-4 bg-green-50 rounded-lg">
+                    <div class="text-2xl font-bold text-green-600">₹48L</div>
+                    <div class="text-sm text-gray-600">Revenue Target</div>
+                  </div>
+
+                  <div class="space-y-2 text-sm">
+                    <div class="flex justify-between">
+                      <span>Q1 Revenue</span>
+                      <span>₹7.5L</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Q2 Revenue</span>
+                      <span>₹19.5L</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Q3 Revenue</span>
+                      <span>₹40.5L</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Q4 Revenue</span>
+                      <span>₹67.5L</span>
+                    </div>
+                  </div>
+
+                  <div class="pt-2 border-t">
+                    <div class="flex justify-between font-semibold">
+                      <span>Net Profit (33%)</span>
+                      <span class="text-green-600">₹16L</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="metric-card">
+                <h4 class="font-semibold text-gray-900 mb-4">Investment Timeline</h4>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 bg-amber-500 rounded-full"></div>
+                    <div>
+                      <p class="font-medium text-sm">Year 2: ₹15L</p>
+                      <p class="text-xs text-gray-600">Team expansion &amp; office upgrade</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <div>
+                      <p class="font-medium text-sm">Year 3: ₹25L</p>
+                      <p class="text-xs text-gray-600">Technology &amp; senior hires</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <div>
+                      <p class="font-medium text-sm">Year 4: Self-funded</p>
+                      <p class="text-xs text-gray-600">₹10 Cr push from cash reserves</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-4 border border-gray-200">
+                <h4 class="font-semibold text-gray-900 mb-3">Financial Trajectory</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span>Year 1 Revenue</span>
+                    <span class="font-semibold">₹48L</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Year 2 Target</span>
+                    <span class="font-semibold text-blue-600">₹1.5 Cr</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Year 3 Target</span>
+                    <span class="font-semibold text-green-600">₹3 Cr</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Year 4 Target</span>
+                    <span class="font-semibold text-purple-600">₹10 Cr</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Personal Brand Strategy -->
+      <section id="personal-brand" class="section-anchor px-8 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Hifzu&#39;s Personal Brand &amp; Content Strategy</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="space-y-6">
+              <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
+                <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <i class="fas fa-broadcast-tower text-blue-600"></i>
+                  &#34;TCP&#34; — The Content Platform
+                </h3>
+
+                <div class="space-y-4">
+                  <div class="bg-white rounded-lg p-4 border border-blue-200">
+                    <h4 class="font-semibold text-blue-900 mb-2">Weekly Reels Strategy</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• B-rolls + voiceover on Meta Ads tactics</li>
+                      <li>• Client wins with specific numbers</li>
+                      <li>• Agency journey lessons</li>
+                      <li>• Clear CTAs for consultation</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-4 border border-green-200">
+                    <h4 class="font-semibold text-green-900 mb-2">Monthly Deep-Dive</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• 15-20 minute YouTube videos</li>
+                      <li>• Complete campaign case studies</li>
+                      <li>• Strategy walkthroughs</li>
+                      <li>• Client testimonials included</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-4 border border-purple-200">
+                    <h4 class="font-semibold text-purple-900 mb-2">Arbaz Collaboration</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• Editing myths debunked</li>
+                      <li>• Creative process behind-the-scenes</li>
+                      <li>• Team culture documentation</li>
+                      <li>• Quality standards explanation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4">Content Pillars</h3>
+                <div class="space-y-3">
+                  <div class="border-l-4 border-blue-400 pl-4">
+                    <p class="font-medium text-sm">Educational</p>
+                    <p class="text-xs text-gray-600">How-to Meta Ads content for business owners</p>
+                  </div>
+                  <div class="border-l-4 border-green-400 pl-4">
+                    <p class="font-medium text-sm">Proof</p>
+                    <p class="text-xs text-gray-600">Real client results with specific numbers</p>
+                  </div>
+                  <div class="border-l-4 border-amber-400 pl-4">
+                    <p class="font-medium text-sm">Journey</p>
+                    <p class="text-xs text-gray-600">Transparent agency building story</p>
+                  </div>
+                  <div class="border-l-4 border-purple-400 pl-4">
+                    <p class="font-medium text-sm">Authority</p>
+                    <p class="text-xs text-gray-600">Industry-specific strategies</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4">Distribution Strategy</h3>
+
+                <div class="space-y-4">
+                  <div class="bg-blue-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-blue-900 mb-2">Primary Channels</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• Instagram Reels (daily Stories)</li>
+                      <li>• YouTube Shorts (5-7/week)</li>
+                      <li>• Native formatting for each platform</li>
+                      <li>• Algorithm optimization focus</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-green-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-green-900 mb-2">Secondary Channels</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• LinkedIn personal posts</li>
+                      <li>• Document carousels</li>
+                      <li>• Professional insights</li>
+                      <li>• B2B decision-maker focus</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-amber-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-amber-900 mb-2">Local Activation</h4>
+                    <ul class="text-sm space-y-1 text-gray-700">
+                      <li>• WhatsApp Status updates</li>
+                      <li>• Jaipur business community focus</li>
+                      <li>• Referral generation</li>
+                      <li>• Local event coverage</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 rounded-xl p-6">
+                <h3 class="font-semibold text-gray-900 mb-4">Content Repurposing</h3>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <i class="fas fa-recycle text-blue-500"></i>
+                    <div>
+                      <p class="font-medium text-sm">Long to Short</p>
+                      <p class="text-xs text-gray-600">YouTube deep-dive → Reels/Shorts</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <i class="fas fa-share-alt text-green-500"></i>
+                    <div>
+                      <p class="font-medium text-sm">Cross-Platform</p>
+                      <p class="text-xs text-gray-600">LinkedIn → WhatsApp Status</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <i class="fas fa-sync text-purple-500"></i>
+                    <div>
+                      <p class="font-medium text-sm">Evergreen Updates</p>
+                      <p class="text-xs text-gray-600">Refresh successful content</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-4 border border-gray-200">
+                <h4 class="font-semibold text-gray-900 mb-3">Content Calendar</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span>Instagram Reels</span>
+                    <span class="font-semibold">3-4/week</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>YouTube Shorts</span>
+                    <span class="font-semibold">5-7/week</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>LinkedIn Posts</span>
+                    <span class="font-semibold">3/week</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Deep-Dive Videos</span>
+                    <span class="font-semibold">1/month</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Implementation Timeline -->
+      <section id="implementation" class="section-anchor px-8 py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Implementation Timeline: First 90 Days</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div class="lg:col-span-2">
+              <div class="space-y-6">
+                <div class="bg-white rounded-xl p-6 border border-gray-200">
+                  <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-exclamation-triangle text-red-500"></i>
+                    Days 1-30: Emergency Stabilization
+                  </h3>
+
+                  <div class="space-y-4">
+                    <div class="bg-red-50 p-4 rounded-lg">
+                      <h4 class="font-medium text-red-900 mb-2">Week 1: Critical Actions</h4>
+                      <ul class="text-sm space-y-1 text-gray-700">
+                        <li>• Fire 3 lowest-paying clients professionally</li>
+                        <li>• Restructure Farhan to commission-based</li>
+                        <li>• Post SDR job across multiple channels</li>
+                        <li>• Document lessons from terminated clients</li>
+                      </ul>
+                    </div>
+
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                      <h4 class="font-medium text-blue-900 mb-2">Week 2: Core Hiring</h4>
+                      <ul class="text-sm space-y-1 text-gray-700">
+                        <li>• Hire SDR + Videographer through structured process</li>
+                        <li>• Document first 5 critical SOPs</li>
+                        <li>• Team involvement in SOP creation</li>
+                        <li>• Skills testing and culture fit assessment</li>
+                      </ul>
+                    </div>
+
+                    <div class="bg-green-50 p-4 rounded-lg">
+                      <h4 class="font-medium text-green-900 mb-2">Week 3-4: System Setup</h4>
+                      <ul class="text-sm space-y-1 text-gray-700">
+                        <li>• Implement project management tool</li>
+                        <li>• Finalize service packages and pricing</li>
+                        <li>• Launch LinkedIn personal brand</li>
+                        <li>• Begin daily content creation</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border border-gray-200">
+                  <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-cogs text-blue-500"></i>
+                    Days 31-60: System Activation
+                  </h3>
+
+                  <div class="space-y-3">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                      <h4 class="font-medium text-blue-900 mb-2">Week 5-6: SDR Productivity</h4>
+                      <ul class="text-sm space-y-1 text-gray-700">
+                        <li>• SDR begins lead generation activities</li>
+                        <li>• First 10 strategy sessions booked</li>
+                        <li>• Daily oversight and coaching</li>
+                        <li>• Document prospect objections</li>
+                      </ul>
+                    </div>
+
+                    <div class="bg-green-50 p-4 rounded-lg">
+                      <h4 class="font-medium text-green-900 mb-2">Week 7-8: Client Closing</h4>
+                      <ul class="text-sm space-y-1 text-gray-700">
+                        <li>• Close first 3 premium clients (₹60K+)</li>
+                        <li>• Test full SOP workflow end-to-end</li>
+                        <li>• Identify friction points for iteration</li>
+                        <li>• Validate sales process effectiveness</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="metric-card">
+                <h4 class="font-semibold text-gray-900 mb-4">90-Day Success Criteria</h4>
+                <div class="space-y-3">
+                  <div class="bg-green-50 p-3 rounded-lg">
+                    <div class="flex items-center gap-2 mb-1">
+                      <i class="fas fa-check-circle text-green-600"></i>
+                      <span class="font-medium text-sm">Revenue Milestone</span>
+                    </div>
+                    <p class="text-xs text-gray-700">₹3L monthly recurring revenue achieved</p>
+                  </div>
+
+                  <div class="bg-blue-50 p-3 rounded-lg">
+                    <div class="flex items-center gap-2 mb-1">
+                      <i class="fas fa-users text-blue-600"></i>
+                      <span class="font-medium text-sm">Client Base</span>
+                    </div>
+                    <p class="text-xs text-gray-700">5 premium clients at ₹50K+ average</p>
+                  </div>
+
+                  <div class="bg-purple-50 p-3 rounded-lg">
+                    <div class="flex items-center gap-2 mb-1">
+                      <i class="fas fa-cogs text-purple-600"></i>
+                      <span class="font-medium text-sm">Systems</span>
+                    </div>
+                    <p class="text-xs text-gray-700">All core SOPs implemented and tested</p>
+                  </div>
+
+                  <div class="bg-amber-50 p-3 rounded-lg">
+                    <div class="flex items-center gap-2 mb-1">
+                      <i class="fas fa-chart-line text-amber-600"></i>
+                      <span class="font-medium text-sm">Team</span>
+                    </div>
+                    <p class="text-xs text-gray-700">Complete team restructuring successful</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="metric-card">
+                <h4 class="font-semibold text-gray-900 mb-4">Days 61-90: Momentum Building</h4>
+                <div class="space-y-3">
+                  <div class="border-l-4 border-blue-400 pl-3">
+                    <p class="font-medium text-sm">Week 9-10: Optimization</p>
+                    <p class="text-xs text-gray-600">Feedback collection and rapid iteration</p>
+                  </div>
+                  <div class="border-l-4 border-green-400 pl-3">
+                    <p class="font-medium text-sm">Week 11-12: Planning</p>
+                    <p class="text-xs text-gray-600">Phase 1 expansion plan documentation</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-4 border border-gray-200">
+                <h4 class="font-semibold text-gray-900 mb-3">Key Metrics by Day 90</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span>SDR Productivity</span>
+                    <span class="font-semibold">50 outreach/day</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Meetings Booked</span>
+                    <span class="font-semibold">15-20/month</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Clients Closed</span>
+                    <span class="font-semibold">3 premium</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>SOP Adherence</span>
+                    <span class="font-semibold">85%+</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4">
+                <h4 class="font-semibold text-green-900 mb-2">Celebration Milestone</h4>
+                <p class="text-sm text-gray-700">Achievement of ₹3L MRR validates the restructuring strategy and builds momentum for Phase 1 expansion.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Risk Mitigation -->
+      <section id="risk-mitigation" class="section-anchor px-8 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Risk Mitigation &amp; Success Metrics</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="space-y-6">
+              <div class="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-6">
+                <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <i class="fas fa-shield-alt text-red-600"></i>
+                  Critical Risks &amp; Contingencies
+                </h3>
+
+                <div class="space-y-4">
+                  <div class="bg-white rounded-lg p-4 border border-red-200">
+                    <h4 class="font-semibold text-red-900 mb-2">Client Concentration Risk</h4>
+                    <p class="text-sm text-gray-700 mb-2">No single client &gt;20% of revenue</p>
+                    <ul class="text-xs space-y-1 text-gray-600">
+                      <li>• Monthly revenue concentration review</li>
+                      <li>• New client acquisition prioritization</li>
+                      <li>• Diversification initiatives at 15% threshold</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-4 border border-blue-200">
+                    <h4 class="font-semibold text-blue-900 mb-2">Founder Dependency</h4>
+                    <p class="text-sm text-gray-700 mb-2">Document Hifzu&#39;s Meta Ads knowledge</p>
+                    <ul class="text-xs space-y-1 text-gray-600">
+                      <li>• Complete training SOP by Month 6</li>
+                      <li>• Knowledge transfer to team members</li>
+                      <li>• Validation through independent campaign management</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-4 border border-green-200">
+                    <h4 class="font-semibold text-green-900 mb-2">Talent Retention</h4>
+                    <p class="text-sm text-gray-700 mb-2">ESOP/Profit Sharing at ₹1 Cr revenue</p>
+                    <ul class="text-xs space-y-1 text-gray-600">
+                      <li>• 5-10% equity/profit pool for core team</li>
+                      <li>• Vesting schedule for retention</li>
+                      <li>• Performance-based allocation</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-4 border border-amber-200">
+                    <h4 class="font-semibold text-amber-900 mb-2">Market Downturn</h4>
+                    <p class="text-sm text-gray-700 mb-2">Maintain 6-month operating reserve</p>
+                    <ul class="text-xs space-y-1 text-gray-600">
+                      <li>• Predefined expense reduction triggers</li>
+                      <li>• Liquidity buffer for survival</li>
+                      <li>• Rapid response protocols</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 class="font-semibold text-gray-900 mb-4">Key Performance Indicators (KPIs)</h3>
+
+                <div class="space-y-6">
+                  <div>
+                    <h4 class="font-medium text-gray-900 mb-3 flex items-center gap-2">
+                      <i class="fas fa-chart-line text-green-600"></i>
+                      Financial KPIs
+                    </h4>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span>Monthly Recurring Revenue</span>
+                        <span class="font-semibold text-green-600">15% MoM growth</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Net Profit Margin</span>
+                        <span class="font-semibold text-green-600">&gt;35%</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Client Lifetime Value</span>
+                        <span class="font-semibold text-green-600">&gt;₹3L</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Avg. Revenue per Client</span>
+                        <span class="font-semibold text-green-600">&gt;₹60K</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 class="font-medium text-gray-900 mb-3 flex items-center gap-2">
+                      <i class="fas fa-cogs text-blue-600"></i>
+                      Operational KPIs
+                    </h4>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span>Client Retention Rate</span>
+                        <span class="font-semibold text-blue-600">&gt;90%</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Project Delivery Time</span>
+                        <span class="font-semibold text-blue-600">Within SOP standards</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Creative Approval Cycle</span>
+                        <span class="font-semibold text-blue-600">&lt;3 days</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>SOP Adherence Score</span>
+                        <span class="font-semibold text-blue-600">&gt;85%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 class="font-medium text-gray-900 mb-3 flex items-center gap-2">
+                      <i class="fas fa-rocket text-purple-600"></i>
+                      Growth KPIs
+                    </h4>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span>Lead-to-Meeting Conversion</span>
+                        <span class="font-semibold text-purple-600">&gt;20%</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Meeting-to-Close Rate</span>
+                        <span class="font-semibold text-purple-600">&gt;30%</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Referral % of New Business</span>
+                        <span class="font-semibold text-purple-600">&gt;25%</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Content Engagement Rate</span>
+                        <span class="font-semibold text-purple-600">&gt;3% (LI), &gt;5% (IG)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6">
+                <h3 class="font-semibold text-gray-900 mb-4">Success Measurement Framework</h3>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <i class="fas fa-calendar-week text-blue-500"></i>
+                    <div>
+                      <p class="font-medium text-sm">Weekly Reviews</p>
+                      <p class="text-xs text-gray-600">Growth metrics and pipeline health</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <i class="fas fa-calendar-alt text-green-500"></i>
+                    <div>
+                      <p class="font-medium text-sm">Monthly Reviews</p>
+                      <p class="text-xs text-gray-600">Financial and operational assessment</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <i class="fas fa-chart-bar text-purple-500"></i>
+                    <div>
+                      <p class="font-medium text-sm">Quarterly Reviews</p>
+                      <p class="text-xs text-gray-600">Strategic team and business evaluation</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white">
+            <div class="text-center">
+              <h3 class="serif text-2xl font-bold mb-4">The Path to ₹10 Crore</h3>
+              <p class="text-lg mb-6">From loss-making generalist to performance marketing powerhouse</p>
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                  <div class="text-2xl font-bold">₹3L</div>
+                  <div class="text-sm">Foundation Phase</div>
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                  <div class="text-2xl font-bold">₹1Cr</div>
+                  <div class="text-sm">Engine Build</div>
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                  <div class="text-2xl font-bold">₹3Cr</div>
+                  <div class="text-sm">Channel Diversification</div>
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                  <div class="text-2xl font-bold">₹10Cr</div>
+                  <div class="text-sm">Market Leadership</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <script>
-        // Loading Screen
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loading').classList.add('hidden');
-            }, 500);
-        });
-
-        // Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Animate counters if stat card
-                    const statNumber = entry.target.querySelector('.stat-number');
-                    if (statNumber && !statNumber.classList.contains('counted')) {
-                        animateCounter(statNumber);
-                        statNumber.classList.add('counted');
-                    }
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Counter Animation
-        function animateCounter(element) {
-            const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-
-            const timer = setInterval(() => {
-                current += step;
-                if (current >= target) {
-                    element.textContent = target.toLocaleString() + (target >= 100 ? '+' : '%');
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current).toLocaleString();
-                }
-            }, 16);
-        }
-
-        // Sticky Header
-        let lastScroll = 0;
-        const stickyHeader = document.getElementById('stickyHeader');
-        const navbar = document.getElementById('navbar');
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            // Show/hide sticky header
-            if (currentScroll > 500) {
-                stickyHeader.classList.remove('hidden');
-            } else {
-                stickyHeader.classList.add('hidden');
-            }
-
-            // Back to top button
-            const backToTop = document.getElementById('backToTop');
-            if (currentScroll > 800) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-
-            lastScroll = currentScroll;
-        });
-
-        // Mobile Menu
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('active');
-            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
-        }
-
-        // Scroll to Form
-        function scrollToForm() {
-            const form = document.getElementById('form');
-            form.scrollIntoView({ behavior: 'smooth' });
-            showToast('Redirecting to form...');
-        }
-
-        // Scroll to Top
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // FAQ Toggle
-        function toggleFaq(element) {
-            const allItems = document.querySelectorAll('.faq-item');
-            const isActive = element.classList.contains('active');
-            
-            allItems.forEach(item => item.classList.remove('active'));
-            
-            if (!isActive) {
-                element.classList.add('active');
-            }
-        }
-
-        // Toast Notification
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toastMessage');
-            toastMessage.textContent = message;
-            toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        // Form Submit
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const form = e.target;
-            const btn = form.querySelector('.submit-btn');
-            const originalText = btn.innerHTML;
-            
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-            btn.disabled = true;
-            
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check"></i> Submitted Successfully!';
-                btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%)';
-                showToast('Form submitted! We will contact you within 24 hours.');
-                
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                    form.reset();
-                }, 3000);
-            }, 1500);
-        }
-
-        // Add click handlers to all interactive elements
-        document.querySelectorAll('.feature-card, .testimonial-card, .pricing-card, .stat-card, .about-list li').forEach(el => {
-            el.style.cursor = 'pointer';
-        });
-
-        // Parallax effect for hero shapes
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const shapes = document.querySelectorAll('.blob');
-            shapes.forEach((shape, index) => {
-                const speed = 0.5 + (index * 0.2);
-                shape.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-
-        // Smooth scroll for all anchor links
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
 
-        // Button shake on hover (already in CSS, but add JS for extra effect)
-        document.querySelectorAll('.btn-primary, .nav-cta, .sticky-cta, .pricing-btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.animation = 'shake 0.5s ease';
-            });
-            btn.addEventListener('animationend', function() {
-                this.style.animation = '';
-            });
-        });
+        // Mobile TOC toggle
+        function toggleTOC() {
+            const sidebar = document.querySelector('.toc-sidebar');
+            sidebar.classList.toggle('open');
+        }
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                const mobileMenu = document.getElementById('mobileMenu');
-                if (mobileMenu.classList.contains('active')) {
-                    toggleMobileMenu();
-                }
+        // Close TOC when clicking outside
+        document.addEventListener('click', function(event) {
+            const sidebar = document.querySelector('.toc-sidebar');
+            const toggleButton = document.querySelector('.toc-toggle');
+            
+            if (!sidebar || !toggleButton) return;
+            
+            // Check if click is outside sidebar and toggle button
+            if (!sidebar.contains(event.target) && event.target !== toggleButton) {
+                sidebar.classList.remove('open');
             }
         });
+
+        // Function to handle responsive design
+        function handleResponsive() {
+            const sidebar = document.querySelector('.toc-sidebar');
+            const mainContent = document.querySelector('.main-content');
+            const toggleButton = document.querySelector('.toc-toggle');
+            
+            if (window.innerWidth <= 1024) {
+                // Mobile view: add toggle button if not present
+                if (!toggleButton) {
+                    const newToggleButton = document.createElement('button');
+                    newToggleButton.innerHTML = '<i class="fas fa-bars"></i>';
+                    newToggleButton.className = 'toc-toggle fixed top-4 left-4 z-50 bg-blue-600 text-white p-3 rounded-lg shadow-lg';
+                    newToggleButton.onclick = toggleTOC;
+                    document.body.appendChild(newToggleButton);
+                }
+            } else {
+                // Desktop view: remove toggle button if present
+                if (toggleButton) {
+                    toggleButton.remove();
+                }
+                // Ensure sidebar is visible
+                if (sidebar) {
+                    sidebar.classList.remove('open');
+                }
+            }
+        }
+
+        // Initial responsive setup
+        handleResponsive();
+
+        // Handle window resize
+        window.addEventListener('resize', handleResponsive);
     </script>
-</body>
-</html>
+  
+
+</body></html>
